@@ -73,3 +73,8 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+
+## SOURCES
+
+https://vuetifyjs.com/en/blog/building-a-basic-nuxt-application-with-vuetify/
