@@ -1,4 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import { lodashModules } from './lodash-modules';
+import { lodashFpModules } from './lodash-fp-modules';
+
 export default defineNuxtConfig({
   alias: {
     '@schemas': './src/schemas', // Custom alias for forms directory
@@ -6,21 +10,9 @@ export default defineNuxtConfig({
     '@utils': './src/utils', // Example alias for utilities
   },
   build: {
-    babel: {
-      presets({ isServer }) {
-        return [
-          [
-            require.resolve('@nuxt/babel-preset-app'),
-            {
-              targets: isServer ? { node: 'current' } : { browsers: ['defaults'] }
-            }
-          ]
-        ];
-      }
-    },
     transpile: [
+      'vuetify',
       '@jsonforms/core', '@jsonforms/vue', '@jsonforms/vue-vanilla',
-      'vuetify'
     ]
   },
   compatibilityDate: '2024-11-01',
@@ -36,13 +28,30 @@ export default defineNuxtConfig({
   },
   vite: {
     build: {
-      rollupOptions: {
-        external: ['dayjs', 'maska'], // Exclude "maska" from the bundle
+      commonjsOptions: {
+        transformMixedEsModules: true,
+        include: [
+          ...lodashModules,
+          ...lodashFpModules,
+          'ajv', 'ajv-formats', 'ajv-errors',
+        ]
       },
     },
     optimizeDeps: {
-      // Exclude vuetify since it has an issue with vite dev - TypeError: makeVExpansionPanelTextProps is not a function - the makeVExpansionPanelTextProps is used before it is defined
-      exclude: ['vuetify']
+      include: [
+        ...lodashModules,
+        ...lodashFpModules,
+        'ajv',
+        'ajv/dist/2019.js',
+        'ajv-formats',
+        'ajv-formats/dist/formats.js',
+        'ajv-i18n',
+        'ajv-errors',
+        'debug'
+      ]
+    },
+    ssr: {
+      noExternal: ['ajv', 'ajv-formats', 'ajv-errors', 'lodash'], // ⬅️ critical for SSR mode
     }
   }
 })
