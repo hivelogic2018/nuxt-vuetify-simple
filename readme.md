@@ -1,3 +1,5 @@
+NodeJS v22
+
 yarn, yarn dev,
 
 to remove vite cache: `rm -rf .nuxt node_modules/.cache/vite`
