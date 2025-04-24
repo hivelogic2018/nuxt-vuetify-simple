@@ -1,5 +1,7 @@
 # JSON Forms Vue Seed
 
+Node v22 ok
+
 This seed demonstrates how to use [JSON Forms](https://jsonforms.io) with Vue in order to render a simple form for displaying a task entity.
 You can find the [Vue 2 seed on the `vue2` branch](https://github.com/eclipsesource/jsonforms-vue-seed/tree/vue2).
 
