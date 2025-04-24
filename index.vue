@@ -3,7 +3,7 @@
   <div class="myform">
     <json-forms
       :data="formData"
-      :renderers="renderers"
+      :renderers="Object.freeze(renderers)"
       :schema="schema"
       :uischema="uischema"
       @change="onChange"
@@ -12,7 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import { provide, ref } from 'vue'
+import { provide, markRaw, ref } from 'vue'
+// import { extendedVuetifyRenderers } from '@jsonforms/vue-vuetify'
 import { JsonForms, type JsonFormsChangeEvent } from '@jsonforms/vue'
 import {
   defaultStyles,
@@ -21,12 +22,12 @@ import {
 } from '@jsonforms/vue-vanilla'
 
 // Custom styles override
-const myStyles = mergeStyles(defaultStyles, {
-  control: { label: 'mylabel' }
-})
+// const myStyles = mergeStyles(defaultStyles, {
+//   control: { label: 'mylabel' }
+// })
 
-// Provide custom styles to all child components
-provide('styles', myStyles)
+// // Provide custom styles to all child components
+// provide('styles', myStyles)
 
 // Schema and UI schema
 import schema from '@/src/schemas/schema.json'
@@ -42,7 +43,8 @@ const formData = ref({
 })
 
 // JSON Forms renderers
-const renderers = [...vanillaRenderers] // Can add custom renderers here
+const renderers = markRaw([...vanillaRenderers]) // Can add custom renderers here
+// const renderers = markRaw([...extendedVuetifyRenderers]) // Can add custom renderers here
 
 // Change handler
 function onChange(event: JsonFormsChangeEvent) {
@@ -51,6 +53,11 @@ function onChange(event: JsonFormsChangeEvent) {
 </script>
 
 <style scoped>
+@import '@jsonforms/vue-vuetify/lib/jsonforms-vue-vuetify.css';
+/* @import '@jsonforms/vue-vanilla/lib/jsonforms-vue-vanilla.css'; */
+/* @import '@jsonforms/vue/lib/jsonforms-vue.css'; */
+/* @import '@jsonforms/vue/lib/jsonforms.css'; */
+/* @import '@jsonforms/core/lib/jsonforms.css'; */
 .myform {
   text-align: center;
   margin: 60px 120px;
