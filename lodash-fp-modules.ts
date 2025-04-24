@@ -284,6 +284,7 @@ export const lodashFpModules = [
   'lodash/fp/uniqBy',
   'lodash/fp/uniqWith',
   'lodash/fp/uniqueId',
+  'lodash/fp/unset',
   'lodash/fp/upperCase',
   'lodash/fp/upperFirst',
   'lodash/fp/util',

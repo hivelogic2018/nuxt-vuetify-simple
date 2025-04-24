@@ -2,13 +2,13 @@
   "type": "object",
   "properties": {
     "firstName": {
-      "$id": "string",
+      "$id": "firstName",
       "type": "string",
       "minLength": 3,
       "description": "Please enter your first name"
     },
     "secondName": {
-      "$id": "string",
+      "$id": "secondName",
       "type": "string",
       "minLength": 3,
       "description": "Please enter your second name"

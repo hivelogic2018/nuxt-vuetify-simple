@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2024-11-01',
   components: true,
-  css: ['vuetify/styles', '@mdi/font/css/materialdesignicons.min.css'],
+  css: ['vuetify/styles', '@mdi/font/css/materialdesignicons.min.css', '@jsonforms/vue-vanilla/vanilla.css'],
   devtools: {
     enabled: true
   },
