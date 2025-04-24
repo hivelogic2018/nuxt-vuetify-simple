@@ -1,6 +1,9 @@
 yarn, yarn dev,
 
+to remove vite cache: `rm -rf .nuxt node_modules/.cache/vite`
+
 to run with logs: `npm run dev 2>&1 | tee nuxt-dev.log`
+
 
 still having
 
