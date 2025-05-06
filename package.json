@@ -2,6 +2,7 @@
   "name": "bunhono",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
+    "tsoa": "tsoa spec-and-routes",
     "tsoa:routes": "npx ts-node scripts/generateRoutes.ts",
     "tsoa:spec": "tsoa spec"
   },
@@ -11,6 +12,8 @@
     "@tsoa/runtime": "^6.6.0",
     "graphql": "^16.11.0",
     "hono": "^4.7.8",
+    "reflect-metadata": "^0.2.2",
+    "tslib": "^2.8.1",
     "tsoa": "^6.6.0"
   },
   "devDependencies": {
