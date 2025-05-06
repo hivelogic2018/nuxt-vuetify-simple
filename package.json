@@ -2,7 +2,7 @@
   "name": "bunhono",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
-    "tsoa:routes": "tsoa routes",
+    "tsoa:routes": "npx ts-node scripts/generateRoutes.ts",
     "tsoa:spec": "tsoa spec"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
+    "eta": "^3.5.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

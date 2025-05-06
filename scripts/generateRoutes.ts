@@ -1,0 +1,77 @@
+// src/scripts/generateRoutes.ts
+import { Eta } from 'eta';
+import { writeFileSync, readFileSync } from 'fs';
+import { readFile } from 'fs/promises';
+import * as path from 'path';
+const { join } = path;
+
+// Template and output paths
+const templatePath = join(__dirname, '../tsoa-hono-template.eta');
+const outputPath = join(__dirname, '../src/routes/routes.ts');
+const metadataPath = join(__dirname, '../tsoa.json');
+
+// Type for route metadata — adapt as needed
+interface Parameter {
+  name: string;
+  parseParameter: string;
+}
+
+interface Method {
+  method: string;
+  fullPath: string;
+  name: string;
+  parameters: Parameter[];
+}
+
+interface Controller {
+  name: string;
+  modulePath: string;
+  methods: Method[];
+}
+
+interface TemplateData {
+  controllers: Controller[];
+}
+
+// Mock data (in real use, tsoa CLI will inject this)
+const mockData: TemplateData = {
+  controllers: [
+    {
+      name: 'ExampleController',
+      modulePath: './../controllers/ExampleController',
+      methods: [
+        {
+          method: 'GET',
+          fullPath: '/todos',
+          name: 'getTodos',
+          parameters: [],
+        },
+        {
+          method: 'POST',
+          fullPath: '/todos',
+          name: 'addTodo',
+          parameters: [{ name: 'body', parseParameter: 'await c.req.json()' }],
+        },
+      ],
+    },
+  ],
+};
+
+// ETA instance
+const eta = new Eta({ views: join(__dirname, '../') });
+
+// Main function to generate routes
+async function generateRoutes() {
+
+  // Render the template with Eta
+  const output = await eta.render('tsoa-hono-template', mockData);
+  if (!output) throw new Error('Failed to render template.');
+
+  // Write the output to the routes file
+  writeFileSync(outputPath, output);
+  console.log('Routes generated successfully!');
+}
+
+generateRoutes().catch((err) => {
+  console.error('Error generating routes:', err);
+});
