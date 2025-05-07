@@ -1,17 +1,13 @@
 {
   "entryFile": "src/index.ts",
-  "noImplicitAdditionalProperties": "throw",
+  "noImplicitAdditionalProperties": "throw-on-extras",
   "controllerPathGlobs": ["src/controllers/*.ts"],
   "spec": {
-    "outputDirectory": "src/swagger",
+    "outputDirectory": "build",
     "specVersion": 3
   },
   "routes": {
-    "routesDir": "src/routes",
-    "middleware": "custom",
-    "middlewareTemplate": "./tsoa-hono-template.eta"
-  },
-  "metadata": {
-    "location": ".tsoa/metadata.json"
+    "routesDir": "build",
+    "middlewareTemplate": "node_modules/tsoa-hono/hono-router.hbs"
   }
 }

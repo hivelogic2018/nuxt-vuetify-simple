@@ -3,10 +3,10 @@ import { Hono } from 'hono'
 import { type RootResolver, graphqlServer } from '@hono/graphql-server'
 import { buildSchema } from 'graphql'
 
-import { RegisterRoutes } from './routes/routes';
-import { swaggerUI } from '@hono/swagger-ui';
-import { serveStatic } from 'hono/serve-static';
-import { readFile } from 'fs/promises';
+import { RegisterRoutes } from '../build/routes'
+import { swaggerUI } from '@hono/swagger-ui'
+import { serveStatic } from 'hono/serve-static'
+import { readFile } from 'fs/promises'
 
 const app = new Hono()
 
@@ -23,7 +23,7 @@ app.use('/swagger', swaggerUI({ url: '/swagger.json' }));
 app.use(
   '/swagger.json',
   serveStatic({
-    path: './src/swagger/swagger.json',
+    path: './build/swagger.json',
     getContent: async (path) => {
       try {
         const content = await readFile(path, 'utf-8');
@@ -35,6 +35,7 @@ app.use(
   })
 );
 
+// GRAPHQL
 const schema = buildSchema(`
 type Query {
   hello: String
@@ -55,6 +56,5 @@ app.use(
     graphiql: true, // if `true`, presents GraphiQL when the GraphQL endpoint is loaded in a browser.
   })
 )
-
 
 export default app
