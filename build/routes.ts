@@ -18,7 +18,7 @@ const models: TsoaRoute.Models = {
     'Todo': {
         dataType: 'refObject',
         properties: {
-            'id': {"dataType":"double","required":true},
+            'id': {"dataType":"double"},
             'title': {"dataType":"string","required":true},
             'completed': {"dataType":"boolean","required":true},
         },
@@ -71,7 +71,7 @@ export function RegisterRoutes<T extends Hono>(router: T) {
         })
         .post('/todos', async (ctx: Context, next: any) => {
             const args = {
-                    todo: {"in":"body","name":"todo","required":true,"dataType":"nestedObjectLiteral","nestedProperties":{"completed":{"dataType":"boolean","required":true},"title":{"dataType":"string","required":true}}},
+                    todo: {"in":"body","name":"todo","required":true,"ref":"Todo"},
             };
 
             let validatedArgs: any;

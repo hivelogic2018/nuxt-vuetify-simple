@@ -21,7 +21,6 @@
 					}
 				},
 				"required": [
-					"id",
 					"title",
 					"completed"
 				],
@@ -99,19 +98,7 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"properties": {
-									"completed": {
-										"type": "boolean"
-									},
-									"title": {
-										"type": "string"
-									}
-								},
-								"required": [
-									"completed",
-									"title"
-								],
-								"type": "object",
+								"$ref": "#/components/schemas/Todo",
 								"description": "The todo item to add"
 							}
 						}

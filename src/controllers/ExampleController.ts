@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Route, Tags, Body } from 'tsoa';
 
 interface Todo {
-  id: number;
+  id?: number; // Optional id
   title: string;
   completed: boolean;
 }
@@ -28,13 +28,14 @@ export class ExampleController extends Controller {
    */
   @Post('/')
   public async addTodo(
-    @Body() todo: { title: string; completed: boolean }
+    @Body() todo: Todo
   ): Promise<{ message: string; todo: Todo }> {
     if (!todo.title || typeof todo.completed !== 'boolean') {
       throw new Error('Invalid request body');
     }
 
-    const newTodo: Todo = { id: todos.length + 1, ...todo };
+    // Ensure id is generated if not provided
+    const newTodo: Todo = { ...todo, id: todos.length + 1 };
     todos.push(newTodo);
     return { message: 'Todo added successfully!', todo: newTodo };
   }
