@@ -25,6 +25,11 @@ const models: TsoaRoute.Models = {
         additionalProperties: false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    'Partial_Todo_': {
+        dataType: 'refAlias',
+        type: {"dataType":"nestedObjectLiteral","nestedProperties":{"id":{"dataType":"double"},"title":{"dataType":"string"},"completed":{"dataType":"boolean"}},"validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 };
 const validationService = new ValidationService(models);
 
@@ -96,6 +101,107 @@ export function RegisterRoutes<T extends Hono>(router: T) {
               ...(fetchMiddlewares<Context>(ExampleController.prototype.addTodo)),
               async () => {
                 const result = await controller.addTodo.apply(controller, validatedArgs)
+                return returnHandler(ctx, controller, result);
+              },
+            ];
+
+            return runHandlers(ctx, handlers);
+        })
+        .put('/todos/:id', async (ctx: Context, next: any) => {
+            const args = {
+                    id: {"in":"path","name":"id","required":true,"dataType":"double"},
+                    todo: {"in":"body","name":"todo","required":true,"ref":"Todo"},
+            };
+
+            let validatedArgs: any;
+            
+            try {
+              validatedArgs = await getValidatedArgs(args, ctx);
+            } catch (err: any) {
+              if (err instanceof ValidateError) {
+                return ctx.json({ fields: err.fields }, (err.status || 400) as StatusCode);
+              }
+
+              return ctx.json({
+                message: err.message,
+                cause: err.cause,
+              });
+            }
+
+            const controller = new ExampleController();
+
+            const handlers = [
+              ...(fetchMiddlewares<Context>(ExampleController)),
+              ...(fetchMiddlewares<Context>(ExampleController.prototype.updateTodo)),
+              async () => {
+                const result = await controller.updateTodo.apply(controller, validatedArgs)
+                return returnHandler(ctx, controller, result);
+              },
+            ];
+
+            return runHandlers(ctx, handlers);
+        })
+        .patch('/todos/:id', async (ctx: Context, next: any) => {
+            const args = {
+                    id: {"in":"path","name":"id","required":true,"dataType":"double"},
+                    partial: {"in":"body","name":"partial","required":true,"ref":"Partial_Todo_"},
+            };
+
+            let validatedArgs: any;
+            
+            try {
+              validatedArgs = await getValidatedArgs(args, ctx);
+            } catch (err: any) {
+              if (err instanceof ValidateError) {
+                return ctx.json({ fields: err.fields }, (err.status || 400) as StatusCode);
+              }
+
+              return ctx.json({
+                message: err.message,
+                cause: err.cause,
+              });
+            }
+
+            const controller = new ExampleController();
+
+            const handlers = [
+              ...(fetchMiddlewares<Context>(ExampleController)),
+              ...(fetchMiddlewares<Context>(ExampleController.prototype.patchTodo)),
+              async () => {
+                const result = await controller.patchTodo.apply(controller, validatedArgs)
+                return returnHandler(ctx, controller, result);
+              },
+            ];
+
+            return runHandlers(ctx, handlers);
+        })
+        .delete('/todos/:id', async (ctx: Context, next: any) => {
+            const args = {
+                    id: {"in":"path","name":"id","required":true,"dataType":"double"},
+            };
+
+            let validatedArgs: any;
+            
+            try {
+              validatedArgs = await getValidatedArgs(args, ctx);
+            } catch (err: any) {
+              if (err instanceof ValidateError) {
+                return ctx.json({ fields: err.fields }, (err.status || 400) as StatusCode);
+              }
+
+              return ctx.json({
+                message: err.message,
+                cause: err.cause,
+              });
+            }
+
+            const controller = new ExampleController();
+
+            const handlers = [
+              ...(fetchMiddlewares<Context>(ExampleController)),
+              ...(fetchMiddlewares<Context>(ExampleController.prototype.deleteTodo)),
+              async () => {
+                const result = await controller.deleteTodo.apply(controller, validatedArgs)
                 return returnHandler(ctx, controller, result);
               },
             ];

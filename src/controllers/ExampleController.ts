@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Route, Tags, Body } from 'tsoa';
+import { Controller, Get, Post, Route, Tags, Body, Put, Patch, Delete } from 'tsoa';
 
 interface Todo {
   id?: number; // Optional id
@@ -38,5 +38,61 @@ export class ExampleController extends Controller {
     const newTodo: Todo = { ...todo, id: todos.length + 1 };
     todos.push(newTodo);
     return { message: 'Todo added successfully!', todo: newTodo };
+  }
+
+  /**
+   * Update an entire todo (replace)
+   * @param id The id of the todo to update
+   * @param todo The new todo data
+   */
+  @Put('{id}')
+  public async updateTodo(
+    id: number,
+    @Body() todo: Todo
+  ): Promise<{ message: string; todo: Todo }> {
+    const idx = todos.findIndex(t => t.id === id);
+    if (idx === -1) {
+      this.setStatus(404);
+      throw new Error('Todo not found');
+    }
+    const updatedTodo: Todo = { ...todo, id };
+    todos[idx] = updatedTodo;
+    return { message: 'Todo updated successfully!', todo: updatedTodo };
+  }
+
+  /**
+   * Partially update a todo
+   * @param id The id of the todo to patch
+   * @param partial Partial todo data
+   */
+  @Patch('{id}')
+  public async patchTodo(
+    id: number,
+    @Body() partial: Partial<Todo>
+  ): Promise<{ message: string; todo: Todo }> {
+    const idx = todos.findIndex(t => t.id === id);
+    if (idx === -1) {
+      this.setStatus(404);
+      throw new Error('Todo not found');
+    }
+    todos[idx] = { ...todos[idx], ...partial, id };
+    return { message: 'Todo patched successfully!', todo: todos[idx] };
+  }
+
+  /**
+   * Delete a todo
+   * @param id The id of the todo to delete
+   */
+  @Delete('{id}')
+  public async deleteTodo(
+    id: number
+  ): Promise<{ message: string }> {
+    const idx = todos.findIndex(t => t.id === id);
+    if (idx === -1) {
+      this.setStatus(404);
+      throw new Error('Todo not found');
+    }
+    todos.splice(idx, 1);
+    return { message: 'Todo deleted successfully!' };
   }
 }
