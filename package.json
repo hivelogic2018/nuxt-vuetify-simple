@@ -7,6 +7,8 @@
     "tsoa:spec": "ts-node -r tsconfig-paths/register tsoa spec"
   },
   "dependencies": {
+    "@graphql-tools/merge": "^9.0.24",
+    "@graphql-tools/schema": "^10.0.23",
     "@hono/graphql-server": "^0.5.1",
     "@hono/swagger-ui": "^0.5.1",
     "graphql": "^16.11.0",
