@@ -3,7 +3,6 @@ import { Hono } from 'hono'
 import { RegisterRoutes } from '~/build/routes'
 import { swaggerUI } from '@hono/swagger-ui'
 import { serveStatic } from 'hono/serve-static'
-import { readFileSync } from 'fs'
 import { readFile } from 'fs/promises'
 
 import { graphqlServer } from '@hono/graphql-server'
@@ -46,17 +45,13 @@ const typeDefs = mergeTypeDefs([helloTypeDefs, userTypeDefs]);
 const resolvers = mergeResolvers([helloResolvers, userResolvers]);
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
-const defaultQuery = readFileSync('./src/gql/user.gql', 'utf-8');
 
 // Create a GraphQL server
 app.use(
   '/graphql',
   graphqlServer({
     schema,
-    graphiql: {
-      defaultQuery, // Preloads this query in the GraphiQL interface
-    }, // if `true`, presents GraphiQL when the GraphQL endpoint is loaded in a browser.
-
+    graphiql: true, // if `true`, presents GraphiQL when the GraphQL endpoint is loaded in a browser.
   })
 )
 
@@ -75,7 +70,6 @@ app.use(
     },
   })
 );
-
 
 
 export default app
