@@ -1,12 +1,17 @@
 import { Hono } from 'hono'
 
-import { type RootResolver, graphqlServer } from '@hono/graphql-server'
-import { buildSchema } from 'graphql'
-
-import { RegisterRoutes } from '../build/routes'
+import { RegisterRoutes } from '~/build/routes'
 import { swaggerUI } from '@hono/swagger-ui'
 import { serveStatic } from 'hono/serve-static'
+import { readFileSync } from 'fs'
 import { readFile } from 'fs/promises'
+
+import { graphqlServer } from '@hono/graphql-server'
+import { makeExecutableSchema } from '@graphql-tools/schema'
+import { mergeTypeDefs, mergeResolvers } from '@graphql-tools/merge'
+import { helloTypeDefs, helloResolvers } from '@/graphql/hello/helloSchema'
+import { userTypeDefs } from '@/graphql/user/userSchema'
+import { userResolvers } from '@/graphql/user/userResolver'
 
 const app = new Hono()
 
@@ -36,25 +41,41 @@ app.use(
 );
 
 // GRAPHQL
-const schema = buildSchema(`
-type Query {
-  hello: String
-}
-`)
+// Combine typeDefs and resolvers
+const typeDefs = mergeTypeDefs([helloTypeDefs, userTypeDefs]);
+const resolvers = mergeResolvers([helloResolvers, userResolvers]);
 
-const rootResolver: RootResolver = (c) => {
-  return {
-    hello: () => 'Hello Hono!',
-  }
-}
+const schema = makeExecutableSchema({ typeDefs, resolvers });
+const defaultQuery = readFileSync('./src/gql/user.gql', 'utf-8');
 
+// Create a GraphQL server
 app.use(
   '/graphql',
   graphqlServer({
     schema,
-    rootResolver,
-    graphiql: true, // if `true`, presents GraphiQL when the GraphQL endpoint is loaded in a browser.
+    graphiql: {
+      defaultQuery, // Preloads this query in the GraphiQL interface
+    }, // if `true`, presents GraphiQL when the GraphQL endpoint is loaded in a browser.
+
   })
 )
+
+// Serve .gql files as static assets for examples
+app.use(
+  '/gql/*',
+  serveStatic({
+    root: './src',
+    getContent: async (path) => {
+      try {
+        const content = await readFile(path, 'utf-8');
+        return new Response(content, { headers: { 'Content-Type': 'text/plain' } });
+      } catch {
+        return null;
+      }
+    },
+  })
+);
+
+
 
 export default app

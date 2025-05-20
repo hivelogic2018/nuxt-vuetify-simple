@@ -1,0 +1,40 @@
+# Query all users:
+query {
+  users {
+    id
+    name
+    email
+  }
+}
+
+# Query single user:
+query {
+  user(id: "1") {
+    id
+    name
+    email
+  }
+}
+
+# Add user:
+mutation {
+  addUser(name: "Charlie", email: "charlie@email.com") {
+    id
+    name
+    email
+  }
+}
+
+# Update user:
+mutation {
+  updateUser(id: "1", name: "Alice Updated") {
+    id
+    name
+    email
+  }
+}
+
+# Delete user:
+mutation {
+  deleteUser(id: "2")
+}
