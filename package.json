@@ -2,20 +2,21 @@
   "name": "bunhono",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
-    "tsoa": "tsoa spec-and-routes",
-    "tsoa:routes": "tsoa routes",
-    "tsoa:spec": "tsoa spec"
+    "tsoa": "ts-node -r tsconfig-paths/register tsoa spec-and-routes",
+    "tsoa:routes": "ts-node -r tsconfig-paths/register tsoa routes",
+    "tsoa:spec": "ts-node -r tsconfig-paths/register tsoa spec"
   },
   "dependencies": {
     "@hono/graphql-server": "^0.5.1",
     "@hono/swagger-ui": "^0.5.1",
-    "eta": "^3.5.0",
     "graphql": "^16.11.0",
     "hono": "^4.7.8",
     "tsoa": "^6.6.0"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "tsoa-hono": "^1.2.2",
+    "tsconfig-paths": "^4.2.0"
   }
 }

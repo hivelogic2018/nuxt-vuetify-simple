@@ -25,14 +25,10 @@
 					"completed"
 				],
 				"type": "object",
-				"additionalProperties": true
+				"additionalProperties": false
 			},
-			"Partial_Todo_": {
+			"PatchTodoDto": {
 				"properties": {
-					"id": {
-						"type": "number",
-						"format": "double"
-					},
 					"title": {
 						"type": "string"
 					},
@@ -41,7 +37,7 @@
 					}
 				},
 				"type": "object",
-				"description": "Make all properties in T optional"
+				"additionalProperties": false
 			}
 		},
 		"securitySchemes": {}
@@ -123,6 +119,38 @@
 			}
 		},
 		"/todos/{id}": {
+			"get": {
+				"operationId": "GetTodoById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Todo"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get a todo by id",
+				"tags": [
+					"Todos"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "The id of the todo to retrieve",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
 			"put": {
 				"operationId": "UpdateTodo",
 				"responses": {
@@ -228,7 +256,7 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"$ref": "#/components/schemas/Partial_Todo_",
+								"$ref": "#/components/schemas/PatchTodoDto",
 								"description": "Partial todo data"
 							}
 						}

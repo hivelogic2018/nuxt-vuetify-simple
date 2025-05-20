@@ -1,6 +1,6 @@
 {
   "entryFile": "src/index.ts",
-  "noImplicitAdditionalProperties": "ignore",
+  "noImplicitAdditionalProperties": "throw-on-extras",
   "controllerPathGlobs": ["src/controllers/*.ts"],
   "spec": {
     "outputDirectory": "build",
@@ -8,6 +8,6 @@
   },
   "routes": {
     "routesDir": "build",
-    "middlewareTemplate": "src/template/hono-router.hbs"
+    "middlewareTemplate": "node_modules/tsoa-hono/hono-router.hbs"
   }
 }

@@ -12,8 +12,6 @@ import { ExampleController } from './../src/controllers/ExampleController';
 import { Hono, Context } from 'hono';
 import { StatusCode } from 'hono/utils/http-status';
 
-
-
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
 const models: TsoaRoute.Models = {
@@ -24,12 +22,16 @@ const models: TsoaRoute.Models = {
             'title': {"dataType":"string","required":true},
             'completed': {"dataType":"boolean","required":true},
         },
-        additionalProperties: true,
+        additionalProperties: false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    'Partial_Todo_': {
-        dataType: 'refAlias',
-        type: {"dataType":"nestedObjectLiteral","nestedProperties":{"id":{"dataType":"double"},"title":{"dataType":"string"},"completed":{"dataType":"boolean"}},"validators":{}},
+    'PatchTodoDto': {
+        dataType: 'refObject',
+        properties: {
+            'title': {"dataType":"string"},
+            'completed': {"dataType":"boolean"},
+        },
+        additionalProperties: false,
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 };
@@ -42,14 +44,14 @@ export function RegisterRoutes<T extends Hono>(router: T) {
     //  NOTE: If you do not see routes for all of your controllers in this file, then you might not have informed tsoa of where to look
     //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
     // ###########################################################################################################
-
+                 
     return router
         .get('/todos', async (ctx: Context, next: any) => {
             const args = {
             };
 
             let validatedArgs: any;
-
+            
             try {
               validatedArgs = await getValidatedArgs(args, ctx);
             } catch (err: any) {
@@ -76,13 +78,46 @@ export function RegisterRoutes<T extends Hono>(router: T) {
 
             return runHandlers(ctx, handlers);
         })
+        .get('/todos/:id', async (ctx: Context, next: any) => {
+            const args = {
+                    id: {"in":"path","name":"id","required":true,"dataType":"double"},
+            };
+
+            let validatedArgs: any;
+            
+            try {
+              validatedArgs = await getValidatedArgs(args, ctx);
+            } catch (err: any) {
+              if (err instanceof ValidateError) {
+                return ctx.json({ fields: err.fields }, (err.status || 400) as StatusCode);
+              }
+
+              return ctx.json({
+                message: err.message,
+                cause: err.cause,
+              });
+            }
+
+            const controller = new ExampleController();
+
+            const handlers = [
+              ...(fetchMiddlewares<Context>(ExampleController)),
+              ...(fetchMiddlewares<Context>(ExampleController.prototype.getTodoById)),
+              async () => {
+                const result = await controller.getTodoById.apply(controller, validatedArgs)
+                return returnHandler(ctx, controller, result);
+              },
+            ];
+
+            return runHandlers(ctx, handlers);
+        })
         .post('/todos', async (ctx: Context, next: any) => {
             const args = {
                     todo: {"in":"body","name":"todo","required":true,"ref":"Todo"},
             };
 
             let validatedArgs: any;
-
+            
             try {
               validatedArgs = await getValidatedArgs(args, ctx);
             } catch (err: any) {
@@ -116,7 +151,7 @@ export function RegisterRoutes<T extends Hono>(router: T) {
             };
 
             let validatedArgs: any;
-
+            
             try {
               validatedArgs = await getValidatedArgs(args, ctx);
             } catch (err: any) {
@@ -146,11 +181,11 @@ export function RegisterRoutes<T extends Hono>(router: T) {
         .patch('/todos/:id', async (ctx: Context, next: any) => {
             const args = {
                     id: {"in":"path","name":"id","required":true,"dataType":"double"},
-                    partial: {"in":"body","name":"partial","required":true,"ref":"Partial_Todo_"},
+                    partial: {"in":"body","name":"partial","required":true,"ref":"PatchTodoDto"},
             };
 
             let validatedArgs: any;
-
+            
             try {
               validatedArgs = await getValidatedArgs(args, ctx);
             } catch (err: any) {
@@ -183,7 +218,7 @@ export function RegisterRoutes<T extends Hono>(router: T) {
             };
 
             let validatedArgs: any;
-
+            
             try {
               validatedArgs = await getValidatedArgs(args, ctx);
             } catch (err: any) {
@@ -256,9 +291,9 @@ function returnHandler(
         // The default status in required for hono to set the headers
         (controller.getStatus() || 200) as StatusCode,
         controller.getHeaders() as Record<string, string>,
-      );
-    case 'ArrayBuffer':
-    case 'Buffer':
+      );    
+    case 'ArrayBuffer':    
+    case 'Buffer':    
       // Doesn't seem to be a built in way to handle buffers in hono
       return new Response(data as Buffer, {
         status: (controller.getStatus() || 200) as StatusCode,
@@ -289,7 +324,7 @@ async function getBody(ctx: Context) {
 
 async function getValidatedArgs(
     args: any,
-    ctx: any,
+    ctx: any,    
   ) {
     const errorFields: FieldErrors = {};
     const values = await Promise.all(Object.keys(args).map(async (key) => {
@@ -307,7 +342,7 @@ async function getValidatedArgs(
             name,
             errorFields,
             undefined,
-            { noImplicitAdditionalProperties: 'ignore' }
+            { noImplicitAdditionalProperties: 'throw-on-extras' }
           );
         case 'path':
           return validationService.ValidateParam(
@@ -316,7 +351,7 @@ async function getValidatedArgs(
             name,
             errorFields,
             undefined,
-            { noImplicitAdditionalProperties: 'ignore' }
+            { noImplicitAdditionalProperties: 'throw-on-extras' }
           );
         case 'header':
           return validationService.ValidateParam(
@@ -325,7 +360,7 @@ async function getValidatedArgs(
             name,
             errorFields,
             undefined,
-            { noImplicitAdditionalProperties: 'ignore' }
+            { noImplicitAdditionalProperties: 'throw-on-extras' }
           );
         case 'body':
           return validationService.ValidateParam(
@@ -334,7 +369,7 @@ async function getValidatedArgs(
             name,
             errorFields,
             undefined,
-            { noImplicitAdditionalProperties: 'ignore' }
+            { noImplicitAdditionalProperties: 'throw-on-extras' }
           );
         case 'body-prop':
           return validationService.ValidateParam(
@@ -343,7 +378,7 @@ async function getValidatedArgs(
             name,
             errorFields,
             'body.',
-            { noImplicitAdditionalProperties: 'ignore' }
+            { noImplicitAdditionalProperties: 'throw-on-extras' }
           );
         case 'formData':
           if (args[key].dataType === 'file') {
@@ -353,7 +388,7 @@ async function getValidatedArgs(
               name,
               errorFields,
               undefined,
-              { noImplicitAdditionalProperties: 'ignore' }
+              { noImplicitAdditionalProperties: 'throw-on-extras' }
             );
           } else if (
             args[key].dataType === 'array' &&
@@ -365,7 +400,7 @@ async function getValidatedArgs(
               name,
               errorFields,
               undefined,
-              { noImplicitAdditionalProperties: 'ignore' }
+              { noImplicitAdditionalProperties: 'throw-on-extras' }
             );
           } else {
             return validationService.ValidateParam(
@@ -374,7 +409,7 @@ async function getValidatedArgs(
               name,
               errorFields,
               undefined,
-              { noImplicitAdditionalProperties: 'ignore' }
+              { noImplicitAdditionalProperties: 'throw-on-extras' }
             );
           }
       }
