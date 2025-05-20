@@ -6,6 +6,12 @@ interface Todo {
   completed: boolean;
 }
 
+// Custom DTO for PATCH
+export interface PatchTodoDto {
+  title?: string;
+  completed?: boolean;
+}
+
 let todos: Todo[] = [
   { id: 1, title: 'Learn TSOA', completed: false },
   { id: 2, title: 'Build an API', completed: false },
