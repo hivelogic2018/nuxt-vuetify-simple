@@ -8,7 +8,7 @@ import {
   fetchMiddlewares,
 } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { ExampleController } from './../src/controllers/ExampleController';
+import { ExampleController } from '../src/controllers/todoController';
 import { Hono, Context } from 'hono';
 import { StatusCode } from 'hono/utils/http-status';
 
@@ -44,14 +44,14 @@ export function RegisterRoutes<T extends Hono>(router: T) {
     //  NOTE: If you do not see routes for all of your controllers in this file, then you might not have informed tsoa of where to look
     //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
     // ###########################################################################################################
-                 
+
     return router
         .get('/todos', async (ctx: Context, next: any) => {
             const args = {
             };
 
             let validatedArgs: any;
-            
+
             try {
               validatedArgs = await getValidatedArgs(args, ctx);
             } catch (err: any) {
@@ -84,7 +84,7 @@ export function RegisterRoutes<T extends Hono>(router: T) {
             };
 
             let validatedArgs: any;
-            
+
             try {
               validatedArgs = await getValidatedArgs(args, ctx);
             } catch (err: any) {
@@ -117,7 +117,7 @@ export function RegisterRoutes<T extends Hono>(router: T) {
             };
 
             let validatedArgs: any;
-            
+
             try {
               validatedArgs = await getValidatedArgs(args, ctx);
             } catch (err: any) {
@@ -151,7 +151,7 @@ export function RegisterRoutes<T extends Hono>(router: T) {
             };
 
             let validatedArgs: any;
-            
+
             try {
               validatedArgs = await getValidatedArgs(args, ctx);
             } catch (err: any) {
@@ -185,7 +185,7 @@ export function RegisterRoutes<T extends Hono>(router: T) {
             };
 
             let validatedArgs: any;
-            
+
             try {
               validatedArgs = await getValidatedArgs(args, ctx);
             } catch (err: any) {
@@ -218,7 +218,7 @@ export function RegisterRoutes<T extends Hono>(router: T) {
             };
 
             let validatedArgs: any;
-            
+
             try {
               validatedArgs = await getValidatedArgs(args, ctx);
             } catch (err: any) {
@@ -291,9 +291,9 @@ function returnHandler(
         // The default status in required for hono to set the headers
         (controller.getStatus() || 200) as StatusCode,
         controller.getHeaders() as Record<string, string>,
-      );    
-    case 'ArrayBuffer':    
-    case 'Buffer':    
+      );
+    case 'ArrayBuffer':
+    case 'Buffer':
       // Doesn't seem to be a built in way to handle buffers in hono
       return new Response(data as Buffer, {
         status: (controller.getStatus() || 200) as StatusCode,
@@ -324,7 +324,7 @@ async function getBody(ctx: Context) {
 
 async function getValidatedArgs(
     args: any,
-    ctx: any,    
+    ctx: any,
   ) {
     const errorFields: FieldErrors = {};
     const values = await Promise.all(Object.keys(args).map(async (key) => {
