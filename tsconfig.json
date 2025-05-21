@@ -7,6 +7,8 @@
     "paths": {
       "~/*": ["../*"],
       "@/*": ["*"]
-    }
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }

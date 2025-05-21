@@ -4,7 +4,7 @@ import { TodoService, Todo, PatchTodoDto } from '@/services/TodoService';
 @Route('todos')
 @Tags('Todos')
 export class ExampleController extends Controller {
-  private service = new TodoService();
+  private readonly service = new TodoService();
 
   @Get('/')
   public async getTodos(): Promise<Todo[]> {
