@@ -1,3 +1,5 @@
+shows promising UI rendered but styles not displayed correctly
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.

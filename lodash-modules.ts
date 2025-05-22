@@ -169,7 +169,6 @@ export const lodashModules = [
   'lodash/mixin',
   'lodash/multiply',
   'lodash/negate',
-  'lodash/noConflict',
   'lodash/noop',
   'lodash/now',
   'lodash/nth',

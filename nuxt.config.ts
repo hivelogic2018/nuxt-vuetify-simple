@@ -33,7 +33,7 @@ export default defineNuxtConfig({
         include: [
           ...lodashModules,
           ...lodashFpModules,
-          'ajv', 'ajv-formats', 'ajv-errors',
+          'ajv', 'ajv-formats', 'ajv-errors', 'ajv-i18n',
         ]
       },
     },

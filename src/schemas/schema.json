@@ -1,6 +1,11 @@
 {
   "type": "object",
+  "required": ["id", "firstName", "secondName"],
   "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the form element"
+    },
     "firstName": {
       "$id": "firstName",
       "type": "string",

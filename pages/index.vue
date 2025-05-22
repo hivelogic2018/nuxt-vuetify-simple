@@ -6,19 +6,33 @@
       :renderers="renderers"
       :schema="schema"
       :uischema="uischema"
+      :id="id"
       @change="onChange"
+    />
+    <ControlWrapper
+      :id="formData.id || 'default-id'"
+      description="Unique identifier for the form element"
+      errors=""
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { provide, ref } from 'vue'
+import { provide, markRaw, ref } from 'vue'
 import { JsonForms, type JsonFormsChangeEvent } from '@jsonforms/vue'
 import {
   defaultStyles,
   mergeStyles,
   vanillaRenderers
 } from '@jsonforms/vue-vanilla'
+
+// Define props
+defineProps({
+  id: {
+    type: String,
+    default: '',
+  },
+})
 
 // Custom styles override
 const myStyles = mergeStyles(defaultStyles, {
@@ -34,6 +48,7 @@ import uischema from '@/src/schemas/uischema.json'
 
 // Initial form data
 const formData = ref({
+  id: "unique-id-123", // Ensure id is initialized
   name: 'Send email to Adrian',
   description: 'Confirm if you have passed the subject\nHereby ...',
   done: true,
@@ -42,7 +57,7 @@ const formData = ref({
 })
 
 // JSON Forms renderers
-const renderers = [...vanillaRenderers] // Can add custom renderers here
+const renderers = markRaw([...vanillaRenderers]) // Can add custom renderers here
 
 // Change handler
 function onChange(event: JsonFormsChangeEvent) {

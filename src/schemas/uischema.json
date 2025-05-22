@@ -6,6 +6,10 @@
       "label": "Basic Information",
       "elements": [
         {
+          "type": "Control",
+          "scope": "#/properties/id"
+        },
+        {
           "type": "HorizontalLayout",
           "elements": [
             {
@@ -46,30 +50,8 @@
       "label": "Address",
       "elements": [
         {
-          "type": "HorizontalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/address/properties/street"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/address/properties/streetNumber"
-            }
-          ]
-        },
-        {
-          "type": "HorizontalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/address/properties/city"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/address/properties/postalCode"
-            }
-          ]
+          "type": "Control",
+          "scope": "#/properties/address"
         }
       ],
       "rule": {
