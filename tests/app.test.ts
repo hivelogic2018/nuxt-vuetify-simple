@@ -8,7 +8,7 @@ await setup({
 describe('Basic Nuxt test', () => {
   it('renders homepage', async () => {
     const html = await $fetch('/')
-    // NuxtWelcome is rendered, so check for its default text
     expect(html).toContain('Welcome to Nuxt')
+    expect(html).toContain('nuxt-route-announcer')
   })
 })
