@@ -1,4 +1,6 @@
-shows promising UI rendered but styles not displayed correctly
+using @jsonforms ^3.5
+
+outcome: shows promising UI rendered but styles not displayed correctly
 
 # Nuxt Minimal Starter
 
