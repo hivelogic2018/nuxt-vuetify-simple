@@ -7,7 +7,14 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
+    "lint:fix": "eslint --ext .ts,.vue --ignore-path .gitignore . --fix",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "test:watch": "vitest --watch",
+    "test:watch:ui": "vitest --watch --ui"
   },
   "dependencies": {
     "@nuxt/content": "3.5.1",
@@ -23,5 +30,12 @@
     "typescript": "^5.6.3",
     "vue": "^3.5.14",
     "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@nuxt/test-utils": "^3.19.0",
+    "@types/node": "^22.15.21",
+    "@vitest/coverage-v8": "^3.1.4",
+    "@vitest/ui": "^3.1.4",
+    "vitest": "^3.1.4"
   }
 }
