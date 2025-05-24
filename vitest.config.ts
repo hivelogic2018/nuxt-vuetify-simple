@@ -3,7 +3,8 @@ import { defineConfig } from 'vitest/config'
 export default defineConfig({
   test: {
     globals: true,         // Enables global `describe`, `it`, `expect`, etc.
-    environment: 'jsdom',  // Simulates a browser-like environment
+    // environment: 'jsdom',  // Simulates a browser-like environment
+    environment: 'node', // ✅ Nuxt SSR works best with node
     setupFiles: ['./test/setup.ts'], // Optional setup file if needed
     include: ['tests/**/*.test.ts'], // Matches test files
   }
