@@ -73,3 +73,7 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+TESTING: [Nuxt3 testing guide](https://nuxt.com/docs/getting-started/testing)
+
+[Test environment](https://vitest.dev/guide/environment.html#test-environment)
