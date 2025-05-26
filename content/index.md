@@ -147,6 +147,7 @@ Videos học Javascript: kênh dạyNgheIT:
 embed-url: https://www.youtube.com/embed/videoseries?list=PL28Ap55o84DTu8qRGXpvyBcKYUGfVFxy9
 thumbnail-url: https://img.youtube.com/vi/dmSsjByhPBg/hqdefault.jpg
 title: 'dạyNghềIT: Học Javascript'
+video-id: dmSsjByhPBg
 ---
 ::
 
@@ -579,9 +580,10 @@ Vue 3 giới thiệu hệ thống phản ứng cải tiến, sử dụng Proxies
 Khoá học vue3 tiếng Việt trên youtube:
 ::i-video
 ---
-embed-url: https://www.youtube.com/embed/videoseries?list=PLwJIrGynFq9B_BQJZJi-ikWDDkYKVUpM5
-thumbnail-url: https://img.youtube.com/vi/VeNfHj6MhgA/hqdefault.jpg
+embed-url: https://youtu.be/Vg9n_YRGPIY?si=ANmrE_RhBOc094B8
+thumbnail-url: https://img.youtube.com/vi/Vg9n_YRGPIY/hqdefault.jpg
 title: Khoá học Vue3 trên Youtube
+video-id: Vg9n_YRGPIY
 ---
 ::
 

@@ -1,5 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import remarkToc from 'remark-toc'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
@@ -33,7 +32,7 @@ export default defineNuxtConfig({
     },
   },
   css: [
-    '~/public/assets/css/main.css'
+    '~/public/assets/css/main.scss'
   ],
   devtools: { enabled: true },
 
@@ -45,7 +44,6 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
-    '@nuxt/ui',
     '@nuxt/test-utils/module'
   ],
   ssr: true,
