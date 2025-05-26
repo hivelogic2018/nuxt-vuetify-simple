@@ -1,7 +1,10 @@
 <template>
   <div>
-    <p>Number: <span> {{ num }}</span></p>
-    <button @click="refreshNum">Refresh</button>
+    <v-container>
+      <p>Number: <span> {{ num }}</span></p>
+      <v-btn @click="refreshNum">Refresh</v-btn>
+      <v-btn color="primary" text="Vuetify Button"></v-btn>
+    </v-container>
   </div>
 </template>
 
