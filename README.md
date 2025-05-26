@@ -77,3 +77,10 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 TESTING: [Nuxt3 testing guide](https://nuxt.com/docs/getting-started/testing)
 
 [Test environment](https://vitest.dev/guide/environment.html#test-environment)
+
+[MDC Syntax](https://content.nuxt.com/docs/files/markdown#mdc-syntax)
+[VS Code MDC](https://marketplace.visualstudio.com/items?itemName=Nuxt.mdc)
+[Markdown Cheatsheet](https://content.nuxt.com/docs/files/markdown/cheatsheet)
+[Markdown Guide](https://www.markdownguide.org/basic-syntax/)
+[Markdown Guide - Extended Syntax](https://www.markdownguide.org/extended-syntax/)
+[Markdown Guide - Syntax Highlighting](https://www.markdownguide.org/syntax-highlighting/)

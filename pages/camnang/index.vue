@@ -1,13 +1,27 @@
 <script setup lang="ts">
-const { data: home } = await useAsyncData(() => queryCollection('content').path('/').first())
+import { ref } from 'vue'
+
+const showToc = ref(false)
+const { data: page } = await useAsyncData(() => queryCollection('content').path('/').first())
+if (!page.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+}
 
 useSeoMeta({
-  title: home.value?.title,
-  description: home.value?.description
+  title: page.value?.title || 'Cẩm Nang webDev',
+  description: page.value?.description
 })
 </script>
 
 <template>
-  <ContentRenderer v-if="home" :value="home" />
+  <client-only>
+    <h4>Color mode: {{ $colorMode.value }}</h4>
+  </client-only>
+  <h1>Cẩm nang: Giới thiệu, hướng dẫn học về lập trình web ứng dụng với Vue3 và Typescript</h1>
+  <button @click="showToc = !showToc">
+    {{ showToc ? 'Ẩn Mục lục' : 'Hiện Mục lục' }}
+  </button>
+  <!-- <ContentToc v-if="showToc" :depth="5" :links="page.body.toc.links" /> -->
+  <ContentRenderer v-if="page" :value="page" />
   <div v-else>Home not found</div>
 </template>

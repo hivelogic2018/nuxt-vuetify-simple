@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "md2html": "cp content/index.md content/index.md.html",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
@@ -15,7 +16,17 @@
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "test:watch": "vitest --watch",
-    "test:watch:ui": "vitest --watch --ui"
+    "test:watch:ui": "vitest --watch --ui",
+    "deploy": "nuxt generate && nuxt preview",
+    "vercel": "nuxt generate && vercel --prod",
+    "deploy:vercel": "nuxt generate && vercel --prod",
+    "pub": "npx vercel deploy",
+    "deploy:vercel:preview": "nuxt generate && vercel --prod --prebuilt",
+    "deploy:vercel:dev": "nuxt generate && vercel --prod --prebuilt --env=development",
+    "playwright": "npx playwright test --config=playwright.config.ts",
+    "playwright:ui": "npx playwright test --ui --config=playwright.config.ts",
+    "playwright:debug": "npx playwright test --debug --config=playwright.config.ts",
+    "playwright:report": "npx playwright show-report"
   },
   "dependencies": {
     "@nuxt/content": "^3.5.1",
@@ -25,9 +36,11 @@
     "@nuxt/image": "1.10.0",
     "@nuxt/scripts": "0.11.7",
     "@nuxt/ui": "3.1.2",
+    "@nuxtjs/color-mode": "^3.5.2",
     "@unhead/vue": "^2.0.10",
     "eslint": "^9.27.0",
     "nuxt": "^3.17.4",
+    "remark-toc": "^9.0.0",
     "typescript": "^5.8.3",
     "vue": "^3.5.14",
     "vue-router": "^4.5.1"
