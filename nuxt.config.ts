@@ -1,41 +1,61 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
+  build: {
+    transpile: ['vuetify']
+  },
+  // Automatically import components
+  colorMode: {
+    classSuffix: '',
+    // Default theme preference
+    fallback: 'light' // Fallback theme if no preference is set
+    ,
+    preference: 'system'
+  },
   compatibilityDate: '2025-05-15',
+  components: true,
   content: {
     build: {
       markdown: {
-        toc: {
-          depth: 5, // include h3 headings
-        },
         highlight: {
           theme: {
+            // Theme used if `html.dark`
+            darkMode: 'dracula-soft',
             // Default theme (same as single string)
             default: 'github-light',
-            // Theme used if `html.dark`
-            darkMode: 'dracula-soft', // or 'github-dark' or 'material-theme-ocean'
+            // or 'github-dark' or 'material-theme-ocean'
             // Theme used if `html.sepia`
             sepia: 'monokai'
-          },
+          }
         },
         remarkPlugins: {
           // Add the remark-toc plugin to generate a table of contents
           // for markdown files. The toc will be generated based on the
           // headings in the markdown content.
           'remark-toc': {
-            tight: true, // Use tight list style for the TOC
-            maxDepth: 5, // Maximum depth of headings to include in the TOC
+            // Maximum depth of headings to include in the TOC
             heading: 'Table of Contents' // Custom heading for the TOC
+            ,
+            // Use tight list style for the TOC
+            maxDepth: 5,
+            tight: true
           }
+        },
+        toc: {
+          depth: 5 // include h3 headings
+
         }
-      },
-    },
+      }
+    }
   },
   css: [
-    '~/public/assets/css/main.scss'
+    '~/public/assets/css/main.scss',
+    'vuetify/styles',
+    '@mdi/font/css/materialdesignicons.min.css'
   ],
-  devtools: { enabled: true },
-
+  devtools: {
+    enabled: true
+  },
   modules: [
     '@nuxtjs/color-mode',
     '@nuxt/content',
@@ -46,11 +66,12 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils/module'
   ],
-  ssr: true,
   // devServer: {
   //   https: {
   //     key: './server.key',
   //     cert: './server.crt'
   //   }
   // }
+  plugins: ['~/plugins/vuetify.ts'],
+  ssr: true
 })
