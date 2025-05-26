@@ -84,3 +84,7 @@ TESTING: [Nuxt3 testing guide](https://nuxt.com/docs/getting-started/testing)
 [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
 [Markdown Guide - Extended Syntax](https://www.markdownguide.org/extended-syntax/)
 [Markdown Guide - Syntax Highlighting](https://www.markdownguide.org/syntax-highlighting/)
+
+[Auto Import Components](https://nuxt.com/docs/guide/directory-structure/components#auto-importing-components)
+[Demo auto import components](https://nuxt.com/docs/guide/directory-structure/components#demo-auto-import-components)
+[auto-import demo](https://nuxt.com/docs/examples/features/auto-imports)
