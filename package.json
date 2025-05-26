@@ -4,6 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
+    "clean": "npx nuxi cleanup .",
+    "clean:cache": "nuxt clean --cache",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "md2html": "cp content/index.md content/index.md.html",
@@ -57,6 +59,8 @@
     "happy-dom": "^17.4.7",
     "jsdom": "^26.1.0",
     "playwright-core": "^1.52.0",
+    "sass": "^1.89.0",
+    "sass-loader": "^16.0.5",
     "unhead": "^2.0.10",
     "vite-plugin-vuetify": "^2.1.1",
     "vitest": "^3.1.4",

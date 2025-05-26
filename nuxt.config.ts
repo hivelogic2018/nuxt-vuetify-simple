@@ -49,7 +49,7 @@ export default defineNuxtConfig({
     }
   },
   css: [
-    '~/public/assets/css/main.css',
+    '~/public/assets/css/main.scss',
     'vuetify/styles',
     '@mdi/font/css/materialdesignicons.min.css'
   ],
@@ -64,7 +64,6 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
-    '@nuxt/ui',
     '@nuxt/test-utils/module'
   ],
   // devServer: {

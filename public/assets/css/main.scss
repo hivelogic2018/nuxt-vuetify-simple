@@ -1,0 +1,11 @@
+.dark-mode pre {
+  border: 0.5px solid var(--color-green-300);
+  border-radius: 0.5rem;
+}
+
+/* Markdown content rendered by <ContentRenderer> will be responsive by default, but you can add custom CSS for images, tables, and code blocks if needed.
+e.g. in your global CSS */
+.prose img {
+  max-width: 100%;
+  height: auto;
+}
