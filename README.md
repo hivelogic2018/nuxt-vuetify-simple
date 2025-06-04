@@ -1,3 +1,5 @@
+NodeJS v19 and above is required to run this project. **NodeJS v24** is recommended.
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
