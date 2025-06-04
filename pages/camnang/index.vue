@@ -18,9 +18,10 @@ useSeoMeta({
     <h4>Color mode: {{ $colorMode.value }}</h4>
   </client-only>
   <h1>Cẩm nang: Giới thiệu, hướng dẫn học về lập trình web ứng dụng với Vue3 và Typescript</h1>
-  <button @click="showToc = !showToc">
+  <v-btn @click="showToc = !showToc" color="primary">
     {{ showToc ? 'Ẩn Mục lục' : 'Hiện Mục lục' }}
-  </button>
+  </v-btn>
+  <ContentToc v-if="showToc" :depth="5" />
   <ContentRenderer v-if="page" :value="page" />
   <div v-else>Home not found</div>
 </template>

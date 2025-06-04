@@ -1,4 +1,5 @@
 <template>
+  <UiTheme />
   <div>
     <select v-model="$colorMode.preference">
       <option value="system">System</option>
@@ -13,6 +14,8 @@
 </template>
 
 <script setup>
+import UiTheme from './components/uiTheme.vue';
+
 const colorMode = useColorMode()
 </script>
 

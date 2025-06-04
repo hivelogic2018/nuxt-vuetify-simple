@@ -34,7 +34,7 @@ export default defineNuxtConfig({
           // headings in the markdown content.
           'remark-toc': {
             // Maximum depth of headings to include in the TOC
-            heading: 'Table of Contents' // Custom heading for the TOC
+            heading: 'Layout' // Custom heading for the TOC
             ,
             // Use tight list style for the TOC
             maxDepth: 5,
@@ -42,8 +42,7 @@ export default defineNuxtConfig({
           }
         },
         toc: {
-          depth: 5 // include h3 headings
-
+          depth: 5 // include h3 headings,
         }
       }
     }
@@ -64,7 +63,8 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
-    '@nuxt/test-utils/module'
+    '@nuxt/test-utils/module',
+    '@nuxtjs/mdc'
   ],
   // devServer: {
   //   https: {
