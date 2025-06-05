@@ -13,11 +13,11 @@
         "@nuxt/image": "1.10.0",
         "@nuxt/scripts": "0.11.7",
         "@nuxt/ui": "3.1.2",
-        "@nuxtjs/color-mode": "^3.5.2",
         "@nuxtjs/mdc": "^0.17.0",
         "@unhead/vue": "^2.0.10",
         "eslint": "^9.27.0",
         "lodash": "^4.17.21",
+        "monaco-editor": "^0.52.2",
         "nuxt": "^3.17.4",
         "remark-toc": "^9.0.0",
         "typescript": "^5.8.3",
@@ -1744,6 +1744,8 @@
     "mocked-exports": ["mocked-exports@0.1.1", "", {}, "sha512-aF7yRQr/Q0O2/4pIXm6PZ5G+jAd7QS4Yu8m+WEeEHGnbo+7mE36CbLSDQiXYV8bVL3NfmdeqPJct0tUlnjVSnA=="],
 
     "module-definition": ["module-definition@6.0.1", "", { "dependencies": { "ast-module-types": "^6.0.1", "node-source-walk": "^7.0.1" }, "bin": { "module-definition": "bin/cli.js" } }, "sha512-FeVc50FTfVVQnolk/WQT8MX+2WVcDnTGiq6Wo+/+lJ2ET1bRVi3HG3YlJUfqagNMc/kUlFSoR96AJkxGpKz13g=="],
+
+    "monaco-editor": ["monaco-editor@0.52.2", "", {}, "sha512-GEQWEZmfkOGLdd3XK8ryrfWz3AIP8YymVXiPHEdewrUq7mh0qrKrfHLNCXcbB6sTnMLnOZ3ztSiKcciFUkIJwQ=="],
 
     "mrmime": ["mrmime@2.0.1", "", {}, "sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ=="],
 

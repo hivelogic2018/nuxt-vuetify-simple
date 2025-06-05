@@ -73,5 +73,19 @@ export default defineNuxtConfig({
   //   }
   // }
   plugins: ['~/plugins/vuetify.ts'],
-  ssr: true
+  ssr: true,
+  vite: {
+    optimizeDeps: {
+      include: ['monaco-editor'],
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'monaco-editor': ['monaco-editor'],
+          },
+        },
+      },
+    },
+  },
 })
