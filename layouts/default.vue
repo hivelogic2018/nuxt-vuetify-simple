@@ -1,4 +1,8 @@
 <!-- layouts/default.vue -->
+<script lang="ts" setup>
+import ThemeSwitcher from '~/components/ThemeSwitcher.vue'
+</script>
+
 <template>
   <v-app>
     <v-app-bar app>
@@ -11,7 +15,3 @@
     </v-main>
   </v-app>
 </template>
-
-<script setup>
-import ThemeSwitcher from '~/components/ThemeSwitcher.vue'
-</script>

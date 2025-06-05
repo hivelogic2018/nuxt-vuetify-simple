@@ -3,7 +3,36 @@ import { createVuetify } from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
-import 'vuetify/styles'
+
+const customThemes2 = {
+  light: {
+    dark: false,
+    colors: {
+      background: '#FFFFFF',
+      surface: '#F8F9FA',
+      primary: '#3B82F6',
+      neutral: '#6B7280',
+    }
+  },
+  dark: {
+    dark: true,
+    colors: {
+      background: '#121212',
+      surface: '#1E1E1E',
+      primary: '#3B82F6',
+      neutral: '#71717A',
+    }
+  },
+  sepia: {
+    dark: false,
+    colors: {
+      background: '#F1E7D0',
+      surface: '#EAD7B7',
+      primary: '#F59E0B',
+      neutral: '#433422',
+    }
+  }
+}
 
 const customThemes = {
   light: {
