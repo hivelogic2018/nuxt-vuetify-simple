@@ -33,6 +33,7 @@
     "scss:build": "sass public/assets/css/main.scss public/assets/css/main.css"
   },
   "dependencies": {
+    "@iconify/vue": "^5.0.0",
     "@mdi/font": "^7.4.47",
     "@nuxt/content": "^3.5.1",
     "@nuxt/eslint": "1.4.1",

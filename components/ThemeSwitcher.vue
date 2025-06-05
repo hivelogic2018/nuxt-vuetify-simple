@@ -2,6 +2,7 @@
 import { useTheme } from 'vuetify'
 import { ref, watch, onMounted } from 'vue'
 import { useCookie } from '#app'
+import { Icon } from '@iconify/vue'
 
 const theme = useTheme()
 
@@ -53,8 +54,8 @@ onMounted(() => {
 <template>
   <v-menu offset-y>
     <template #activator="{ props }">
-      <v-btn icon v-bind="props">
-        <v-icon>mdi-palette</v-icon>
+      <v-btn v-bind="props" icon variant="text">
+        <Icon icon="lucide:swatch-book" width="24" height="24" />
       </v-btn>
     </template>
 
