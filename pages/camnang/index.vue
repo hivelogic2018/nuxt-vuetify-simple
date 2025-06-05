@@ -21,7 +21,6 @@ useSeoMeta({
   <v-btn @click="showToc = !showToc" color="primary">
     {{ showToc ? 'Ẩn Mục lục' : 'Hiện Mục lục' }}
   </v-btn>
-  <ContentToc v-if="showToc" :depth="5" />
   <ContentRenderer v-if="page" :value="page" />
   <div v-else>Home not found</div>
 </template>

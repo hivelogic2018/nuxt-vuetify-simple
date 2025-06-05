@@ -6,7 +6,6 @@ import { Icon } from '@iconify/vue'
 
 const theme = useTheme()
 
-const themeOptions = ['light', 'dark', 'sepia', 'system']
 const currentTheme = ref<'light' | 'dark' | 'sepia' | 'system'>('system')
 
 const primaryColors = [
@@ -99,8 +98,9 @@ onMounted(applyTheme)
       </v-btn>
     </template>
 
-    <v-card min-width="250" class="pa-3">
-      <div class="text-subtitle-2 mb-2">Primary</div>
+    <v-card min-width="280" class="pa-3">
+      <!-- Primary Colors -->
+      <h4 class="text-subtitle-1 mt-4 mb-2">Primary</h4>
       <v-row dense>
         <v-col
           v-for="color in primaryColors"
@@ -113,13 +113,14 @@ onMounted(applyTheme)
             @click="setColor('primary', color.value)"
             class="justify-start"
           >
-            <v-avatar size="16" :style="{ backgroundColor: color.value }" class="me-2" />
+            <v-avatar size="16" :color="color.value" class="me-2" />
             {{ color.name }}
+            <v-icon size="14" v-if="cookie.primaryColor === color.value" class="ms-auto">mdi-check</v-icon>
           </v-btn>
         </v-col>
       </v-row>
 
-      <div class="text-subtitle-2 mt-4 mb-2">Neutral</div>
+      <h4 class="text-subtitle-1 mt-4 mb-2">Neutral</h4>
       <v-row dense>
         <v-col
           v-for="color in neutralColors"
@@ -132,13 +133,14 @@ onMounted(applyTheme)
             @click="setColor('neutral', color.value)"
             class="justify-start"
           >
-            <v-avatar size="16" :style="{ backgroundColor: color.value }" class="me-2" />
+            <v-avatar size="16" :color="color.value" class="me-2" />
             {{ color.name }}
+            <v-icon size="14" v-if="cookie.neutralColor === color.value" class="ms-auto">mdi-check</v-icon>
           </v-btn>
         </v-col>
       </v-row>
 
-      <div class="text-subtitle-2 mt-4 mb-2">Theme</div>
+      <h4 class="text-subtitle-1 mt-4 mb-2">Theme</h4>
       <v-btn-toggle
         v-model="currentTheme"
         divided
@@ -146,8 +148,22 @@ onMounted(applyTheme)
         class="w-100"
         @update:model-value="setThemeMode"
       >
-        <v-btn v-for="mode in themeOptions" :key="mode" :value="mode">
-          {{ mode.charAt(0).toUpperCase() + mode.slice(1) }}
+
+        <v-btn value="light">
+          <v-icon start size="18">mdi-white-balance-sunny</v-icon>
+          Light
+        </v-btn>
+        <v-btn value="dark">
+          <v-icon start size="18">mdi-weather-night</v-icon>
+          Dark
+        </v-btn>
+        <v-btn value="sepia">
+          <v-icon start size="18">mdi-book-open-page-variant</v-icon>
+          Sepia
+        </v-btn>
+        <v-btn value="system">
+          <v-icon start size="18">mdi-monitor</v-icon>
+          System
         </v-btn>
       </v-btn-toggle>
     </v-card>
