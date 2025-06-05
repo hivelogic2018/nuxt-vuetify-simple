@@ -4,7 +4,7 @@ import { onMounted, ref } from 'vue'
 const editorContainer = ref<HTMLDivElement | null>(null)
 
 onMounted(async () => {
-  if (!process.client) return
+  if (!import.meta.client) return
 
   const monaco = await import('monaco-editor')
 
@@ -49,7 +49,6 @@ onMounted(async () => {
   })
 
 
-
   monaco.editor.create(editorContainer.value!, {
     value: '// Start coding!',
     language: 'javascript',
@@ -59,7 +58,6 @@ onMounted(async () => {
   })
 })
 </script>
-
 
 <template>
   <div ref="editorContainer" style="height: 400px; width: 100%;" class="view-lines monaco-mouse-cursor-text"></div>
