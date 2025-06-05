@@ -13,7 +13,7 @@ Vắn tắt trang web hay ứng dụng web gồm có 3 thành phần sau: HTML, 
 hình dung như hình sau,
 và thành phần thứ tư đó là dữ liệu (thường được cung cấp từ database - nguồn dữ liệu hay còn gọi là cơ sở dữ liệu và được xử lý bởi backend server - máy chủ):
 
-![Web app components](/assets/webcomponents.jpg)
+![Web app components](https://raw.githubusercontent.com/hivelogic2018/nuxt-vuetify-simple/main/public/assets/webcomponents.jpg)
 
 Nguồn source: [webdesigning](https://tutorial.techaltum.com/webdesigning.html)
 
