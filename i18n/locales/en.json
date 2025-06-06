@@ -1,0 +1,9 @@
+{
+  "nav": {
+    "store": "Store",
+    "chat": "Chat",
+    "schedule": "Schedule",
+    "guide": "Guide",
+    "biography": "Bio"
+  }
+}

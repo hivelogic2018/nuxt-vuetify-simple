@@ -52,12 +52,29 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/fonts',
+    '@nuxtjs/i18n',
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxt/test-utils/module',
     '@nuxtjs/mdc'
   ],
+  i18n: {
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'fr', name: 'Français', file: 'fr.json' },
+      { code: 'vi', name: 'Tiếng Việt', file: 'vi.json' },
+    ],
+    defaultLocale: 'en',
+    strategy: 'no_prefix', // URLs like / not /en
+    langDir: 'locales/',
+    lazy: true,
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      fallbackLocale: 'en',
+    }
+  },
   // devServer: {
   //   https: {
   //     key: './server.key',

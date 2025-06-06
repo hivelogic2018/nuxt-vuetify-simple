@@ -1,0 +1,9 @@
+{
+  "nav": {
+    "store": "Boutique",
+    "chat": "Discussion",
+    "schedule": "Planning",
+    "guide": "Guide",
+    "biography": "Biographie"
+  }
+}

@@ -36,6 +36,9 @@
 
     <v-spacer />
 
+    <!-- Language switcher -->
+    <LanguageSwitcher class="mr-2" />
+
     <!-- Theme switcher + GitHub icon -->
     <ThemeSwitcher class="mr-2" />
     <v-btn
@@ -59,7 +62,7 @@
         link
         @click="drawer = false"
       >
-        <v-list-item-icon><v-icon>{{ item.icon }}</v-icon></v-list-item-icon>
+        <v-icon>{{ item.icon }}</v-icon>
         <v-list-item-title>{{ item.label }}</v-list-item-title>
       </v-list-item>
     </v-list>
@@ -69,6 +72,7 @@
 <script setup lang="ts">
 import { useTheme } from 'vuetify'
 import ThemeSwitcher from './ThemeSwitcher.vue'
+import LanguageSwitcher from './LanguageSwitcher.vue'
 import { useRoute } from 'vue-router'
 import { ref } from 'vue'
 
@@ -78,11 +82,13 @@ const drawer = ref(false)
 
 const githubUrl = 'https://github.com/hivelogic2018/nuxt-vuetify-simple'
 
+const { t } = useI18n()
+
 const navItems = [
-  { label: 'Bio', to: '/bio', icon: 'mdi-account-box-outline' },
-  { label: 'Guide', to: '/guide', icon: 'mdi-compass-outline' },
-  { label: 'Store', to: '/store', icon: 'mdi-store' },
-  { label: 'Chat', to: '/chat', icon: 'mdi-chat' },
-  { label: 'Schedule', to: '/schedule', icon: 'mdi-calendar-clock' }
+  { label: t('nav.biography'), to: '/bio', icon: 'mdi-account-box-outline' },
+  { label: t('nav.guide'), to: '/camnang', icon: 'mdi-compass-outline' },
+  { label: t('nav.store'), to: '/store', icon: 'mdi-store' },
+  { label: t('nav.chat'), to: '/chat', icon: 'mdi-chat' },
+  { label: t('nav.schedule'), to: '/schedule', icon: 'mdi-calendar-clock' }
 ]
 </script>
