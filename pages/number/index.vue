@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useTheme } from 'vuetify';
+import { useTheme } from 'vuetify'
 
 const num = useState<number>('num', () => Math.floor(Math.random() * 100));
 const refreshNum = () => {

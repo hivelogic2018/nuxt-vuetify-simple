@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useTheme } from 'vuetify'
 
 const showToc = ref(false)
 const { data: page } = await useAsyncData(() => queryCollection('content').path('/').first())
@@ -11,12 +12,12 @@ useSeoMeta({
   title: page.value?.title || 'Cẩm Nang webDev',
   description: page.value?.description
 })
+
+const theme = useTheme()
+const neutral = computed(() => theme.global.current.value.colors.neutral)
 </script>
 
 <template>
-  <client-only>
-    <h4>Color mode: {{ $colorMode.value }}</h4>
-  </client-only>
   <h1>Cẩm nang: Giới thiệu, hướng dẫn học về lập trình web ứng dụng với Vue3 và Typescript</h1>
   <v-btn @click="showToc = !showToc" color="primary">
     {{ showToc ? 'Ẩn Mục lục' : 'Hiện Mục lục' }}

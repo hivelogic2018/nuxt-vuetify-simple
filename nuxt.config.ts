@@ -5,13 +5,6 @@ export default defineNuxtConfig({
     transpile: ['vuetify']
   },
   // Automatically import components
-  colorMode: {
-    classSuffix: '',
-    // Default theme preference
-    fallback: 'light' // Fallback theme if no preference is set
-    ,
-    preference: 'system'
-  },
   compatibilityDate: '2025-05-15',
   components: true,
   content: {
@@ -56,7 +49,6 @@ export default defineNuxtConfig({
     enabled: true
   },
   modules: [
-    '@nuxtjs/color-mode',
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/fonts',
