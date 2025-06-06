@@ -85,6 +85,9 @@ const setThemeMode = (mode: typeof currentTheme.value) => {
   } else {
     theme.global.name.value = mode
   }
+
+  setColor('primary', cookie.value.primaryColor)
+  setColor('neutral', cookie.value.neutralColor)
 }
 
 onMounted(applyTheme)

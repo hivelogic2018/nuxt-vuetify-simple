@@ -50,7 +50,7 @@ const customThemes = {
       background: '#121212',
       surface: '#1E1E1E',
       primary: '#3B82F6',
-      neutral: '#64748B',
+      neutral: '#71717A',
     },
   },
   sepia: {

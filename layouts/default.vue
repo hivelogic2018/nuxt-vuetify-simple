@@ -1,15 +1,11 @@
 <!-- layouts/default.vue -->
 <script lang="ts" setup>
-import ThemeSwitcher from '~/components/ThemeSwitcher.vue'
+import TheNav from '~/components/TheNav.vue'
 </script>
 
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-toolbar-title>My App</v-toolbar-title>
-      <v-spacer />
-      <ThemeSwitcher />
-    </v-app-bar>
+    <TheNav />
     <v-main>
       <NuxtPage />
     </v-main>
