@@ -7,10 +7,10 @@
     <v-toolbar-title>
       <NuxtLink
         to="/"
-        style="text-decoration: none;"
+        style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;"
         :style="{ color: theme.global.current.value.colors.primary }"
       >
-        <v-icon start size="24">mdi-home-circle-outline</v-icon>
+        <v-icon size="24">mdi-home-circle-outline</v-icon>
         My App
       </NuxtLink>
     </v-toolbar-title>
@@ -79,9 +79,10 @@ const drawer = ref(false)
 const githubUrl = 'https://github.com/hivelogic2018/nuxt-vuetify-simple'
 
 const navItems = [
+  { label: 'Bio', to: '/bio', icon: 'mdi-account-box-outline' },
+  { label: 'Guide', to: '/guide', icon: 'mdi-compass-outline' },
   { label: 'Store', to: '/store', icon: 'mdi-store' },
   { label: 'Chat', to: '/chat', icon: 'mdi-chat' },
-  { label: 'Schedule', to: '/schedule', icon: 'mdi-calendar-clock' },
-  { label: 'Guide', to: '/guide', icon: 'mdi-compass-outline' },
+  { label: 'Schedule', to: '/schedule', icon: 'mdi-calendar-clock' }
 ]
 </script>
