@@ -1,6 +1,6 @@
 <template>
   <v-footer app :color="footerColor" class="py-6 px-4 px-sm-8"
-    :class="{ 'text-white': isDarkOrSepia, 'text-black': !isDarkOrSepia }">
+    :class="textClass">
     <v-container>
       <div class="d-flex mb-2">
         <v-btn variant="text" density="compact" icon @click="expanded = !expanded">
@@ -25,7 +25,7 @@
               <v-expansion-panel-title>{{ $t('footer.sections.more') }}</v-expansion-panel-title>
               <v-expansion-panel-text>
                 <v-list dense nav>
-                  <v-list-item :to="'/biography'" link>
+                  <v-list-item :to="'/bio'" link>
                     <v-list-item-title>{{ $t('nav.biography') }}</v-list-item-title>
                   </v-list-item>
                   <v-list-item :href="githubUrl" target="_blank">
@@ -51,7 +51,7 @@
             </v-col>
             <v-col cols="6" sm="3">
               <h6 class="text-subtitle-1 mb-2">{{ $t('footer.sections.more') }}</h6>
-              <NuxtLink to="/biography" class="d-block mb-1" :class="textClass">
+              <NuxtLink to="/bio" class="d-block mb-1" :class="textClass">
                 {{ $t('nav.biography') }}
               </NuxtLink>
               <a :href="githubUrl" target="_blank" class="d-block mb-1" :class="textClass">
@@ -98,7 +98,6 @@ const currentTheme = computed(() => {
   return mode
 })
 
-const isDarkOrSepia = computed(() => ['dark', 'sepia'].includes(currentTheme.value))
 const footerColor = computed(() => {
   switch (currentTheme.value) {
     case 'dark': return 'grey-darken-4'
@@ -106,13 +105,26 @@ const footerColor = computed(() => {
     default: return 'grey-lighten-4'
   }
 })
-const textClass = computed(() => isDarkOrSepia.value ? 'text-white' : 'text-black')
+
+const textClass = computed(() => {
+  switch (currentTheme.value) {
+    case 'dark':
+      return 'text-white'
+    case 'sepia':
+      // Use the neutralColor from the cookie, fallback to a default if not set
+      return cookie.value?.neutralColor
+        ? `text-${cookie.value.neutralColor.replace('#', '')}`
+        : 'text-brown'
+    default:
+      return 'text-black'
+  }
+})
 
 const navLinks = [
   { label: 'nav.store', to: '/store' },
   { label: 'nav.chat', to: '/chat' },
   { label: 'nav.schedule', to: '/schedule' },
-  { label: 'nav.guide', to: '/guide' },
+  { label: 'nav.guide', to: '/camnang' },
 ]
 
 // Get GitHub URL from runtime config (.env)

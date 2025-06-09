@@ -3,7 +3,7 @@
   <v-app>
     <TheNav />
     <v-main>
-      <v-container fluid>
+      <v-container fluid class="mx-2 mx-sm-4 mx-md-8">
         <NuxtPage />
       </v-container>
     </v-main>
