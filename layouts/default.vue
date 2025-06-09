@@ -3,7 +3,9 @@
   <v-app>
     <TheNav />
     <v-main>
-      <NuxtPage />
+      <v-container fluid>
+        <NuxtPage />
+      </v-container>
     </v-main>
     <AppFooter />
   </v-app>

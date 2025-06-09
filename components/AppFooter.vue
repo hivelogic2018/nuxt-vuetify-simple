@@ -1,69 +1,3 @@
-<template>
-  <v-footer
-    app
-    :color="footerColor"
-    class="py-6 px-8"
-    :class="{ 'text-white': isDarkOrSepia, 'text-black': !isDarkOrSepia }"
-  >
-    <v-container>
-      <v-expansion-panels v-if="isMobile" flat>
-        <v-expansion-panel>
-          <v-expansion-panel-title>{{ $t('footer.sections.navigation') }}</v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <v-list dense nav>
-              <v-list-item v-for="item in navLinks" :key="item.to" :to="item.to" link>
-                <v-list-item-title>{{ $t(item.label) }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-title>{{ $t('footer.sections.more') }}</v-expansion-panel-title>
-          <v-expansion-panel-text>
-            <v-list dense nav>
-              <v-list-item :to="'/biography'" link>
-                <v-list-item-title>{{ $t('nav.biography') }}</v-list-item-title>
-              </v-list-item>
-              <v-list-item href="https://github.com/hivelogic2018/nuxt-vuetify-simple" target="_blank">
-                <v-list-item-title>GitHub</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-expansion-panel-text>
-        </v-expansion-panel>
-      </v-expansion-panels>
-
-      <v-row v-else>
-        <v-col cols="12" sm="6">
-          <h4 class="text-h6 mb-2">My App</h4>
-          <p class="text-caption">
-            {{ $t('footer.description') }}
-          </p>
-        </v-col>
-        <v-col cols="6" sm="3">
-          <h6 class="text-subtitle-1 mb-2">{{ $t('footer.sections.navigation') }}</h6>
-          <NuxtLink v-for="item in navLinks" :key="item.to" :to="item.to" class="d-block mb-1" :class="textClass">
-            {{ $t(item.label) }}
-          </NuxtLink>
-        </v-col>
-        <v-col cols="6" sm="3">
-          <h6 class="text-subtitle-1 mb-2">{{ $t('footer.sections.more') }}</h6>
-          <NuxtLink to="/biography" class="d-block mb-1" :class="textClass">
-            {{ $t('nav.biography') }}
-          </NuxtLink>
-          <a href="https://github.com/hivelogic2018/nuxt-vuetify-simple" target="_blank" class="d-block mb-1" :class="textClass">
-            GitHub
-          </a>
-        </v-col>
-      </v-row>
-
-      <v-divider class="my-4" />
-      <div class="text-caption text-center">
-        &copy; {{ new Date().getFullYear() }} My App. {{ $t('footer.rights') }}
-      </div>
-    </v-container>
-  </v-footer>
-</template>
-
 <script setup lang="ts">
 import { useDisplay } from 'vuetify'
 import { useTheme } from 'vuetify'
@@ -105,4 +39,73 @@ const navLinks = [
   { label: 'nav.schedule', to: '/schedule' },
   { label: 'nav.guide', to: '/guide' },
 ]
+
+// Get GitHub URL from runtime config (.env)
+const githubUrl = useRuntimeConfig().public.githubUrl
 </script>
+
+<template>
+  <v-footer
+    app
+    :color="footerColor"
+    class="py-6 px-8"
+    :class="{ 'text-white': isDarkOrSepia, 'text-black': !isDarkOrSepia }"
+  >
+    <v-container>
+      <v-expansion-panels v-if="isMobile" flat>
+        <v-expansion-panel>
+          <v-expansion-panel-title>{{ $t('footer.sections.navigation') }}</v-expansion-panel-title>
+          <v-expansion-panel-text>
+            <v-list dense nav>
+              <v-list-item v-for="item in navLinks" :key="item.to" :to="item.to" link>
+                <v-list-item-title>{{ $t(item.label) }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-expansion-panel-text>
+        </v-expansion-panel>
+        <v-expansion-panel>
+          <v-expansion-panel-title>{{ $t('footer.sections.more') }}</v-expansion-panel-title>
+          <v-expansion-panel-text>
+            <v-list dense nav>
+              <v-list-item :to="'/biography'" link>
+                <v-list-item-title>{{ $t('nav.biography') }}</v-list-item-title>
+              </v-list-item>
+              <v-list-item :href="githubUrl" target="_blank">
+                <v-list-item-title>GitHub</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-expansion-panel-text>
+        </v-expansion-panel>
+      </v-expansion-panels>
+
+      <v-row v-else>
+        <v-col cols="12" sm="6">
+          <h4 class="text-h6 mb-2">My App</h4>
+          <p class="text-caption">
+            {{ $t('footer.description') }}
+          </p>
+        </v-col>
+        <v-col cols="6" sm="3">
+          <h6 class="text-subtitle-1 mb-2">{{ $t('footer.sections.navigation') }}</h6>
+          <NuxtLink v-for="item in navLinks" :key="item.to" :to="item.to" class="d-block mb-1" :class="textClass">
+            {{ $t(item.label) }}
+          </NuxtLink>
+        </v-col>
+        <v-col cols="6" sm="3">
+          <h6 class="text-subtitle-1 mb-2">{{ $t('footer.sections.more') }}</h6>
+          <NuxtLink to="/biography" class="d-block mb-1" :class="textClass">
+            {{ $t('nav.biography') }}
+          </NuxtLink>
+          <a :href="githubUrl" target="_blank" class="d-block mb-1" :class="textClass">
+            GitHub
+          </a>
+        </v-col>
+      </v-row>
+
+      <v-divider class="my-4" />
+      <div class="text-caption text-center">
+        &copy; {{ new Date().getFullYear() }} My App. {{ $t('footer.rights') }}
+      </div>
+    </v-container>
+  </v-footer>
+</template>
