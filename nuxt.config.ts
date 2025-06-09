@@ -97,4 +97,9 @@ export default defineNuxtConfig({
       },
     },
   },
+  runtimeConfig: {
+    public: {
+      githubUrl: process.env.NUXT_PUBLIC_GITHUB_URL
+    }
+  },
 })

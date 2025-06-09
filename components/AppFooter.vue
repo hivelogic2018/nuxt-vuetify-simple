@@ -58,7 +58,7 @@
 
       <v-divider class="my-4" />
       <div class="text-caption text-center">
-        &copy; {{ new Date().getFullYear() }} Dạy Nghề IT / Học Nghề IT {{ $t('footer.rights') }}
+        &copy; {{ new Date().getFullYear() }} My App. {{ $t('footer.rights') }}
       </div>
     </v-container>
   </v-footer>
@@ -100,16 +100,19 @@ const footerColor = computed(() => {
 })
 const textClass = computed(() => isDarkOrSepia.value ? 'text-white' : 'text-black')
 
-type LanguageCode = 'en' | 'fr' | 'vi'
-
 const { locale } = useI18n()
 const langCookie = useCookie('lang', {
-  default: () => 'en'
+  default: () => 'en' // ✅ updated default language to English
 })
-const allowedLangs: LanguageCode[] = ['en', 'fr', 'vi']
-locale.value = allowedLangs.includes(langCookie.value as LanguageCode)
-  ? (langCookie.value as LanguageCode)
-  : 'en'
+
+type LanguageCode = 'en' | 'fr' | 'vi'
+const languages = {
+  en: 'English',
+  fr: 'Français',
+  vi: 'Tiếng Việt',
+}
+
+locale.value = languages[langCookie.value as LanguageCode] ? (langCookie.value as LanguageCode) : 'en'
 
 const navLinks = [
   { label: 'nav.store', to: '/store' },

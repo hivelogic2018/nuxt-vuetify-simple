@@ -75,12 +75,25 @@ import ThemeSwitcher from './ThemeSwitcher.vue'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 import { useRoute } from 'vue-router'
 import { ref } from 'vue'
+import { useCookie } from '#app'
+
+type LanguageCode = 'en' | 'fr' | 'vi'
+const languages = {
+  en: 'English',
+  fr: 'Français',
+  vi: 'Tiếng Việt'
+}
 
 const theme = useTheme()
 const $route = useRoute()
 const drawer = ref(false)
 
-const githubUrl = 'https://github.com/hivelogic2018/nuxt-vuetify-simple'
+const { locale } = useI18n()
+const langCookie = useCookie('lang', { default: () => 'en' })
+
+locale.value = languages[langCookie.value as LanguageCode] ? (langCookie.value as LanguageCode) : 'en'
+
+const githubUrl = import.meta.env.VITE_GITHUB_URL
 
 const navItems = [
   { label: 'nav.biography', to: '/bio', icon: 'mdi-account-box-outline' },

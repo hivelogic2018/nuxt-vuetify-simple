@@ -25,23 +25,22 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-
-const { locale } = useI18n()
-// const langCookie = useCookie('lang', {
-//   default: () => 'vi'
-// })
+import { useCookie } from '#app'
 
 type LanguageCode = 'en' | 'fr' | 'vi'
-
 const languages = {
   en: 'English',
   fr: 'Français',
-  vi: 'Tiếng Việt',
+  vi: 'Tiếng Việt'
 }
 
-// locale.value = languages[langCookie.value as LanguageCode] ? (langCookie.value as LanguageCode) : 'vi'
+const { locale } = useI18n()
+const langCookie = useCookie('lang', { default: () => 'en' })
+
+locale.value = languages[langCookie.value as LanguageCode] ? (langCookie.value as LanguageCode) : 'en'
 
 function setLanguage(code: LanguageCode) {
   locale.value = code
+  langCookie.value = code
 }
 </script>
