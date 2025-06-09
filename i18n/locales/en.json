@@ -5,5 +5,13 @@
     "schedule": "Schedule",
     "guide": "Guide",
     "biography": "Bio"
+  },
+  "footer": {
+    "description": "Open source, customizable Nuxt + Vuetify starter.",
+    "rights": "All rights reserved.",
+    "sections": {
+      "navigation": "Navigation",
+      "more": "More"
+    }
   }
 }

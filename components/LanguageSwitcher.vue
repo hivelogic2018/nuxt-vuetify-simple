@@ -27,6 +27,11 @@
 import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()
+// const langCookie = useCookie('lang', {
+//   default: () => 'vi'
+// })
+
+type LanguageCode = 'en' | 'fr' | 'vi'
 
 const languages = {
   en: 'English',
@@ -34,7 +39,7 @@ const languages = {
   vi: 'Tiếng Việt',
 }
 
-type LanguageCode = 'en' | 'fr' | 'vi'
+// locale.value = languages[langCookie.value as LanguageCode] ? (langCookie.value as LanguageCode) : 'vi'
 
 function setLanguage(code: LanguageCode) {
   locale.value = code

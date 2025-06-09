@@ -1,13 +1,15 @@
 <!-- layouts/default.vue -->
-<script lang="ts" setup>
-import TheNav from '~/components/TheNav.vue'
-</script>
-
 <template>
   <v-app>
     <TheNav />
     <v-main>
       <NuxtPage />
     </v-main>
+    <AppFooter />
   </v-app>
 </template>
+
+<script lang="ts" setup>
+import TheNav from '~/components/TheNav.vue'
+import AppFooter from '~/components/AppFooter.vue'
+</script>

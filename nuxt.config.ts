@@ -67,11 +67,11 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'en',
     strategy: 'no_prefix', // URLs like / not /en
-    langDir: 'locales/',
+    langDir: 'locales',
     lazy: true,
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: 'i18n_redirected',
+      cookieKey: 'lang',
       fallbackLocale: 'en',
     }
   },

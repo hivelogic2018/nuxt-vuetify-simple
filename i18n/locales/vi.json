@@ -1,9 +1,17 @@
 {
   "nav": {
     "store": "Cửa hàng",
-    "chat": "Chat",
+    "chat": "Giao tiếp Chat",
     "schedule": "Đặt hẹn",
     "guide": "Cẩm nang",
     "biography": "Giới thiệu"
+  },
+  "footer": {
+    "description": "Mẫu Nuxt3 + Vuetify3 mã nguồn mở, có thể tùy chỉnh.",
+    "rights": "Bản quyền thuộc về.",
+    "sections": {
+      "navigation": "Điều hướng",
+      "more": "Thêm"
+    }
   }
 }

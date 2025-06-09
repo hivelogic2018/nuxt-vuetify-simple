@@ -63,7 +63,7 @@
         @click="drawer = false"
       >
         <v-icon>{{ item.icon }}</v-icon>
-        <v-list-item-title>{{ item.label }}</v-list-item-title>
+        <v-list-item-title>{{ $t(item.label) }}</v-list-item-title>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -82,13 +82,11 @@ const drawer = ref(false)
 
 const githubUrl = 'https://github.com/hivelogic2018/nuxt-vuetify-simple'
 
-const { t } = useI18n()
-
 const navItems = [
-  { label: t('nav.biography'), to: '/bio', icon: 'mdi-account-box-outline' },
-  { label: t('nav.guide'), to: '/camnang', icon: 'mdi-compass-outline' },
-  { label: t('nav.store'), to: '/store', icon: 'mdi-store' },
-  { label: t('nav.chat'), to: '/chat', icon: 'mdi-chat' },
-  { label: t('nav.schedule'), to: '/schedule', icon: 'mdi-calendar-clock' }
+  { label: 'nav.biography', to: '/bio', icon: 'mdi-account-box-outline' },
+  { label: 'nav.guide', to: '/camnang', icon: 'mdi-compass-outline' },
+  { label: 'nav.store', to: '/store', icon: 'mdi-store' },
+  { label: 'nav.chat', to: '/chat', icon: 'mdi-chat' },
+  { label: 'nav.schedule', to: '/schedule', icon: 'mdi-calendar-clock' }
 ]
 </script>

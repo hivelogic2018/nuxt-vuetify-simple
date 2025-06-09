@@ -5,5 +5,13 @@
     "schedule": "Planning",
     "guide": "Guide",
     "biography": "Biographie"
+  },
+  "footer": {
+    "description": "Modèle Nuxt3 + Vuetify3 open source, personnalisable.",
+    "rights": "Tous droits réservés.",
+    "sections": {
+      "navigation": "Navigation",
+      "more": "Plus"
+    }
   }
 }
