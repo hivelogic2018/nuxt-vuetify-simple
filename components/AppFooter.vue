@@ -67,7 +67,6 @@
 <script setup lang="ts">
 import { useDisplay } from 'vuetify'
 import { useTheme } from 'vuetify'
-import { useI18n } from 'vue-i18n'
 import { useCookie } from '#app'
 import { computed } from 'vue'
 
@@ -99,20 +98,6 @@ const footerColor = computed(() => {
   }
 })
 const textClass = computed(() => isDarkOrSepia.value ? 'text-white' : 'text-black')
-
-const { locale } = useI18n()
-const langCookie = useCookie('lang', {
-  default: () => 'en' // ✅ updated default language to English
-})
-
-type LanguageCode = 'en' | 'fr' | 'vi'
-const languages = {
-  en: 'English',
-  fr: 'Français',
-  vi: 'Tiếng Việt',
-}
-
-locale.value = languages[langCookie.value as LanguageCode] ? (langCookie.value as LanguageCode) : 'en'
 
 const navLinks = [
   { label: 'nav.store', to: '/store' },

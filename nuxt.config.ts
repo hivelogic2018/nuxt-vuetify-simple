@@ -49,10 +49,10 @@ export default defineNuxtConfig({
     enabled: true
   },
   modules: [
+    '@nuxtjs/i18n',
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/fonts',
-    '@nuxtjs/i18n',
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
@@ -69,6 +69,7 @@ export default defineNuxtConfig({
     strategy: 'no_prefix', // URLs like / not /en
     langDir: 'locales',
     lazy: true,
+    restructureDir: false,
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'lang',

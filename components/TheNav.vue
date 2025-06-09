@@ -30,7 +30,7 @@
         }"
       >
         <v-icon size="20" class="mr-1">{{ item.icon }}</v-icon>
-        {{ item.label }}
+        {{ $t(item.label) }}
       </NuxtLink>
     </div>
 
@@ -75,25 +75,12 @@ import ThemeSwitcher from './ThemeSwitcher.vue'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 import { useRoute } from 'vue-router'
 import { ref } from 'vue'
-import { useCookie } from '#app'
-
-type LanguageCode = 'en' | 'fr' | 'vi'
-const languages = {
-  en: 'English',
-  fr: 'Français',
-  vi: 'Tiếng Việt'
-}
 
 const theme = useTheme()
 const $route = useRoute()
 const drawer = ref(false)
 
-const { locale } = useI18n()
-const langCookie = useCookie('lang', { default: () => 'en' })
-
-locale.value = languages[langCookie.value as LanguageCode] ? (langCookie.value as LanguageCode) : 'en'
-
-const githubUrl = import.meta.env.VITE_GITHUB_URL
+const githubUrl = useRuntimeConfig().public.githubUrl
 
 const navItems = [
   { label: 'nav.biography', to: '/bio', icon: 'mdi-account-box-outline' },
