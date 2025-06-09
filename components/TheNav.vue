@@ -8,7 +8,7 @@
       <NuxtLink
         to="/"
         style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;"
-        :style="{ color: theme.global.current.value.colors.primary }"
+        :style="{ color: get(theme, 'global.current.value.colors.primary', '#1976d2') }"
       >
         <v-icon size="24">mdi-home-circle-outline</v-icon>
         My App
@@ -25,8 +25,8 @@
         style="text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 1.2rem;"
         :style="{
           color: $route.path === item.to
-            ? theme.global.current.value.colors.primary
-            : theme.global.current.value.colors.neutral
+            ? get(theme, 'global.current.value.colors.primary', '#1976d2')
+            : get(theme, 'global.current.value.colors.neutral', '#333'),
         }"
       >
         <v-icon size="20" class="mr-1">{{ item.icon }}</v-icon>
@@ -75,6 +75,7 @@ import ThemeSwitcher from './ThemeSwitcher.vue'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 import { useRoute } from 'vue-router'
 import { ref } from 'vue'
+import get from 'lodash/get'
 
 const theme = useTheme()
 const $route = useRoute()

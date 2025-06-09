@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useTheme } from 'vuetify'
+import get from 'lodash/get'
 
 const num = useState<number>('num', () => Math.floor(Math.random() * 100));
 const refreshNum = () => {
@@ -7,7 +8,8 @@ const refreshNum = () => {
 };
 
 const theme = useTheme()
-const neutral = computed(() => theme.global.current.value.colors.neutral)
+const neutral = computed(() => get(theme, 'global.current.value.colors.neutral', '#6B7280'))
+
 </script>
 
 <template>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useTheme } from 'vuetify'
+import get from 'lodash/get'
 
 const showToc = ref(false)
 const { data: page } = await useAsyncData(() => queryCollection('content').path('/').first())
@@ -14,7 +15,7 @@ useSeoMeta({
 })
 
 const theme = useTheme()
-const neutral = computed(() => theme.global.current.value.colors.neutral)
+const neutral = computed(() => get(theme, 'global.current.value.colors.neutral', '#6B7280'))
 </script>
 
 <template>
