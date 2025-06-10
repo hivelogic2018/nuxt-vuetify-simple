@@ -90,4 +90,5 @@ const navItems = [
   { label: 'nav.chat', to: '/chat', icon: 'mdi-chat' },
   { label: 'nav.schedule', to: '/schedule', icon: 'mdi-calendar-clock' }
 ]
+// thêm trang các khoá học, dịch vụ, liên hệ
 </script>
