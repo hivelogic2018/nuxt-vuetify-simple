@@ -11,7 +11,7 @@
         :style="{ color: get(theme, 'global.current.value.colors.primary', '#1976d2') }"
       >
         <v-icon size="24">mdi-home-circle-outline</v-icon>
-        Học Nghề
+        {{ $t('nav.title') }}
       </NuxtLink>
     </v-toolbar-title>
 
