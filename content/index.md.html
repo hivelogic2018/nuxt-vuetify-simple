@@ -8,8 +8,10 @@
 
 * [`Web application development fundamentals`{style="color: green"}](#web-application-development-fundamentalsstylecolor-green)
   * [A) Ba thành phần của ngành phát triển ứng dụng:](#a-ba-thành-phần-của-ngành-phát-triển-ứng-dụng)
+    * [A.1) HTML: Hypertext Markup Language: ngôn ngữ HTML để viết trang web](#a1-html-hypertext-markup-language-ngôn-ngữ-html-để-viết-trang-web)
     * [A.2) Cascading Style Sheets (CSS):](#a2-cascading-style-sheets-css)
     * [A.3) Javascript/Typescript:](#a3-javascripttypescript)
+      * [A.3.1) Javascript: là gì:](#a31-javascript-là-gì)
   * [::IVideo](#ivideo)
   * [embed-url: https://www.youtube.com/embed/videoseries?list=PL28Ap55o84DTu8qRGXpvyBcKYUGfVFxy9
     thumbnail-url: https://img.youtube.com/vi/dmSsjByhPBg/hqdefault.jpg
@@ -18,6 +20,7 @@
   * [::IVideo](#ivideo-1)
   * [video-id: hdI2bqOjy3c
     title: Traversy Media JavaScript Crash Course](#video-id-hdi2bqojy3ctitle-traversy-media-javascript-crash-course)
+    * * [A.3.2) Typescript là gì](#a32-typescript-là-gì)
     * [A.4) Các thư viện để viết ứng dụng web (web app) frameworks and libraries to build web app:](#a4-các-thư-viện-để-viết-ứng-dụng-web-web-app-frameworks-and-libraries-to-build-web-app)
 * [`HỌC NGÔN NGỮ JAVASCRIPT: LẬP TRÌNH VIẾT SCRIPT, VIẾT CODE VỚI JAVASCRIPT, TYPESCRIPT`{style="color: green"}](#học-ngôn-ngữ-javascript-lập-trình-viết-script-viết-code-với-javascript-typescriptstylecolor-green)
   * [B) Data types: Các kiểu dữ liệu:](#b-data-types-các-kiểu-dữ-liệu)
@@ -27,6 +30,7 @@
       * [B.1.3) Kiểu mệnh đề Đúng/Sai: Boolean](#b13-kiểu-mệnh-đề-đúngsai-boolean)
     * [B.2) NON-PRIMITIVE DATA TYPES: các kiểu dữ liệu phức hợp (không thuần tuý):](#b2-non-primitive-data-types-các-kiểu-dữ-liệu-phức-hợp-không-thuần-tuý)
       * [B.2.1) Kiểu mảng (Array):](#b21-kiểu-mảng-array)
+      * [B.2.2) Kiểu đối tượng hay còn gọi dễ hiểu là kiểu phức hợp:](#b22-kiểu-đối-tượng-hay-còn-gọi-dễ-hiểu-là-kiểu-phức-hợp)
   * [C) Basic looping methods in Javascript: Các vòng lặp phổ biến trong lập trình](#c-basic-looping-methods-in-javascript-các-vòng-lặp-phổ-biến-trong-lập-trình)
   * [D) Javascript native methods-Các hàm tự nhiên trong Javascript](#d-javascript-native-methods-các-hàm-tự-nhiên-trong-javascript)
     * [D.1) String prototype và functions: Kiểu mẫu String và các hàm thao tác chuỗi ký tự](#d1-string-prototype-và-functions-kiểu-mẫu-string-và-các-hàm-thao-tác-chuỗi-ký-tự)
@@ -73,9 +77,7 @@ A website has four parts, HTML, CSS, JS, and data.
 
 A very computer science-y answer for `data`{style="color: green"} would be: things like `"strings"`{style="color: green"}, `integers (42)`{style="color: green"}, `objects ({ pizza: true })`{style="color: green"}, etc.
 
-```
 ### A.1) HTML: Hypertext Markup Language: ngôn ngữ HTML để viết trang web
-```
 
 Hãy xem ví dụ dưới đây về cấu trúc 1 trang web trong file `index.html`{style="color: green"}. File chứa các thẻ căn bản khai báo cho trang web
 
@@ -125,9 +127,7 @@ https://itviec.com/blog/css-la-gi/
 
 ### A.3) Javascript/Typescript:
 
-```
 #### A.3.1) Javascript: là gì:
-```
 
 https://aws.amazon.com/vi/what-is/javascript/ (có giải thích tiếng Việt)
 
@@ -161,9 +161,7 @@ title: Traversy Media JavaScript Crash Course
 
 ::
 
-```
 #### A.3.2) Typescript là gì
-```
 
 TypeScript là một ngôn ngữ lập trình mã nguồn mở phát triển bởi Microsoft. Nó được phát triển dựa trên JavaScript, nhưng bổ sung thêm tính năng kiểu tĩnh (static typing) và một số tính năng nâng cao khác. TypeScript cho phép lập trình viên viết mã JavaScript theo cú pháp của TypeScript, sau đó mã đó có thể được biên dịch (transpile) thành mã JavaScript thuần để chạy trên các trình duyệt hoặc môi trường chạy JavaScript khác nhau.
 
@@ -273,10 +271,11 @@ let students = [{
 }]
 ```
 
-```
+<br>
+
 #### B.2.2) Kiểu đối tượng hay còn gọi dễ hiểu là kiểu phức hợp:
-  vì nó có thể bao gồm các giá trị (property value) đa dạng cho các thuộc tính (property)
-```
+
+vì nó có thể bao gồm các giá trị (property value) đa dạng cho các thuộc tính (property)
 
 (đối tượng tiếng anh gọi là Object, ví dụ đối tượng cá thể, vật thể,...):
 
@@ -285,29 +284,29 @@ ví dụ: đối tượng sinh viên với tên biến là studentObject, có th
 ```js
 let studentObject = {
 
-ten: 'An',
+  ten: 'An',
 
-tuoi: 30,
+  tuoi: 30,
 
-ngaysinh: '06/30/1994',
+  ngaysinh: '06/30/1994',
 
-courses: [
+  courses: [
 
-{ tenlop: 'English101', giaovien: 'co Kim'} ,
+    { tenlop: 'English101', giaovien: 'co Kim'} ,
 
-{ tenlop: 'Maths', giaovien: 'co Oanh' },
+    { tenlop: 'Maths', giaovien: 'co Oanh' },
 
-{ tenlop: 'Physics', giaovien: 'co Hue'} ,
+    { tenlop: 'Physics', giaovien: 'co Hue'} ,
 
-{ tenlop: 'Su', giaovien: 'thay Truyen' },
+    { tenlop: 'Su', giaovien: 'thay Truyen' },
 
-{ tenlop: 'Dia', giaovien: 'thay Quoc' }
+    { tenlop: 'Dia', giaovien: 'thay Quoc' }
 
-],
+  ],
 
-dangHoc: true,
+  dangHoc: true,
 
-sothich: ['xem phim', 'nghe nhac', 'choi the thao']
+  sothich: ['xem phim', 'nghe nhac', 'choi the thao']
 
 }
 ```
