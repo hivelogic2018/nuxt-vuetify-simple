@@ -6,7 +6,8 @@ date: 2025-05-25
 # Table of Contents
 
 # `Web application development fundamentals`{style="color: green"}
-## 1) Ba thành phần của ngành phát triển ứng dụng - Web application development fundamentals consist of 3 building blocks :
+## A) Ba thành phần của ngành phát triển ứng dụng:
+  (Web application development fundamentals consist of 3 building blocks):
 In a nutshell, a website / web app is like the combo of HTML, CSS and Javascript that look like the picture below,
 
 Vắn tắt trang web hay ứng dụng web gồm có 3 thành phần sau: HTML, CSS và Javascript (JS),
@@ -21,7 +22,7 @@ A website has four parts, HTML, CSS, JS, and data.
 
 A very computer science-y answer for `data`{style="color: green"} would be: things like `"strings"`{style="color: green"}, `integers (42)`{style="color: green"}, `objects ({ pizza: true })`{style="color: green"}, etc.
 
-  ### 1.1) HTML: Hypertext Mark-up Language: ngôn ngữ HTML để viết trang web
+    ### A.1) HTML: Hypertext Markup Language: ngôn ngữ HTML để viết trang web
 Hãy xem ví dụ dưới đây về cấu trúc 1 trang web trong file `index.html`{style="color: green"}. File chứa các thẻ căn bản khai báo cho trang web
 
 ```html
@@ -54,7 +55,7 @@ Hãy xem ví dụ dưới đây về cấu trúc 1 trang web trong file `index.h
 </html>
 ```
 
-  ### 1.2) Cascading Style Sheets (CSS):
+  ### A.2) Cascading Style Sheets (CSS):
 
 is a stylesheet language used to describe the presentation of a document written in HTML or XML
 
@@ -68,9 +69,9 @@ https://200lab.io/blog/css-la-gi/
 
 https://itviec.com/blog/css-la-gi/
 
-  ### 1.3) Javascript / Typescript:
+  ### A.3) Javascript/Typescript:
 
-    #### 1.3.1) Javascript: là gì:
+    #### A.3.1) Javascript: là gì:
 
 https://aws.amazon.com/vi/what-is/javascript/ (có giải thích tiếng Việt)
 
@@ -102,7 +103,7 @@ title: Traversy Media JavaScript Crash Course
 ---
 ::
 
-    #### 1.3.2) Typescript là gì
+    #### A.3.2) Typescript là gì
 
 TypeScript là một ngôn ngữ lập trình mã nguồn mở phát triển bởi Microsoft. Nó được phát triển dựa trên JavaScript, nhưng bổ sung thêm tính năng kiểu tĩnh (static typing) và một số tính năng nâng cao khác. TypeScript cho phép lập trình viên viết mã JavaScript theo cú pháp của TypeScript, sau đó mã đó có thể được biên dịch (transpile) thành mã JavaScript thuần để chạy trên các trình duyệt hoặc môi trường chạy JavaScript khác nhau.
 
@@ -118,7 +119,7 @@ https://bootcamp.uxdesign.cc/mastering-typescript-10-essential-features-for-writ
 
 https://fptshop.com.vn/tin-tuc/danh-gia/typescript-168823
 
-  ### 1.4) Các thư viện để viết ứng dụng web (web app) - frameworks and libraries to build web app:
+  ### A.4) Các thư viện để viết ứng dụng web (web app) frameworks and libraries to build web app:
 
 Vue 3, React, Angular
 
@@ -126,9 +127,9 @@ Vue 3, React, Angular
 
 để làm (build) desktop app (ứng dụng chạy trên OS: Windows, Mac) : Electron
 
-=== HỌC NGÔN NGỮ JAVASCRIPT: LẬP TRÌNH VIẾT SCRIPT, VIẾT CODE VỚI JAVASCRIPT / TYPESCRIPT ===
+# `HỌC NGÔN NGỮ JAVASCRIPT: LẬP TRÌNH VIẾT SCRIPT, VIẾT CODE VỚI JAVASCRIPT, TYPESCRIPT`{style="color: green"}
 
-## 2) Data types - Các kiểu dữ liệu:
+## B) Data types: Các kiểu dữ liệu:
 
 Từ khoá để khai báo variable / biến: **`let`** và **`const`**, giờ rất ít dùng `var`{style="color: purple"}
 
@@ -136,9 +137,9 @@ Khai báo biến dùng **`let`**, khai báo hằng dùng **`const`**
 
 Khai báo array/object có thể dùng `let`{style="color: green"} / `const`{style="color: green"} tuỳ thích, nhưng thường dùng `const`{style="color: green"} để tránh việc thay đổi giá trị của biến array/object
 
-  ### 2.1) PRIMITIVE DATA TYPES: các kiểu dữ liệu đơn, thuần tuý
+  ### B.1) PRIMITIVE DATA TYPES: các kiểu dữ liệu đơn, thuần tuý
 
-    #### 2.1.1) Kiểu chuỗi: string
+  #### B.1.1) Kiểu chuỗi: string
 
 ví dụ:
 ```js
@@ -149,7 +150,7 @@ let ten = 'An'
 
 khai báo biến name với giá trị tên John, và biến ten với giá trị An
 
-    #### 2.1.2) Kiểu số: number
+  #### B.1.2) Kiểu số: number
 
 ví dụ:
 ```js
@@ -159,7 +160,7 @@ let thue = 0.1
 ```
 Khai báo biến pi với giá trị 3.14, và biến thue với giá trị 0.1 ( ~ 10%)
 
-    #### 2.1.3) Kiểu mệnh đề Đúng/Sai : Boolean
+  #### B.1.3) Kiểu mệnh đề Đúng/Sai: Boolean
 
 ví dụ:
 ```js
@@ -170,9 +171,9 @@ let coBangLai = false
 
 Khai báo biến tren18tuoi với giá trị true - đúng, và biến coBangLai với giá trị false - sai
 
-  ### 2.2) NON-PRIMITIVE DATA TYPES: các kiểu dữ liệu phức hợp (không thuần tuý):
+  ### B.2) NON-PRIMITIVE DATA TYPES: các kiểu dữ liệu phức hợp (không thuần tuý):
 
-    #### 2.2.1) Kiểu mảng - Array:
+  #### B.2.1) Kiểu mảng (Array):
 
 Mảng chứa các phần tử (elements), mỗi phần tử (element) có thể là thuộc một trong đa dạng các kiểu dữ liệu thuần (primitive data type kể trên).
 
@@ -206,7 +207,7 @@ let students = [{
   dob: '04/15/1995'
 }]
 ```
-    #### 2.2.2) Kiểu đối tượng hay còn gọi dễ hiểu là kiểu phức hợp:
+    #### B.2.2) Kiểu đối tượng hay còn gọi dễ hiểu là kiểu phức hợp:
       vì nó có thể bao gồm các giá trị (property value) đa dạng cho các thuộc tính (property)
 
 (đối tượng tiếng anh gọi là Object, ví dụ đối tượng cá thể, vật thể,...):
@@ -249,7 +250,7 @@ Giá trị thuộc tính có thể là chuỗi (thuộc kiểu dữ liệu chu�
 
 hoặc kiểu dữ liệu phức hợp như courses có giá trị là 1 array (mảng) gồm những objects (đối tượng) bên trong.
 
-## 3) Basic looping methods in Javascript : Các vòng lặp phổ biến trong lập trình
+## C) Basic looping methods in Javascript: Các vòng lặp phổ biến trong lập trình
 
 `For... Loop`{style="color: green"}: Vòng lặp for
 
@@ -273,9 +274,9 @@ https://viblo.asia/p/recursive-function-in-javascript-WrJvYXKRkVO
 
 https://niithanoi.edu.vn/recursion-trong-javascript.html
 
-## 4) Javascript native methods - Các hàm tự nhiên trong Javascript
+## D) Javascript native methods-Các hàm tự nhiên trong Javascript
 
-### 4.1) String prototype & functions: Kiểu mẫu String và các hàm thao tác chuỗi ký tự
+### D.1) String prototype và functions: Kiểu mẫu String và các hàm thao tác chuỗi ký tự
 
 ```js
 let ten = '    Ngoc   '
@@ -298,7 +299,7 @@ thì có nhiều cách làm, gọi là  ví dụ trong Vue:
 
 các cách khác `income.toString()`{style="color: green"} , `income.toNumber()`{style="color: green"}
 
-### 4.2) Array prototype functions: Kiểu mẫu Array - mảng và các hàm xử lý mảng
+### D.2) Array prototype functions: Kiểu mẫu Array, mảng và các hàm xử lý mảng
 
 Các hàm thao tác với dự liệu kiểu Array trong Javascript
 
@@ -322,7 +323,7 @@ web chính thức: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer
 
 liên hệ tới bài học: rút trích, sắp xếp và thao tác danh sách nhân viên dạy riêng
 
-### 4.3) Object prototype functions: Các hàm thao tác với dự liệu kiểu Object trong Javascript
+### D.3) Object prototype functions: Các hàm thao tác với dự liệu kiểu Object trong Javascript
 
 ví dụ:
 ```js
@@ -343,7 +344,7 @@ let giaovien = {
 }
 ```
 
-    #### 4.3.1) Referencing the property value of an object: **Cách gọi thuộc tính**
+  #### D.3.1) Referencing the property value of an object: **Cách gọi thuộc tính**
 ```js
 
 studentObject.name // An
@@ -372,13 +373,13 @@ car.type // 500
 
 car.color // White
 ```
-    #### 4.3.2) Assign new property for the studentObject: gán thuộc tính (property) mới vào trong studentObject:
+  #### D.3.2) Assign new property for the studentObject: gán thuộc tính (property) mới vào trong studentObject:
 
 `studentObject.email = 'annguyen@gmail.com'`{language="js"}
 
 `studentObject.key = 'value'`{language="js"}   -> thuộc tính (property) và giá trị của thuộc tính (property value) còn được hiểu là 1 cặp key-value pair (pair tiếng Anh là 1 cặp, ví dụ: a pair of shoes, a pair of jeans)
 
-    #### 4.3.3) Xoá thuộc tính khỏi studentObject:
+  #### D.3.3) Xoá thuộc tính khỏi studentObject:
 
 `delete studentObject.age`{language="js"}   --> dòng lệnh này sẽ xoá thuộc tính tuổi khỏi đối tượng sinh viên
 
@@ -390,10 +391,10 @@ https://codelearn.io/sharing/object-trong-javascript
 
 https://viblo.asia/p/doi-tuong-object-trong-javascript-63vKjn6dK2R
 
-## 5) Event handler & Event listener in Javascript - Event handler & & Event listener trong Javascript
+## E) Event handler and Event listener in Javascript: Event handler và Event listener trong Javascript
 ...
 
-### 5.1) Event handler: (hàm xử lý sự kiện)
+### E.1) Event handler: (hàm xử lý sự kiện)
 
 Ví dụ:
 ```js
@@ -414,7 +415,7 @@ Sử dụng Javascript one-liner để làm cho code của bạn trông chuyên 
 Trong ví dụ này, thuộc tính onclick được sử dụng để khi người dùng nhấp vào button, nó sẽ in ra dòng chữ "Xin chào!" vào console log.
 Thuộc tính "onclick" chỉ là một trong những EventHandlercó thể sử dụng được thôi. Dước đây là một số thuộc tính thông dụng có thể dùng.
 
-### 5.2) Event Listener
+### E.2) Event Listener
 
 Bằng cách thêm event listener (xài hàm addEventListener để gắn hàm event handler vào - hàm xử lý sự kiện tương tác của người dùng) vào một đối tượng, chúng ta có thể bắt được một loạt các sự kiện do người dùng hoặc trình duyệt tạo ra.
 
@@ -444,7 +445,7 @@ https://www.w3schools.com/js/js_htmldom_eventlistener.asp
 
 https://viblo.asia/p/javascript-event-handlers-va-event-listeners-RQqKLb1rl7z
 
-## 6) Javascript ES6 (version 2015) features
+## F) Javascript ES6 (version 2015) features
 
 Các tính năng của phiên bản Javascript ES6  (2015) Google & để links các trang tham khảo để ac học thêm:
 
@@ -459,9 +460,9 @@ title: 'ES6 ECMAScript là gì'
 ---
 ::
 
-## 7) VUE framework: Chương trình khung / thư viện Vue để làm ứng dụng web interface và các chức năng web
+## G) VUE framework: Chương trình khung, thư viện Vue để làm ứng dụng web interface và các chức năng web
 
-### 7.1) Khái quát về Vue:
+### G.1) Khái quát về Vue:
 
 Gọi tắt là Vue (phát âm là `/vju:/`{style="color: green"}, giống như view trong tiếng Anh),
 Vue.js là một framework linh động (nguyên bản tiếng Anh: progressive - tiệm tiến) dùng để xây dựng giao diện người dùng (user interfaces).
@@ -478,7 +479,7 @@ Tham khảo:
 
 https://kungfutech.edu.vn/posts/tong-quan-ve-vue-3-cho-nguoi-moi-bat-dau-va-uu-nhuoc-diem-cua-vue-3
 
-### 7.2) Web chính thức Official của VUE3:
+### G.2) Web chính thức Official của VUE3:
 - (English) https://vuejs.org/api/application.html
 
 - (English) https://vuejs.org/api/composition-api-setup.html
@@ -487,15 +488,21 @@ https://kungfutech.edu.vn/posts/tong-quan-ve-vue-3-cho-nguoi-moi-bat-dau-va-uu-n
 
 https://vi.vuejs.org/v2/guide/ cái hướng dẫn này dành cho Vue2 thôi, đọc chơi cho hiểu về Vue, chớ ưu tiên là ưu tiên học Vue3
 
+
 Vue 3 là phiên bản mới nhất của framework JavaScript phổ biến Vue.js, được thiết kế để xây dựng giao diện người dùng và ứng dụng một trang (SPA).
 Phiên bản này mang lại nhiều cải tiến và tính năng mới so với Vue 2, hứa hẹn sẽ cải thiện hiệu suất, khả năng mở rộng và trải nghiệm phát triển.
 Dưới đây là tổng quan về Vue 3 cho người mới bắt đầu, cùng với các ưu và nhược điểm của nó.
 
-Composition API là một trong những tính năng đáng chú ý nhất của Vue 3, cho phép các nhà phát triển tổ chức mã theo logic thay vì dựa trên các tùy chọn đối tượng. Điều này làm cho mã dễ tái sử dụng và bảo trì hơn. Ví dụ, bạn có thể tạo ra các hàm riêng biệt để xử lý logic nghiệp vụ, sau đó tái sử dụng chúng trong nhiều thành phần khác nhau.
+Composition API là một trong những tính năng đáng chú ý nhất của Vue 3, cho phép các nhà phát triển tổ chức mã theo logic thay vì dựa trên các tùy chọn đối tượng. Điều này làm cho mã dễ tái sử dụng và bảo trì hơn.
+Ví dụ, bạn có thể tạo ra các hàm riêng biệt để xử lý logic nghiệp vụ, sau đó tái sử dụng chúng trong nhiều thành phần khác nhau.
 
-Improved Reactivity System
+Improved Reactivity System: Cơ chế phản ứng trong Vue 3 đã được cải tiến đáng kể.
 
 Vue 3 giới thiệu hệ thống phản ứng cải tiến, sử dụng Proxies thay vì Object.defineProperty, cho phép Vue theo dõi các thay đổi trên các đối tượng lồng nhau một cách hiệu quả hơn.
+Điều này giúp tăng hiệu suất và giảm thiểu các vấn đề liên quan đến việc theo dõi sự thay đổi của dữ liệu.
+
+Vue 3 cũng hỗ trợ nhiều root elements trong một thành phần, cho phép bạn tạo ra các giao diện phức tạp hơn mà không cần phải sử dụng các thẻ wrapper không cần thiết.
+Điều này giúp giảm thiểu việc sử dụng các thẻ HTML không cần thiết và làm cho mã trở nên sạch sẽ hơn.
 
 **Ưu điểm của Vue 3**
 
@@ -507,11 +514,11 @@ Vue 3 giới thiệu hệ thống phản ứng cải tiến, sử dụng Proxies
 
 **Nhược điểm của Vue 3**
 
-  Con đường học tập: Những người mới làm quen với Vue có thể thấy khó khăn khi tiếp cận với các khái niệm như Composition API.
+  Lộ trình học tập: Những người mới làm quen với Vue có thể thấy khó khăn khi tiếp cận với các quy ước và khái niệm như Composition API.
 
   Cộng đồng và tài nguyên: Mặc dù Vue 3 đang ngày càng phổ biến, nhưng số lượng tài nguyên và thư viện hỗ trợ vẫn còn ít hơn so với Vue 2.
 
-  Cần cập nhật: Các dự án hiện tại sử dụng Vue 2 có thể cần phải cập nhật và thích ứng với các API mới của Vue 3, điều này có thể đòi hỏi công sức và thời gian đáng kể.
+  Cần cập nhật: Các dự án hiện tại sử dụng Vue 2 có thể cần phải cập nhật và thích ứng với các tính năng - các API hooks mới của Vue 3, điều này có thể đòi hỏi công sức và thời gian đáng kể.
 
   Vue 3 mang lại nhiều cải tiến đáng kể so với phiên bản trước, làm cho nó trở thành một lựa chọn hấp dẫn cho cả các dự án mới và việc nâng cấp các ứng dụng hiện tại. Tuy nhiên, như mọi công nghệ mới, nó cũng đòi hỏi sự đầu tư thời gian để học hỏi và thích nghi.
 
@@ -525,7 +532,7 @@ video-id: Vg9n_YRGPIY
 ---
 ::
 
-### 7.3) Vue Learning experience: Những kinh nghiệm đúc kết trong quá trình học & dợt Vue 1 tuần qua:
+### G.3) Vue Learning experience: Những kinh nghiệm đúc kết trong quá trình học & dợt Vue 1 tuần qua:
 
   Vue: directives: từ khoá chỉ thị: (`v-if`{style="color: green"}, `v-for`{style="color: green"}, `v-model`{style="color: green"})
 
@@ -533,7 +540,7 @@ video-id: Vg9n_YRGPIY
 
   Vue event handler: cách xử lý sự kiện: (với dấu `@`{style="color: green"} , các sự kiện người dùng tương tác: `onClick`{style="color: green"}, `onKeyPressed`{style="color: green"}, `onBlur`{style="color: green"} và các hàm handlers để xử lý cho các sự kiện đó) - thêm nội dung và ví dụ
 
-## 8) Tham khảo thêm:
+## H) Tham khảo thêm:
 
 1. ### Testplay/Dợt/Vọc chơi thử với các built-in-directives của Vue3
     [INTERACTIVE PLAYGROUND: built-in-directives](https://vuejs.org/api/built-in-directives.html)
