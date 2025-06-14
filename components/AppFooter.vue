@@ -1,11 +1,15 @@
 <template>
-  <v-footer app :color="footerColor" class="py-6 px-4 px-sm-8"
-    :class="textClass">
+  <v-footer app :color="footerColor" class="py-8 px-4 px-sm-10" :class="textClass">
     <v-container>
       <div class="d-flex mb-2">
-        <v-btn variant="text" density="compact" icon @click="expanded = !expanded">
-          <v-icon>{{ expanded ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-        </v-btn>
+        <div class="d-flex align-center mb-2">
+          <v-btn variant="text" density="compact" icon @click="expanded = !expanded" class="me-2">
+            <v-icon>{{ expanded ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+          </v-btn>
+          <v-img src="/logo/hocngheIT-penguin-logo.png" alt="Logo" max-height="48" contain class="me-2"
+            style="width:48px;" />
+          <h4 class="text-h6 mb-2 mb-sm-0">{{ $t('nav.title') }}</h4>
+        </div>
       </div>
 
       <v-expand-transition>
@@ -38,18 +42,31 @@
 
           <v-row v-else>
             <v-col cols="12" sm="6">
-              <h4 class="text-h6 mb-2">My App</h4>
+
               <p class="text-caption">
                 {{ $t('footer.description') }}
               </p>
+              <v-divider class="my-4" />
+
+              <div class="d-flex justify-center justify-md-start mb-2">
+                <v-btn v-for="icon in socialIcons" :key="icon.icon" :href="icon.href" target="_blank" variant="text"
+                  class="mx-1" size="small">
+                  <v-icon size="20">{{ icon.icon }}</v-icon>
+                </v-btn>
+
+              </div>
+              <div class="text-caption">
+                &copy; {{ new Date().getFullYear() }} by the Golden West Consulting INC {{ $t('footer.rights') }}
+              </div>
             </v-col>
-            <v-col cols="6" sm="3">
+            <v-col cols="4" sm="2"></v-col>
+            <v-col cols="4" sm="2">
               <h6 class="text-subtitle-1 mb-2">{{ $t('footer.sections.navigation') }}</h6>
               <NuxtLink v-for="item in navLinks" :key="item.to" :to="item.to" class="d-block mb-1" :class="textClass">
                 {{ $t(item.label) }}
               </NuxtLink>
             </v-col>
-            <v-col cols="6" sm="3">
+            <v-col cols="4" sm="2">
               <h6 class="text-subtitle-1 mb-2">{{ $t('footer.sections.more') }}</h6>
               <NuxtLink to="/bio" class="d-block mb-1" :class="textClass">
                 {{ $t('nav.biography') }}
@@ -62,17 +79,13 @@
         </div>
       </v-expand-transition>
 
-      <v-divider class="my-4" />
-      <div class="text-caption text-center">
-        &copy; {{ new Date().getFullYear() }} Dạy Nghề IT / Học Nghề IT {{ $t('footer.rights') }}
-      </div>
     </v-container>
   </v-footer>
 </template>
 
 <script setup lang="ts">
 import { useDisplay } from 'vuetify'
-import { useCookie } from '#app'
+import { useCookie, useRuntimeConfig } from '#app'
 import { computed, ref } from 'vue'
 
 const { mobile } = useDisplay()
@@ -108,15 +121,12 @@ const footerColor = computed(() => {
 
 const textClass = computed(() => {
   switch (currentTheme.value) {
-    case 'dark':
-      return 'text-white'
+    case 'dark': return 'text-white'
     case 'sepia':
-      // Use the neutralColor from the cookie, fallback to a default if not set
       return cookie.value?.neutralColor
         ? `text-${cookie.value.neutralColor.replace('#', '')}`
         : 'text-brown'
-    default:
-      return 'text-black'
+    default: return 'text-black'
   }
 })
 
@@ -127,6 +137,19 @@ const navLinks = [
   { label: 'nav.guide', to: '/camnang' },
 ]
 
+const socialIcons = [
+  { icon: 'mdi-facebook', href: 'https://facebook.com' },
+  { icon: 'mdi-linkedin', href: 'https://linkedin.com' },
+  { icon: 'mdi-youtube', href: 'https://www.youtube.com/@dayngheIT' },
+]
+
 // Get GitHub URL from runtime config (.env)
 const githubUrl = useRuntimeConfig().public.githubUrl
 </script>
+
+<style scoped>
+.text-caption {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+</style>
