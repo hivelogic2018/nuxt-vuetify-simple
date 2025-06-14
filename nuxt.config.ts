@@ -13,12 +13,12 @@ export default defineNuxtConfig({
         highlight: {
           theme: {
             // Theme used if `html.dark`
-            darkMode: 'dracula-soft',
+            darkMode: 'material-theme',
             // Default theme (same as single string)
-            default: 'github-light',
+            default: 'material-theme-lighter',
             // or 'github-dark' or 'material-theme-ocean'
             // Theme used if `html.sepia`
-            sepia: 'monokai'
+            sepia: 'material-theme-palenight'
           }
         },
         remarkPlugins: {
@@ -41,7 +41,8 @@ export default defineNuxtConfig({
     }
   },
   css: [
-    '~/public/assets/css/main.scss',
+    '~/public/assets/css/tailwind.css',
+    '~/public/assets/css/main.scss', // keep your custom styles
     'vuetify/styles',
     '@mdi/font/css/materialdesignicons.min.css'
   ],

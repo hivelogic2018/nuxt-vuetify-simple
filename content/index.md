@@ -22,7 +22,7 @@ A website has four parts, HTML, CSS, JS, and data.
 
 A very computer science-y answer for `data`{style="color: green"} would be: things like `"strings"`{style="color: green"}, `integers (42)`{style="color: green"}, `objects ({ pizza: true })`{style="color: green"}, etc.
 
-    ### A.1) HTML: Hypertext Markup Language: ngôn ngữ HTML để viết trang web
+  ### A.1) HTML: Hypertext Markup Language: ngôn ngữ HTML để viết trang web
 Hãy xem ví dụ dưới đây về cấu trúc 1 trang web trong file `index.html`{style="color: green"}. File chứa các thẻ căn bản khai báo cho trang web
 
 ```html
@@ -71,7 +71,7 @@ https://itviec.com/blog/css-la-gi/
 
   ### A.3) Javascript/Typescript:
 
-    #### A.3.1) Javascript: là gì:
+  #### A.3.1) Javascript: là gì:
 
 https://aws.amazon.com/vi/what-is/javascript/ (có giải thích tiếng Việt)
 
@@ -103,7 +103,7 @@ title: Traversy Media JavaScript Crash Course
 ---
 ::
 
-    #### A.3.2) Typescript là gì
+  #### A.3.2) Typescript là gì
 
 TypeScript là một ngôn ngữ lập trình mã nguồn mở phát triển bởi Microsoft. Nó được phát triển dựa trên JavaScript, nhưng bổ sung thêm tính năng kiểu tĩnh (static typing) và một số tính năng nâng cao khác. TypeScript cho phép lập trình viên viết mã JavaScript theo cú pháp của TypeScript, sau đó mã đó có thể được biên dịch (transpile) thành mã JavaScript thuần để chạy trên các trình duyệt hoặc môi trường chạy JavaScript khác nhau.
 
@@ -207,8 +207,10 @@ let students = [{
   dob: '04/15/1995'
 }]
 ```
-    #### B.2.2) Kiểu đối tượng hay còn gọi dễ hiểu là kiểu phức hợp:
-      vì nó có thể bao gồm các giá trị (property value) đa dạng cho các thuộc tính (property)
+<br>
+
+  #### B.2.2) Kiểu đối tượng hay còn gọi dễ hiểu là kiểu phức hợp:
+  vì nó có thể bao gồm các giá trị (property value) đa dạng cho các thuộc tính (property)
 
 (đối tượng tiếng anh gọi là Object, ví dụ đối tượng cá thể, vật thể,...):
 
@@ -217,29 +219,29 @@ ví dụ: đối tượng sinh viên với tên biến là studentObject, có th
 ```js
 let studentObject = {
 
-ten: 'An',
+  ten: 'An',
 
-tuoi: 30,
+  tuoi: 30,
 
-ngaysinh: '06/30/1994',
+  ngaysinh: '06/30/1994',
 
-courses: [
+  courses: [
 
-{ tenlop: 'English101', giaovien: 'co Kim'} ,
+    { tenlop: 'English101', giaovien: 'co Kim'} ,
 
-{ tenlop: 'Maths', giaovien: 'co Oanh' },
+    { tenlop: 'Maths', giaovien: 'co Oanh' },
 
-{ tenlop: 'Physics', giaovien: 'co Hue'} ,
+    { tenlop: 'Physics', giaovien: 'co Hue'} ,
 
-{ tenlop: 'Su', giaovien: 'thay Truyen' },
+    { tenlop: 'Su', giaovien: 'thay Truyen' },
 
-{ tenlop: 'Dia', giaovien: 'thay Quoc' }
+    { tenlop: 'Dia', giaovien: 'thay Quoc' }
 
-],
+  ],
 
-dangHoc: true,
+  dangHoc: true,
 
-sothich: ['xem phim', 'nghe nhac', 'choi the thao']
+  sothich: ['xem phim', 'nghe nhac', 'choi the thao']
 
 }
 ```

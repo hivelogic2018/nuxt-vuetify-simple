@@ -35,6 +35,7 @@
     </div>
 
     <v-spacer />
+    <MonacoSyntaxHighlightingSwitcher />
 
     <!-- Language switcher -->
     <LanguageSwitcher class="mr-2" />
