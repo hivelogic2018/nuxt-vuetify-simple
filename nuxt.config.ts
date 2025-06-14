@@ -58,7 +58,8 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxt/test-utils/module',
-    '@nuxtjs/mdc'
+    '@nuxtjs/mdc',
+    '@nuxtjs/tailwindcss',
   ],
   i18n: {
     locales: [

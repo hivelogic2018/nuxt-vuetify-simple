@@ -14,6 +14,9 @@ const neutral = computed(() => get(theme, 'global.current.value.colors.neutral',
 
 <template>
   <div>
+    <h1 class="text-3xl font-bold underline">
+      Tailwindcss v4.1 Hello world!
+    </h1>
     <v-container>
       <p>Number: <span> {{ num }}</span></p>
       <v-btn @click="refreshNum">Refresh</v-btn>
