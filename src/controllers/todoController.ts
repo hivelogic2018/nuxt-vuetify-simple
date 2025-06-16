@@ -1,5 +1,6 @@
 import { Controller, Get, Post, Route, Tags, Body, Put, Patch, Delete } from 'tsoa';
-import { TodoService, Todo, PatchTodoDto } from '@/services/TodoService';
+import { TodoService } from '@/services/TodoService';
+import type { Todo, PatchTodoDto } from '@/services/TodoService';
 
 @Route('todos')
 @Tags('Todos')
