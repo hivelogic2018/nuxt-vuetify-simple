@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useCookie } from '#app'
 import MarkdownRenderer from '~/components/MarkdownRenderer.vue'
-
-// Import raw markdown (Vite supports ?raw)
 import camnangMd from '~/content/index.md?raw'
 
-const showToc = ref(false)
+const tocCookie = useCookie('showToc', { default: () => 'false' })
+const showToc = ref(tocCookie.value === 'true')
+
+watch(showToc, (val) => {
+  tocCookie.value = val ? 'true' : 'false'
+})
 </script>
 
 <template>

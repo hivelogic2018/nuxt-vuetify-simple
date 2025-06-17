@@ -53,7 +53,6 @@ const rendered = computed(() => {
   padding: 2rem;
 }
 .toc {
-  background: #f9f9f9;
   padding: 1em;
   border-radius: 6px;
   margin-bottom: 1em;
