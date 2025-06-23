@@ -1,9 +1,5 @@
----
-date: 2025-05-25
----
-*Ngày cập nhật: 2025-05-25*
 
-# Table of Contents
+*Ngày cập nhật: 2025-05-25*
 
 # `Web application development fundamentals`{style="color: green"}
 ## A) Ba thành phần của ngành phát triển ứng dụng:

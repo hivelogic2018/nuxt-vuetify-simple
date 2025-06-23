@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
+import { computed } from 'vue'
 import MarkdownIt from 'markdown-it'
 import markdownItAnchor from 'markdown-it-anchor'
 import markdownItTOC from 'markdown-it-table-of-contents'
@@ -38,23 +38,21 @@ const rendered = computed(() => {
   <div class="markdown-body" v-html="rendered"></div>
 </template>
 
-<style scoped>
+<style>
 @import 'github-markdown-css/github-markdown.css';
 
-#md {
-  max-width: 1000px;
-}
-
-.markdown-body {
+/* Confine all styles to #mdContent */
+#mdContent .markdown-body {
   box-sizing: border-box;
   min-width: 200px;
   max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
 }
-.toc {
+#mdContent .toc {
   padding: 1em;
   border-radius: 6px;
   margin-bottom: 1em;
 }
+/* Add any other markdown-body or toc-related styles here, always prefixing with #mdContent */
 </style>
