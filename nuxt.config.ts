@@ -60,6 +60,7 @@ export default defineNuxtConfig({
     '@nuxt/test-utils/module',
     '@nuxtjs/mdc',
     '@nuxtjs/tailwindcss',
+    '@formkit/nuxt'
   ],
   i18n: {
     locales: [
@@ -105,4 +106,8 @@ export default defineNuxtConfig({
       githubUrl: process.env.NUXT_PUBLIC_GITHUB_URL
     }
   },
+  formkit: {
+    autoImport: true,
+    configFile: './formkit.config.ts'
+  }
 })

@@ -33,6 +33,8 @@
     "scss:build": "sass public/assets/css/main.scss public/assets/css/main.css"
   },
   "dependencies": {
+    "@formkit/icons": "^1.6.9",
+    "@formkit/nuxt": "^1.6.9",
     "@iconify/vue": "^5.0.0",
     "@nuxt/content": "^3.5.1",
     "@nuxt/icon": "1.13.0",
