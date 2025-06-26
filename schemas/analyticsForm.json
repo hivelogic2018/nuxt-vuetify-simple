@@ -1,0 +1,32 @@
+{
+  "title": "Analytics Report Form",
+  "submitLabel": "Generate Report",
+  "fields": [
+    {
+      "$formkit": "date",
+      "name": "startDate",
+      "label": "Start Date",
+      "validation": "required"
+    },
+    {
+      "$formkit": "select",
+      "name": "reportType",
+      "label": "Report Type",
+      "options": [
+        { "label": "User Activity", "value": "activity" },
+        { "label": "Error Logs", "value": "errors" }
+      ]
+    },
+    {
+      "$formkit": "text",
+      "name": "username",
+      "label": "Username"
+    },
+    {
+      "$formkit": "checkbox",
+      "name": "confirm",
+      "label": "I confirm I have reviewed the above data",
+      "validation": "required"
+    }
+  ]
+}
