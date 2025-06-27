@@ -1,5 +1,5 @@
 <template>
-  <v-footer app :color="footerColor" class="py-8 px-4 px-sm-10" :class="textClass">
+  <v-footer v-if="isFooterVisible" app :color="footerColor" class="py-8 px-4 px-sm-10" :class="textClass">
     <v-container>
       <div class="d-flex mb-2">
         <div class="d-flex align-center mb-2">
@@ -145,6 +145,14 @@ const socialIcons = [
 
 // Get GitHub URL from runtime config (.env)
 const githubUrl = useRuntimeConfig().public.githubUrl
+
+    const isFooterVisible = ref(false);
+
+    onMounted(() => {
+      nextTick(() => {
+        isFooterVisible.value = true;
+      });
+    });
 </script>
 
 <style scoped>
