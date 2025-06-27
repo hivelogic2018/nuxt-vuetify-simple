@@ -1,8 +1,6 @@
 <template>
   <v-container>
     <h1 class="mb-6">Cửa Hàng</h1>
-
-    <!-- Giỏ hàng hiển thị -->
     <div class="mb-4">
       <v-chip color="primary" class="mr-3" label>
         🛒 {{ cartCount }} sản phẩm trong giỏ hàng
@@ -11,14 +9,10 @@
         Tổng tiền: {{ formatPrice(cartTotal) }}
       </v-chip>
     </div>
-
-    <!-- Tabs -->
     <v-tabs v-model="tab" background-color="primary" dark>
       <v-tab value="all">Tất cả sản phẩm</v-tab>
       <v-tab value="favorites">Yêu thích</v-tab>
     </v-tabs>
-
-    <!-- Product grid -->
     <v-row class="mt-4" dense>
       <v-col
         v-for="product in filteredProducts"
@@ -35,16 +29,11 @@
           hover
           variant="elevated"
         >
-          <v-img :src="product.img" height="150" width="100%" cover></v-img>
-
-          <!-- Hiển thị URL ảnh để debug -->
+          <v-img :src="product.img" height="150" width="100%" cover /> 
           <p
             class="mt-2"
             style="word-break: break-word; font-size: 0.75rem; color: gray;"
-          >
-            
-          </p>
-
+          />
           <div class="mt-3 text-center">
   <h3 class="text-h6">{{ product.name }}</h3>
   <p class="text-subtitle-1 font-weight-medium">{{ formatPrice(product.price) }}</p>
@@ -53,20 +42,16 @@
     <v-icon color="yellow darken-2">mdi-star</v-icon>
     <span class="ml-1">{{ product.rating.toFixed(1) }}</span>
   </div>
-
-  <!-- Dòng 1: Icon yêu thích -->
   <div class="mt-2">
     <v-btn
       icon
-      @click="toggleFavorite(product.id)"
-      :color="product.isFavorite ? 'red' : 'grey'"
       :aria-label="product.isFavorite ? 'Bỏ yêu thích' : 'Thêm yêu thích'"
+      :color="product.isFavorite ? 'red' : 'grey'"
+      @click="toggleFavorite(product.id)"
     >
       <v-icon>{{ product.isFavorite ? 'mdi-heart' : 'mdi-heart-outline' }}</v-icon>
     </v-btn>
   </div>
-
-  <!-- Dòng 2: Nút thêm vào giỏ hàng -->
   <div class="mt-3">
     <v-btn
       color="primary"
@@ -76,7 +61,6 @@
     </v-btn>
   </div>
 </div>
-
         </v-card>
       </v-col>
 
@@ -158,7 +142,6 @@ const toggleFavorite = (id) => {
   }
 }
 
-// Giỏ hàng lưu dạng object: key = productId, value = số lượng
 const cart = ref({})
 
 const addToCart = (id) => {
@@ -190,7 +173,7 @@ const formatPrice = (price) => {
   return new Intl.NumberFormat('vi-VN', {
     style: 'currency',
     currency: 'VND'
-  }).format(price * 23000) // giả định USD -> VND
+  }).format(price * 23000) 
 }
 </script>
 
