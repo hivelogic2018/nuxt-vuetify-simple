@@ -146,13 +146,13 @@ const socialIcons = [
 // Get GitHub URL from runtime config (.env)
 const githubUrl = useRuntimeConfig().public.githubUrl
 
-    const isFooterVisible = ref(false);
+const isFooterVisible = ref(false);
 
-    onMounted(() => {
-      nextTick(() => {
-        isFooterVisible.value = true;
-      });
-    });
+onMounted(() => {
+  nextTick(() => {
+    isFooterVisible.value = true;
+  });
+});
 </script>
 
 <style scoped>
