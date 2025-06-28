@@ -11,15 +11,15 @@
           </v-btn>
           <v-toolbar-title>Cẩm nang</v-toolbar-title>
         </v-app-bar>
+        
+        <TocSidebar :toc="toc?.links || []" :isOpen="showToc" :activeId="activeHeading"
+          @update:isOpen="showToc = $event" />
 
         <v-main>
           <v-container>
             <MDCRenderer v-if="page?.body" :body="page.body" :data="page.data" class="mt-4" />
           </v-container>
         </v-main>
-
-        <TocSidebar :toc="toc?.links || []" :isOpen="showToc" :activeId="activeHeading"
-          @update:isOpen="showToc = $event" />
       </v-layout>
     </div>
     <div v-else class="text-center mt-4">
