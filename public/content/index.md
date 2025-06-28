@@ -3,8 +3,6 @@ date: 2025-05-25
 ---
 *Ngày cập nhật: 2025-05-25*
 
-# Table of Contents
-
 # `Web application development fundamentals`{style="color: green"}
 ## A) Ba thành phần của ngành phát triển ứng dụng:
   (Web application development fundamentals consist of 3 building blocks):
