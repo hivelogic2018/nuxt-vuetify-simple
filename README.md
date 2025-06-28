@@ -17,7 +17,8 @@ pnpm install
 yarn install
 
 # bun
-bun install
+bun install && npm dedupe &&  rm -rf node_modules bun.lock .nuxt .build package-lock.json .data .output
+&& bun install && bun dev
 ```
 
 ## Development Server
