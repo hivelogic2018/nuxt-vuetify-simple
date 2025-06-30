@@ -17,8 +17,8 @@
 //import { computed } from 'vue'
 import type { FormKitSchemaNode } from '@formkit/core'
 
-//import { validationFns } from '~/helper/validations'
-//import { enrichFormKitSchema } from '~/utils/formkitRegistry'
+import { validationFns, validationMessages } from '~/helper/validations'
+import { enrichFormKitSchema } from '~/utils/formkitRegistry'
 //const field1s = computed(() => enrichFormKitSchema(props.schema.fields))
 
 //console.log('JSONSchemaForm fields:', field1s.value)
@@ -35,29 +35,23 @@ const props = defineProps<{
 
 const title = props.schema.title
 const submitLabel = props.schema.submitLabel ?? 'Submit'
-//import { onInputFn } from '~/helper/functions'
 
-const checkUsername = (str: any) => {
-	console.log('Validating username:', str.value)
-	return str.value.length > 3
-}
+//const fields = [
+//	{
+//		$formkit: 'text',
+//		name: 'username',
+//		label: 'Username',
+//		placeholder: 'Enter username',
+//		validationVisibility: 'live',
+//		validation: 'checkUsername',
+//		validationRules: '$validationRules',
+//		validationMessages: validationMessages,
+//	},
+//]
 
-const fields = [
-	{
-		$formkit: 'text',
-		name: 'username',
-		label: 'Username',
-		placeholder: 'Enter username',
-		validationVisibility: 'live',
-		validation: 'checkUsername1',
-		validationRules: '$validationRules',
-		validationMessages: {
-			checkUsername1: 'Username must be longer than 3 characters',
-		},
-	},
-]
-
+const fields = computed(() => enrichFormKitSchema(props.schema.fields))
+//console.log('Fields', fields)
 const data = {
-	validationRules: { checkUsername1: checkUsername },
+	validationRules: validationFns,
 }
 </script>
