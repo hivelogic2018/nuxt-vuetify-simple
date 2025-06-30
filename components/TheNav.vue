@@ -5,14 +5,14 @@
 
     <!-- App title -->
     <v-toolbar-title>
-      <NuxtLink
-        to="/"
-        style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;"
-        :style="{ color: get(theme, 'global.current.value.colors.primary', '#1976d2') }"
-      >
-        <v-icon size="24">mdi-home-circle-outline</v-icon>
-        {{ $t('nav.title') }}
-      </NuxtLink>
+    <NuxtLink
+      to="/"
+      style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;"
+      :style="{ color: get(theme, 'global.current.value.colors.primary', '#1976d2') }"
+    >
+      <v-img :src="logoSrc" max-height="32" width="32" contain />
+      {{ $t('nav.title') }}
+    </NuxtLink>
     </v-toolbar-title>
 
     <!-- Desktop navigation links -->
@@ -77,6 +77,7 @@ import LanguageSwitcher from './LanguageSwitcher.vue'
 import { useRoute } from 'vue-router'
 import { ref } from 'vue'
 import get from 'lodash/get'
+import { useThemeLogo } from '../composables/useThemeLogo'
 
 const theme = useTheme()
 const $route = useRoute()
@@ -92,4 +93,6 @@ const navItems = [
   { label: 'nav.schedule', to: '/schedule', icon: 'mdi-calendar-clock' }
 ]
 // thêm trang các khoá học, dịch vụ, liên hệ
+
+const { logoSrc } = useThemeLogo()
 </script>
