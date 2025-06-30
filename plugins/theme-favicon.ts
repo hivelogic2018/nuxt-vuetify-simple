@@ -20,8 +20,8 @@ export default defineNuxtPlugin(() => {
     if (link) {
       link.href =
         theme === 'dark'
-          ? '/assets/icons/icon-light-gold.png'
-          : '/assets/icons/icon-dark-gold.png'
+          ? '/assets/icons/icon-dark-gold.png'
+          : '/assets/icons/icon-light-gold.png'
     }
   }
 
