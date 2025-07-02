@@ -1,17 +1,4 @@
-//const modules = import.meta.glob('../helpers/formkitFunctions/*.ts', { eager: true })
 
-//type FnMap = Record<string, (...args: unknown[]) => unknown>
-
-//const functionRegistry: FnMap = {}
-
-//for (const path in modules) {
-//  const mod = modules[path] as Record<string, (...args: unknown[]) => unknown>
-//  for (const [name, fn] of Object.entries(mod)) {
-//    functionRegistry[name] = fn
-//  }
-//}
-
-//export default functionRegistry
 import { validationFns } from '~/helper/validations'
 import { onInputFn } from '~/helper/functions'
 import type { FormKitSchemaNode } from '@formkit/core'

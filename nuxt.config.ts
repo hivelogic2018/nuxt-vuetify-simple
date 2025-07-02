@@ -60,7 +60,8 @@ export default defineNuxtConfig({
     '@nuxt/test-utils/module',
     '@nuxtjs/mdc',
     '@nuxtjs/tailwindcss',
-    '@formkit/nuxt'
+    '@formkit/nuxt',
+    '@pinia/nuxt'
   ],
   i18n: {
     locales: [

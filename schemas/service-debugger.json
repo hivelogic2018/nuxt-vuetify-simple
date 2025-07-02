@@ -1,0 +1,37 @@
+{
+	"pageMeta": {
+		"pageController": "controllers/page1DemoController.js"
+	},
+	"sections": [
+		{
+			"type": "FORM",
+			"title": "Filters",
+			"sourceDataStore": "timerFilter",
+			"data": {
+				"period": "60 min",
+				"values": "",
+				"names": "",
+				"fuzzy_names": "",
+				"namespace": "default"
+			},
+			"structure": {
+				"schema": "timerMapSchema",
+				"uiSchema": {
+					"namespace": { "ui:placeholder": "Provide a config namespace" },
+					"names": { "ui:placeholder": "Regex, e.g. .*CPU.*" }
+				}
+			},
+			"onSubmit": {
+				"loadAction": {
+					"type": "xhr",
+					"method": "POST",
+					"url": "/servicedebugger/send/stats",
+					"onSuccess": {
+						"targetDataStore": "timerResponse",
+						"successHandler": "mySectionSuccessHandler"
+					}
+				}
+			}
+		}
+	]
+}
