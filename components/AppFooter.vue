@@ -6,8 +6,13 @@
           <v-btn variant="text" density="compact" icon @click="expanded = !expanded" class="me-2">
             <v-icon>{{ expanded ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
           </v-btn>
-          <v-img src="/logo/hocngheIT-penguin-logo.png" alt="Logo" max-height="48" contain class="me-2"
-            style="width:48px;" />
+          <v-img
+          :src="logoSrc"
+          alt="Logo"
+          contain
+          class="me-2"
+          :style="currentTheme === 'light' ? 'width:40px; max-height:40px;' : 'width:48px; max-height:48px;'"
+          />
           <h4 class="text-h6 mb-2 mb-sm-0">{{ $t('nav.title') }}</h4>
         </div>
       </div>
@@ -87,6 +92,7 @@
 import { useDisplay } from 'vuetify'
 import { useCookie, useRuntimeConfig } from '#app'
 import { computed, ref } from 'vue'
+import { useThemeLogo } from '../composables/useThemeLogo'
 
 const { mobile } = useDisplay()
 const isMobile = computed(() => mobile.value)
@@ -146,6 +152,7 @@ const socialIcons = [
 // Get GitHub URL from runtime config (.env)
 const githubUrl = useRuntimeConfig().public.githubUrl
 
+const { logoSrc } = useThemeLogo()
 const isFooterVisible = ref(false);
 
 onMounted(() => {
