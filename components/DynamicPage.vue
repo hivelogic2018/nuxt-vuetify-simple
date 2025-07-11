@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
+import type { PageSchema } from '@/types/page'
 
 defineProps<{
-	schema: Record<string, any>
+	schema: PageSchema
 }>()
 
-// Map section types from the JSON to your Vue components
 const sectionComponents = {
 	FORM: defineAsyncComponent(
 		() => import('@/components/sections/FormSection.vue')
 	),
-	// TABLE: defineAsyncComponent(() => import('./sections/TableSection.vue')),
-	// LIST: defineAsyncComponent(() => import('./sections/ListSection.vue')),
+	// TABLE
+	// LIST
 }
 
 const getComponentForSection = (type: string) => {

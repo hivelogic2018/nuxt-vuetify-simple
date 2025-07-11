@@ -1,13 +1,32 @@
 import { defineFormKitConfig } from '@formkit/vue'
 import { rootClasses } from './formkit.theme'
 import { genesisIcons } from '@formkit/icons'
+import { validations } from '~/utils/validations'
+
+import type { FormKitNode } from '@formkit/core'
+
+const rules: Record<string, (node: FormKitNode) => boolean> = {}
+const messages: Record<string, string> = {}
+
+for (const key in validations) {
+  rules[key] = validations[key].rule
+  messages[key] = validations[key].message
+}
 
 export default defineFormKitConfig({
-	// rules: {},
-	// locales: {},
-	// etc.
+	rules,
+  locales: {
+    en: {
+      validation: {
+        ...messages,
+				required: 'This field is required.'
+      },
+      ui: {},
+    },
+  },
 	config: {
 		rootClasses,
+		validationVisibility: 'dirty', 
 	},
 	icons: {
 		...genesisIcons

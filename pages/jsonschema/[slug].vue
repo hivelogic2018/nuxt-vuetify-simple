@@ -2,16 +2,16 @@
 import { ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import DynamicPage from '../../components/DynamicPage.vue'
+import type { PageSchema } from '../../types/page'
 
 const route = useRoute()
-const schema = ref<any>(null)
+const schema = ref<PageSchema | null>(null)
 const slug = ref(route.params.slug as string)
 
 watchEffect(async () => {
 	try {
-		// Dynamically import the schema based on the URL slug
 		const pageSchema = await import(`../../schemas/service-debugger.json`)
-		schema.value = pageSchema.default
+		schema.value = pageSchema as PageSchema
 	} catch (e) {
 		console.error(`Failed to load schema for: ${slug.value}`, e)
 	}

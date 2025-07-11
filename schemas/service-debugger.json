@@ -1,36 +1,89 @@
 {
-	"pageMeta": {
-		"pageController": "controllers/page1DemoController.js"
-	},
 	"sections": [
 		{
 			"type": "FORM",
-			"title": "Filters",
-			"sourceDataStore": "timerFilter",
+			"title": "Create Career Goal Tracker",
 			"data": {
-				"period": "60 min",
-				"values": "",
-				"names": "",
-				"fuzzy_names": "",
-				"namespace": "default"
+				"goalType": "",
+				"name": "",
+				"notes": "",
+				"reminder": false
 			},
 			"structure": {
-				"schema": "timerMapSchema",
-				"uiSchema": {
-					"namespace": { "ui:placeholder": "Provide a config namespace" },
-					"names": { "ui:placeholder": "Regex, e.g. .*CPU.*" }
-				}
+				"schema": [
+					{
+						"$formkit": "text",
+						"name": "name",
+						"label": "Name",
+						"placeholder": "Your Name",
+						"validation": "nameRule|required"
+					},
+					{
+						"$formkit": "select",
+						"name": "goalType",
+						"label": "Goal Type",
+						"options": ["Career Switch", "Promotion", "Skill-building"],
+						"placeholder": "Select the primary driver for this goal.",
+						"validation": "required"
+					},
+					{
+						"$formkit": "textarea",
+						"name": "notes",
+						"label": "Notes",
+						"placeholder": "Optional"
+					},
+					{
+						"$formkit": "checkbox",
+						"name": "reminder",
+						"label": "Set a reminder (Optional)"
+					}
+				]
 			},
 			"onSubmit": {
 				"loadAction": {
 					"type": "xhr",
 					"method": "POST",
-					"url": "/servicedebugger/send/stats",
+					"url": "/api/submit-goal",
 					"onSuccess": {
-						"targetDataStore": "timerResponse",
-						"successHandler": "mySectionSuccessHandler"
+						"successHandler": "sectionSuccessHandler",
+						"targetDataStore": "goalResponse"
+					},
+					"onFailure": {
+						"failureHandler": "sectionFailureHandler"
 					}
 				}
+			}
+		},
+		{
+			"type": "FORM",
+			"title": "Feedback Form",
+			"data": { "feedback": "", "rating": "" },
+			"structure": {
+				"schema": [
+					{
+						"$formkit": "textarea",
+						"name": "feedback",
+						"label": "Your Feedback",
+						"validation": "required|length:10",
+						"validationMessages": {
+							"required": "Feedback is required.",
+							"length": "Please provide at least 10 characters of feedback."
+						}
+					},
+					{
+						"$formkit": "radio",
+						"name": "rating",
+						"label": "Rating",
+						"options": ["Good", "Average", "Poor"],
+						"validation": "required",
+						"validationMessages": {
+							"required": "Please provide a rating."
+						}
+					}
+				]
+			},
+			"onSubmit": {
+				"loadAction": { "url": "/api/submit-feedback" }
 			}
 		}
 	]
