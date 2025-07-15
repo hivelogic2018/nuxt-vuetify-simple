@@ -75,7 +75,14 @@ const customConfig = [
       }],
 
       // Vue rules
-      'vue/html-indent': ['error', 'tab'],
+      'vue/html-indent': ['error', 2, {
+        attribute: 1,
+        baseIndent: 1,
+        closeBracket: 0,
+        alignAttributesVertically: true,
+        // @ts-ignore
+        ignores: ['pre', 'textarea'],
+      }],
       'vue/max-attributes-per-line': ['error', {
         singleline: 3,
         multiline: { max: 1 }
