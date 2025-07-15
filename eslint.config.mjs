@@ -48,7 +48,7 @@ const customConfig = [
 
       // JS/Style rules
       'comma-dangle': ['error', 'always-multiline'],
-      'indent': ['error', 2],
+      'indent': ['error', 'tab'],
       'key-spacing': 'off',
       'max-len': ['error', 480, 2],
       'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -75,6 +75,15 @@ const customConfig = [
       }],
 
       // Vue rules
+      'vue/html-indent': ['error', 'tab'],
+      'vue/max-attributes-per-line': ['error', {
+        singleline: 3,
+        multiline: { max: 1 }
+      }],
+      'vue/html-closing-bracket-newline': ['error', {
+        singleline: 'never',
+        multiline: 'always'
+      }],
       'vue/multi-word-component-names': 'off',
       'vue/no-mutating-props': 'error',
       'vue/no-unused-components': 'warn',
