@@ -1,14 +1,14 @@
 <template>
-  <v-select
-    v-model="selectedTheme"
-    :items="themes"
-    label="Syntax Theme"
-    dense
-    outlined
-    hide-details
-    style="max-width: 200px"
-    @change="onThemeChange"
-  />
+	<v-select
+		v-model="selectedTheme"
+		:items="themes"
+		label="Syntax Theme"
+		dense
+		outlined
+		hide-details
+		style="max-width: 200px"
+		@change="onThemeChange"
+	/>
 </template>
 
 <script lang="ts" setup>

@@ -1,11 +1,7 @@
 <template>
-  <div>
-    <v-select
-      v-model="item"
-      :items="items"
-      label="item"
-    />
-  </div>
+	<div>
+		<v-select v-model="item" :items="items" label="item" />
+	</div>
 </template>
 
 <script setup>

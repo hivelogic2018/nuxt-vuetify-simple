@@ -34,29 +34,29 @@ const resolvedHeight = computed(() =>
 </script>
 
 <template>
-  <div>
-    <a
-      v-if="!showVideo"
-      :href="resolvedEmbedUrl"
-      target="_blank"
-      rel="noopener"
-      @click.prevent="showVideo = true"
-    >
-      <img
-        :src="resolvedThumbnailUrl"
-        :alt="resolvedAlt"
-        style="max-width:100%;cursor:pointer;"
-      >
-      <div style="text-align:left;">▶ Xem video</div>
-    </a>
-    <iframe
-      v-else
-      :width="resolvedWidth"
-      :height="resolvedHeight"
-      :src="resolvedEmbedUrl"
-      :title="resolvedTitle"
-      allowfullscreen
-      style="max-width:100%;"
-    />
-  </div>
+	<div>
+		<a
+			v-if="!showVideo"
+			:href="resolvedEmbedUrl"
+			target="_blank"
+			rel="noopener"
+			@click.prevent="showVideo = true"
+		>
+			<img
+				:src="resolvedThumbnailUrl"
+				:alt="resolvedAlt"
+				style="max-width:100%;cursor:pointer;"
+			>
+			<div style="text-align:left;">▶ Xem video</div>
+		</a>
+		<iframe
+			v-else
+			:width="resolvedWidth"
+			:height="resolvedHeight"
+			:src="resolvedEmbedUrl"
+			:title="resolvedTitle"
+			allowfullscreen
+			style="max-width:100%;"
+		/>
+	</div>
 </template>

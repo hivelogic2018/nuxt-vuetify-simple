@@ -108,9 +108,9 @@ const currentTheme = computed(() => {
 
 const monacoPreBackground = computed(() => {
 	switch (currentTheme.value) {
-		case 'dark': return ''
-		case 'sepia': return '#f1e7d0'
-		default: return '#1A3B46'
+	case 'dark': return ''
+	case 'sepia': return '#f1e7d0'
+	default: return '#1A3B46'
 	}
 })
 
@@ -133,7 +133,8 @@ console.log('Current Monaco Theme:', monacoTheme.value, monacoPreBackground.valu
 					<v-toolbar-title>Mục lục</v-toolbar-title>
 				</v-app-bar>
 
-				<TocSidebar :toc="toc?.links || []" :is-open="showToc" :active-id="activeHeading"
+				<TocSidebar
+					:toc="toc?.links || []" :is-open="showToc" :active-id="activeHeading"
 					@update:is-open="showToc = $event" />
 
 				<v-main>

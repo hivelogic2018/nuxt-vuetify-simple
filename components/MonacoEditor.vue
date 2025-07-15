@@ -103,5 +103,5 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div ref="editorContainer" style="height: 400px; width: 100%;" class="view-lines monaco-mouse-cursor-text monaco-editor-container"/>
+	<div ref="editorContainer" style="height: 400px; width: 100%;" class="view-lines monaco-mouse-cursor-text monaco-editor-container"/>
 </template>

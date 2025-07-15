@@ -18,6 +18,9 @@ const customConfig = [
       'node_modules',
       '.nuxt',
       'dist',
+      'coverage',
+      '*.mjs',
+      'bun.lock'
       // add more patterns as needed
     ],
     rules: {
