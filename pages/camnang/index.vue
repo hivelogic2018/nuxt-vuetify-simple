@@ -1,34 +1,3 @@
-<template>
-  <div>
-    <h1 class="text-2xl font-semibold mb-2">Cẩm nang</h1>
-
-    <div v-if="page" class="page-mdc-content prose dark:prose-invert">
-      <v-layout>
-        <v-app-bar flat>
-          <v-btn icon @click="showToc = !showToc">
-            <!-- <v-btn icon @click="showToc = !showToc" class="float-left"></v-btn> -->
-            <v-icon>{{ showToc ? 'mdi-close' : 'mdi-format-list-bulleted' }}</v-icon>
-          </v-btn>
-          <v-toolbar-title>Cẩm nang</v-toolbar-title>
-        </v-app-bar>
-
-        <TocSidebar :toc="toc?.links || []" :isOpen="showToc" :activeId="activeHeading"
-          @update:isOpen="showToc = $event" />
-
-        <v-main>
-          <v-container>
-            <MDCRenderer v-if="page?.body" :body="page.body" :data="page.data" class="mt-4" />
-          </v-container>
-        </v-main>
-      </v-layout>
-    </div>
-    <div v-else class="text-center mt-4">
-      <v-progress-circular indeterminate color="primary" />
-      <p>Đang tải nội dung...</p>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 // import { parseMarkdown } from '@nuxtjs/mdc/runtime'
 import type { MDCParserResult, Toc } from '@nuxtjs/mdc'
@@ -75,6 +44,37 @@ onMounted(async () => {
 })
 
 </script>
+
+<template>
+  <div>
+    <h1 class="text-2xl font-semibold mb-2">Cẩm nang</h1>
+
+    <div v-if="page" class="page-mdc-content prose dark:prose-invert">
+      <v-layout>
+        <v-app-bar flat>
+          <v-btn icon @click="showToc = !showToc">
+            <!-- <v-btn icon @click="showToc = !showToc" class="float-left"></v-btn> -->
+            <v-icon>{{ showToc ? 'mdi-close' : 'mdi-format-list-bulleted' }}</v-icon>
+          </v-btn>
+          <v-toolbar-title>Mục lục</v-toolbar-title>
+        </v-app-bar>
+
+        <TocSidebar :toc="toc?.links || []" :isOpen="showToc" :activeId="activeHeading"
+          @update:isOpen="showToc = $event" />
+
+        <v-main>
+          <v-container>
+            <MDCRenderer v-if="page?.body" :body="page.body" :data="page.data" class="mt-4" />
+          </v-container>
+        </v-main>
+      </v-layout>
+    </div>
+    <div v-else class="text-center mt-4">
+      <v-progress-circular indeterminate color="primary" />
+      <p>Đang tải nội dung...</p>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 h1,
