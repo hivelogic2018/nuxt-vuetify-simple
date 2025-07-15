@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "clean": "npx nuxi cleanup .",
     "dev": "nuxt dev",
+    "debug": "DEBUG=nuxt:* npx nuxi dev",
     "generate": "nuxt generate",
     "md2html": "npx ts-node scripts/md2html.ts",
     "preview": "nuxt preview",
@@ -50,7 +51,6 @@
   "devDependencies": {
     "@mdi/font": "^7.4.47",
     "@nuxt/eslint": "1.4.1",
-    "@nuxt/fonts": "0.11.4",
     "@nuxt/scripts": "0.11.7",
     "@nuxt/test-utils": "^3.19.0",
     "@types/lodash": "^4.17.17",
