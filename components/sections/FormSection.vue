@@ -14,64 +14,60 @@ const formKitSchema = computed<FormKitSchemaNode[]>(() => {
 })
 
 async function executeLoadAction(
-	action: types.LoadAction,
-	formData: Record<string, unknown> = {}
+  action: types.LoadAction,
+  formData: Record<string, unknown> = {}
 ) {
-	
-	
-	const store = usePageDataStore()
-	if (!action || action.type !== 'xhr') return
+  const store = usePageDataStore()
+  let processedData: unknown
 
-	try {
-		const { data: response, error } = await useFetch(action.url, {
-	  method: action.method?.toUpperCase() as
-		| 'GET'
-		| 'POST'
-		| 'PUT'
-		| 'DELETE'
-		| 'PATCH'
-		| 'HEAD'
-		| 'OPTIONS'
-		| 'CONNECT'
-		| 'TRACE'
-		| undefined,
-	  body:
-		action.method?.toUpperCase() === 'POST' ? formData : undefined,
-    })
-		
-		if (error.value) {
-			if (action.onFailure?.failureHandler) {
-				const handler =
-					handlerRegistry[action.onFailure.failureHandler as HandlerKey]
-				if (handler) {
-					handler(error.value)
-				}
-			}
-      return;
+  try {
+    if (!action?.url) {
+      console.warn('Missing action URL')
+      return
     }
 
-		let processedData = response.value
-		if (action.onSuccess?.successHandler) {
-			const handler =
-				handlerRegistry[action.onSuccess.successHandler as HandlerKey]
-			if (handler) {
-				//Unknown type because 
-				//A REST API can return data in any shape (an object, an array, a string, etc.).
-				//A GraphQL API typically returns a very specific shape, like { data: { ... } }.
-				//The handlerRegistry.ts will handle the different shapes of data
-				processedData = (handler as (data: unknown) => unknown)(processedData)
-			}
-		}
+    let fetchOptions: Record<string, unknown> = {}
 
-		const targetKey =
-			action.onSuccess?.targetDataStore
-		if (targetKey) {
-			store.setData(targetKey, processedData)
-		}
-	} catch (error) {
-		console.error('Action failed:', action.onFailure?.message || 'Unknown error', error);
-	}
+    if (action.type === 'graphql') {
+      fetchOptions = {
+        method: 'POST',
+        body: {
+          query: action.query,
+          variables: formData,
+        },
+      }
+    }
+		else if (action.type === 'xhr') {
+      fetchOptions = {
+        method: action.method ?? 'GET',
+        body: action.method === 'POST' ? formData : undefined,
+      }
+    }
+
+    const response = await $fetch(action.url, fetchOptions)
+    processedData = response
+
+    if (action.onSuccess?.successHandler) {
+      const handler = handlerRegistry[action.onSuccess.successHandler as HandlerKey]
+      if (handler) {
+        processedData = (handler as (data: unknown) => unknown)(processedData)
+      }
+    }
+
+    if (action.onSuccess?.targetDataStore) {
+      store.setData(action.onSuccess.targetDataStore, processedData)
+    }
+  } catch (error) {
+    const failureKey = action.onFailure?.failureHandler
+    const failureHandler = failureKey && handlerRegistry[failureKey as HandlerKey]
+    if (failureHandler) {
+      (failureHandler as (err: unknown) => void)(error)
+    } else {
+      console.error('Action failed:', action.onFailure?.message || 'Unknown error', error)
+    }
+  }
 }
+
 
 const handleSubmit = async (formData: Record<string, unknown>) => {
 	console.log('Form submitted with data:', formData)

@@ -56,34 +56,30 @@
 		},
 		{
 			"type": "FORM",
-			"title": "Feedback Form",
-			"data": { "feedback": "", "rating": "" },
+			"title": "GraphQL Test Form",
+			"data": { "comment": "Testing GraphQL" },
 			"structure": {
 				"schema": [
 					{
 						"$formkit": "textarea",
-						"name": "feedback",
-						"label": "Your Feedback",
-						"validation": "required|length:10",
-						"validationMessages": {
-							"required": "Feedback is required.",
-							"length": "Please provide at least 10 characters of feedback."
-						}
+						"name": "comment",
+						"label": "Your Comment",
+						"validation": "required"
 					},
 					{
 						"$formkit": "radio",
 						"name": "rating",
 						"label": "Rating",
-						"options": ["Good", "Average", "Poor"],
-						"validation": "required",
-						"validationMessages": {
-							"required": "Please provide a rating."
-						}
+						"options": ["Good", "Average", "Poor"]
 					}
 				]
 			},
 			"onSubmit": {
-				"loadAction": { "url": "/api/submit-feedback" }
+				"loadAction": {
+					"type": "graphql",
+					"query": "mutation { addComment(comment: ...) { id } }",
+					"url": "/api/submit-feedback"
+				}
 			}
 		}
 	]

@@ -14,16 +14,27 @@ interface ActionOutcome {
   failureHandler?: string;
 }
 
-interface LoadAction {
-  type: string;
-  method: string;
+interface RestAction {
+  type: 'xhr';
+  method: 'POST' | 'GET';
   url: string;
   onSuccess?: ActionOutcome;
   onFailure?: ActionOutcome;
 }
 
+interface GraphqlAction {
+  type: 'graphql';
+  query: string;
+  url: string;
+  variables?: Record<string, unknown>;
+  onSuccess?: ActionOutcome;
+  onFailure?: ActionOutcome;
+}
+
+type LoadAction = RestAction | GraphqlAction;
+
 interface FormSection {
-  type: string;
+  type: 'FORM';
   title: string;
   data: GoalTrackerData;
   structure: {
