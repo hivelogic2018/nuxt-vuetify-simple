@@ -1,0 +1,39 @@
+# Node modules
+node_modules/
+
+# Build output
+.nuxt/
+dist/
+.output/
+
+# Environment files
+.env*
+!.env.example
+
+# Lock files and dependencies (optional)
+package-lock.json
+pnpm-lock.yaml
+bun.lock
+
+# Git and cache
+.git/
+.vscode/
+.cache/
+coverage/
+*.log
+
+# Public/static assets
+public/
+static/
+*.png
+*.jpg
+*.svg
+*.ico
+*.webp
+
+# IDE/Editor files
+.idea/
+.DS_Store
+
+# Optional: ignore generated types (if present)
+types/generated.d.ts

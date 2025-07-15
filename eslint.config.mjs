@@ -1,18 +1,23 @@
 // @ts-check
+import prettier from 'eslint-config-prettier'
+import prettierPlugin from 'eslint-plugin-prettier'
 import withNuxt from './.nuxt/eslint.config.mjs'
 import vueEslintParser from 'vue-eslint-parser'
+import typescriptEslintParser from '@typescript-eslint/parser'
+import vue from 'eslint-plugin-vue'
+// import typescriptEslint from '@typescript-eslint/eslint-plugin'
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 const customConfig = [
   {
-    files: ['**/*.{js,ts,vue}'],
+    files: ['**/*.{ts,js,vue}'],
     languageOptions: {
       parser: vueEslintParser,
       parserOptions: {
-        parser: '@typescript-eslint/parser',
+        parser: typescriptEslintParser,
         ecmaVersion: 'latest',
-        sourceType: 'module'
-      }
+        sourceType: 'module',
+      },
     },
     ignores: [
       'node_modules',
@@ -23,7 +28,12 @@ const customConfig = [
       'bun.lock'
       // add more patterns as needed
     ],
+    plugins: {
+      vue,
+      prettier: prettierPlugin,
+    },
     rules: {
+      // TypeScript rules
       '@typescript-eslint/ban-types': 'off',
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       '@typescript-eslint/explicit-function-return-type': 'off',
@@ -33,12 +43,12 @@ const customConfig = [
       '@typescript-eslint/no-empty-interface': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-parameter-properties': 'off',
-      '@typescript-eslint/no-unused-vars': ['error', {
-        argsIgnorePattern: '^_'
-      }],
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-var-requires': 'off',
+
+      // JS/Style rules
       'comma-dangle': ['error', 'always-multiline'],
-      'indent': ['error', 'tab'],
+      'indent': ['error', 2],
       'key-spacing': 'off',
       'max-len': ['error', 480, 2],
       'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -46,30 +56,35 @@ const customConfig = [
       'no-extend-native': 'off',
       'no-trailing-spaces': 'error',
       'no-unused-vars': 'error',
-      // or 'warn'
       'no-var': 'error',
       'object-curly-spacing': ['error', 'always'],
       'one-var': 'off',
       'prefer-const': ['error', {
         destructuring: 'any',
-        ignoreReadBeforeAssign: false
+        ignoreReadBeforeAssign: false,
       }],
       'quotes': ['error', 'single', {
         allowTemplateLiterals: true,
-        avoidEscape: true
+        avoidEscape: true,
       }],
       'semi': ['error', 'never'],
       'space-before-function-paren': ['error', {
-        'anonymous': 'never',
-        'asyncArrow': 'always',
-        'named': 'never'
+        anonymous: 'never',
+        asyncArrow: 'always',
+        named: 'never',
       }],
+
+      // Vue rules
       'vue/multi-word-component-names': 'off',
       'vue/no-mutating-props': 'error',
       'vue/no-unused-components': 'warn',
-      'vue/require-default-prop': 'error'
-    }
-  }
+      'vue/require-default-prop': 'off',
+
+      // Prettier
+      'prettier/prettier': 'error',
+    },
+  },
+  prettier,
 ]
 
 export default withNuxt(customConfig)
