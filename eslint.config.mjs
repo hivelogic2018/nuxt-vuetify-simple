@@ -67,7 +67,7 @@ const customConfig = [
       'vue/multi-word-component-names': 'off',
       'vue/no-mutating-props': 'error',
       'vue/no-unused-components': 'warn',
-      'vue/require-default-prop': 'off'
+      'vue/require-default-prop': 'error'
     }
   }
 ]
