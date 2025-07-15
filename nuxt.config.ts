@@ -19,7 +19,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/i18n',
     '@nuxt/eslint',
-    '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
