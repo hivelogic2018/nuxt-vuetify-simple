@@ -1,11 +1,11 @@
 <template>
   <v-navigation-drawer
     :model-value="isOpen"
-    @update:model-value="emit('update:isOpen', $event)"
     app
     temporary
     right
     width="300"
+    @update:model-value="emit('update:isOpen', $event)"
   >
     <v-list>
       <v-list-item-title class="text-h6 text-center">Table of Contents</v-list-item-title>

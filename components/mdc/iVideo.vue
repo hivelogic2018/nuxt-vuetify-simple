@@ -14,22 +14,22 @@ const props = defineProps<{
 const showVideo = ref(false)
 
 const resolvedEmbedUrl = computed(() =>
-  props.embedUrl || `https://www.youtube.com/embed/${props.videoId}`
+	props.embedUrl || `https://www.youtube.com/embed/${props.videoId}`
 )
 const resolvedThumbnailUrl = computed(() =>
-  props.thumbnailUrl || `https://img.youtube.com/vi/${props.videoId}/hqdefault.jpg`
+	props.thumbnailUrl || `https://img.youtube.com/vi/${props.videoId}/hqdefault.jpg`
 )
 const resolvedAlt = computed(() =>
-  props.alt || 'Video thumbnail'
+	props.alt || 'Video thumbnail'
 )
 const resolvedTitle = computed(() =>
-  props.title || 'Embedded Video'
+	props.title || 'Embedded Video'
 )
 const resolvedWidth = computed(() =>
-  props.width || 560
+	props.width || 560
 )
 const resolvedHeight = computed(() =>
-  props.height || 315
+	props.height || 315
 )
 </script>
 
@@ -37,10 +37,10 @@ const resolvedHeight = computed(() =>
   <div>
     <a
       v-if="!showVideo"
-      @click.prevent="showVideo = true"
       :href="resolvedEmbedUrl"
       target="_blank"
       rel="noopener"
+      @click.prevent="showVideo = true"
     >
       <img
         :src="resolvedThumbnailUrl"
@@ -57,6 +57,6 @@ const resolvedHeight = computed(() =>
       :title="resolvedTitle"
       allowfullscreen
       style="max-width:100%;"
-    ></iframe>
+    />
   </div>
 </template>

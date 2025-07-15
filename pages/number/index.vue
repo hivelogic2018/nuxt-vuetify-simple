@@ -2,10 +2,10 @@
 import { useTheme } from 'vuetify'
 import get from 'lodash/get'
 
-const num = useState<number>('num', () => Math.floor(Math.random() * 100));
+const num = useState<number>('num', () => Math.floor(Math.random() * 100))
 const refreshNum = () => {
-  num.value = Math.floor(Math.random() * 100);
-};
+	num.value = Math.floor(Math.random() * 100)
+}
 
 const theme = useTheme()
 const neutral = computed(() => get(theme, 'global.current.value.colors.neutral', '#6B7280'))
@@ -20,7 +20,7 @@ const neutral = computed(() => get(theme, 'global.current.value.colors.neutral',
     <v-container>
       <p>Number: <span> {{ num }}</span></p>
       <v-btn @click="refreshNum">Refresh</v-btn>
-      <v-btn color="primary" text="Vuetify Button"></v-btn>
+      <v-btn color="primary" text="Vuetify Button"/>
       <client-only>
         <MonacoEditor />
       </client-only>

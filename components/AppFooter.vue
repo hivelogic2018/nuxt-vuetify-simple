@@ -3,10 +3,11 @@
     <v-container>
       <div class="d-flex mb-2">
         <div class="d-flex align-center mb-2">
-          <v-btn variant="text" density="compact" icon @click="expanded = !expanded" class="me-2">
+          <v-btn variant="text" density="compact" icon class="me-2" @click="expanded = !expanded">
             <v-icon>{{ expanded ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
           </v-btn>
-          <v-img src="/logo/hocngheIT-penguin-logo.png" alt="Logo" max-height="48" contain class="me-2"
+          <v-img
+src="/logo/hocngheIT-penguin-logo.png" alt="Logo" max-height="48" contain class="me-2"
             style="width:48px;" />
           <h4 class="text-h6 mb-2 mb-sm-0">{{ $t('nav.title') }}</h4>
         </div>
@@ -49,7 +50,8 @@
               <v-divider class="my-4" />
 
               <div class="d-flex justify-center justify-md-start mb-2">
-                <v-btn v-for="icon in socialIcons" :key="icon.icon" :href="icon.href" target="_blank" variant="text"
+                <v-btn
+v-for="icon in socialIcons" :key="icon.icon" :href="icon.href" target="_blank" variant="text"
                   class="mx-1" size="small">
                   <v-icon size="20">{{ icon.icon }}</v-icon>
                 </v-btn>
@@ -59,7 +61,7 @@
                 &copy; {{ new Date().getFullYear() }} by the Golden West Consulting INC {{ $t('footer.rights') }}
               </div>
             </v-col>
-            <v-col cols="4" sm="2"></v-col>
+            <v-col cols="4" sm="2"/>
             <v-col cols="4" sm="2">
               <h6 class="text-subtitle-1 mb-2">{{ $t('footer.sections.navigation') }}</h6>
               <NuxtLink v-for="item in navLinks" :key="item.to" :to="item.to" class="d-block mb-1" :class="textClass">
@@ -93,66 +95,66 @@ const isMobile = computed(() => mobile.value)
 const expanded = ref(true)
 
 const cookie = useCookie('theme-mode', {
-  default: () => ({
-    mode: 'system',
-    primaryColor: '#3B82F6',
-    neutralColor: '#6B7280'
-  })
+	default: () => ({
+		mode: 'system',
+		primaryColor: '#3B82F6',
+		neutralColor: '#6B7280'
+	})
 })
 
 const systemPrefersDark = () =>
-  typeof window !== 'undefined' && window.matchMedia
-    ? window.matchMedia('(prefers-color-scheme: dark)').matches
-    : false
+	typeof window !== 'undefined' && window.matchMedia
+		? window.matchMedia('(prefers-color-scheme: dark)').matches
+		: false
 
 const currentTheme = computed(() => {
-  const mode = cookie.value?.mode ?? 'system'
-  if (mode === 'system') return systemPrefersDark() ? 'dark' : 'light'
-  return mode
+	const mode = cookie.value?.mode ?? 'system'
+	if (mode === 'system') return systemPrefersDark() ? 'dark' : 'light'
+	return mode
 })
 
 const footerColor = computed(() => {
-  switch (currentTheme.value) {
-    case 'dark': return 'grey-darken-4'
-    case 'sepia': return '#f1e7d0'
-    default: return 'grey-lighten-4'
-  }
+	switch (currentTheme.value) {
+	case 'dark': return 'grey-darken-4'
+	case 'sepia': return '#f1e7d0'
+	default: return 'grey-lighten-4'
+	}
 })
 
 const textClass = computed(() => {
-  switch (currentTheme.value) {
-    case 'dark': return 'text-white'
-    case 'sepia':
-      return cookie.value?.neutralColor
-        ? `text-${cookie.value.neutralColor.replace('#', '')}`
-        : 'text-brown'
-    default: return 'text-black'
-  }
+	switch (currentTheme.value) {
+	case 'dark': return 'text-white'
+	case 'sepia':
+		return cookie.value?.neutralColor
+			? `text-${cookie.value.neutralColor.replace('#', '')}`
+			: 'text-brown'
+	default: return 'text-black'
+	}
 })
 
 const navLinks = [
-  { label: 'nav.store', to: '/store' },
-  { label: 'nav.chat', to: '/chat' },
-  { label: 'nav.schedule', to: '/schedule' },
-  { label: 'nav.guide', to: '/camnang' },
+	{ label: 'nav.store', to: '/store' },
+	{ label: 'nav.chat', to: '/chat' },
+	{ label: 'nav.schedule', to: '/schedule' },
+	{ label: 'nav.guide', to: '/camnang' },
 ]
 
 const socialIcons = [
-  { icon: 'mdi-facebook', href: 'https://facebook.com' },
-  { icon: 'mdi-linkedin', href: 'https://linkedin.com' },
-  { icon: 'mdi-youtube', href: 'https://www.youtube.com/@dayngheIT' },
+	{ icon: 'mdi-facebook', href: 'https://facebook.com' },
+	{ icon: 'mdi-linkedin', href: 'https://linkedin.com' },
+	{ icon: 'mdi-youtube', href: 'https://www.youtube.com/@dayngheIT' },
 ]
 
 // Get GitHub URL from runtime config (.env)
 const githubUrl = useRuntimeConfig().public.githubUrl
 
-const isFooterVisible = ref(false);
+const isFooterVisible = ref(false)
 
 onMounted(() => {
-  nextTick(() => {
-    isFooterVisible.value = true;
-  });
-});
+	nextTick(() => {
+		isFooterVisible.value = true
+	})
+})
 </script>
 
 <style scoped>

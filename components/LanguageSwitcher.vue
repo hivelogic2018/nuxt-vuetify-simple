@@ -10,8 +10,8 @@
         <v-list-item
           v-for="(lang, code) in languages"
           :key="code"
-          @click="setLanguage(code)"
           class="px-4"
+          @click="setLanguage(code)"
         >
           <v-list-item-title class="text-subtitle-1">
             {{ lang }}

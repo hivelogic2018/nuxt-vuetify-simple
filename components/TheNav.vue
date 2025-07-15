@@ -1,7 +1,7 @@
 <template>
   <v-app-bar flat color="background" elevation="1" class="px-4">
     <!-- Mobile menu toggle -->
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="d-sm-none" />
+    <v-app-bar-nav-icon class="d-sm-none" @click.stop="drawer = !drawer" />
 
     <!-- App title -->
     <v-toolbar-title>
@@ -85,11 +85,11 @@ const drawer = ref(false)
 const githubUrl = useRuntimeConfig().public.githubUrl
 
 const navItems = [
-  { label: 'nav.biography', to: '/bio', icon: 'mdi-account-box-outline' },
-  { label: 'nav.guide', to: '/camnang', icon: 'mdi-compass-outline' },
-  { label: 'nav.store', to: '/store', icon: 'mdi-store' },
-  { label: 'nav.chat', to: '/chat', icon: 'mdi-chat' },
-  { label: 'nav.schedule', to: '/schedule', icon: 'mdi-calendar-clock' }
+	{ label: 'nav.biography', to: '/bio', icon: 'mdi-account-box-outline' },
+	{ label: 'nav.guide', to: '/camnang', icon: 'mdi-compass-outline' },
+	{ label: 'nav.store', to: '/store', icon: 'mdi-store' },
+	{ label: 'nav.chat', to: '/chat', icon: 'mdi-chat' },
+	{ label: 'nav.schedule', to: '/schedule', icon: 'mdi-calendar-clock' }
 ]
 // thêm trang các khoá học, dịch vụ, liên hệ
 </script>
