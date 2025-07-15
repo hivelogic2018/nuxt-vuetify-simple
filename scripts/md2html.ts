@@ -5,7 +5,7 @@ import { VFile } from 'vfile'
 
 async function main() {
   try {
-    const inputPath = './content/index.md'
+    const inputPath = './public/content/index.md'
 
     const processed = await remark()
       .use(remarkToc)

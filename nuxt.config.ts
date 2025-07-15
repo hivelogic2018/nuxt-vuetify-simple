@@ -7,39 +7,6 @@ export default defineNuxtConfig({
   // Automatically import components
   compatibilityDate: '2025-05-15',
   components: true,
-  content: {
-    build: {
-      markdown: {
-        highlight: {
-          theme: {
-            // Theme used if `html.dark`
-            darkMode: 'material-theme',
-            // Default theme (same as single string)
-            default: 'material-theme-lighter',
-            // or 'github-dark' or 'material-theme-ocean'
-            // Theme used if `html.sepia`
-            sepia: 'material-theme-palenight'
-          }
-        },
-        remarkPlugins: {
-          // Add the remark-toc plugin to generate a table of contents
-          // for markdown files. The toc will be generated based on the
-          // headings in the markdown content.
-          'remark-toc': {
-            // Maximum depth of headings to include in the TOC
-            heading: 'Layout' // Custom heading for the TOC
-            ,
-            // Use tight list style for the TOC
-            maxDepth: 5,
-            tight: true
-          }
-        },
-        toc: {
-          depth: 5 // include h3 headings,
-        }
-      }
-    }
-  },
   css: [
     '~/public/assets/css/tailwind.css',
     '~/public/assets/css/main.scss', // keep your custom styles
@@ -51,9 +18,7 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/i18n',
-    '@nuxt/content',
     '@nuxt/eslint',
-    '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
