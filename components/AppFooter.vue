@@ -1,5 +1,5 @@
 <template>
-  <v-footer app :color="footerColor" class="py-8 px-4 px-sm-10" :class="textClass">
+  <v-footer color="background" class="fixed-footer py-8 px-4 px-sm-10" :class="textClass" elevation="3">
     <v-container>
       <div class="d-flex mb-2">
         <div class="d-flex align-center mb-2">
@@ -90,7 +90,7 @@ import { computed, ref } from 'vue'
 
 const { mobile } = useDisplay()
 const isMobile = computed(() => mobile.value)
-const expanded = ref(true)
+const expanded = ref(false)
 
 const cookie = useCookie('theme-mode', {
   default: () => ({
@@ -151,5 +151,13 @@ const githubUrl = useRuntimeConfig().public.githubUrl
 .text-caption {
   font-size: 0.75rem;
   opacity: 0.8;
+}
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 </style>

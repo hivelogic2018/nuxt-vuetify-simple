@@ -1,14 +1,14 @@
 import { remark } from 'remark'
-import remarkToc from 'remark-toc'
+// import remarkToc from 'remark-toc'
 import { read, write } from 'to-vfile'
 import { VFile } from 'vfile'
 
 async function main() {
   try {
-    const inputPath = './content/index.md'
+    const inputPath = './public/content/index.md'
 
     const processed = await remark()
-      .use(remarkToc)
+      // .use(remarkToc)
       .process(await read(inputPath))
 
     // Write .html output (just renamed, still Markdown content)
