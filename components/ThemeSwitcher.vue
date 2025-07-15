@@ -25,8 +25,8 @@ const cookie = useCookie('theme-mode', {
 	default: () => ({
 		mode: 'system',
 		primaryColor: primaryColors[0].value,
-		neutralColor: neutralColors[0].value
-	})
+		neutralColor: neutralColors[0].value,
+	}),
 }) as Ref<{
   mode: 'light' | 'dark' | 'sepia' | 'system'
   primaryColor: string
@@ -60,13 +60,13 @@ const setColor = (type: 'primary' | 'neutral', value: string) => {
 		...theme.themes.value[name],
 		colors: {
 			...theme.themes.value[name]?.colors,
-			[type]: value
-		}
+			[type]: value,
+		},
 	}
 
 	cookie.value = {
 		...cookie.value,
-		[`${type}Color`]: value
+		[`${type}Color`]: value,
 	}
 }
 
@@ -76,7 +76,7 @@ const setThemeMode = (mode: typeof currentTheme.value) => {
 	cookie.value = {
 		mode,
 		primaryColor: cookie.value.primaryColor,
-		neutralColor: cookie.value.neutralColor
+		neutralColor: cookie.value.neutralColor,
 	}
 
 	if (mode === 'system') {

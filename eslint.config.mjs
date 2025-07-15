@@ -21,28 +21,50 @@ const customConfig = [
       // add more patterns as needed
     ],
     rules: {
-      '@typescript-eslint/explicit-member-accessibility': 'off',
-      '@typescript-eslint/explicit-function-return-type': 'off',
-      '@typescript-eslint/no-parameter-properties': 'off',
-      '@typescript-eslint/interface-name-prefix': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/ban-types': 'off',
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-member-accessibility': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/interface-name-prefix': 'off',
+      '@typescript-eslint/no-empty-interface': 'error',
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-parameter-properties': 'off',
+      '@typescript-eslint/no-unused-vars': ['error', {
+        argsIgnorePattern: '^_'
+      }],
       '@typescript-eslint/no-var-requires': 'off',
+      'comma-dangle': ['error', 'always-multiline'],
+      'indent': ['error', 'tab'],
       'key-spacing': 'off',
       'max-len': ['error', 480, 2],
+      'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+      'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+      'no-extend-native': 'off',
+      'no-trailing-spaces': 'error',
+      'no-unused-vars': 'error',
+      // or 'warn'
+      'no-var': 'error',
       'object-curly-spacing': ['error', 'always'],
       'one-var': 'off',
-      'no-var': 'error',
-      'semi': ['error', 'never'],
-      'no-extend-native': 'off',
       'prefer-const': ['error', {
         destructuring: 'any',
         ignoreReadBeforeAssign: false
       }],
-      'indent': ['error', 'tab'],
-      'quotes': ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
-      'vue/multi-word-component-names': 'off'
+      'quotes': ['error', 'single', {
+        allowTemplateLiterals: true,
+        avoidEscape: true
+      }],
+      'semi': ['error', 'never'],
+      'space-before-function-paren': ['error', {
+        'anonymous': 'never',
+        'asyncArrow': 'always',
+        'named': 'never'
+      }],
+      'vue/multi-word-component-names': 'off',
+      'vue/no-mutating-props': 'error',
+      'vue/no-unused-components': 'warn',
+      'vue/require-default-prop': 'off'
     }
   }
 ]

@@ -12,7 +12,7 @@ const activeHeading = ref('')
 const parse = useMarkdownParser()
 
 const theme = useTheme()
- 
+// eslint-disable-next-line
 const neutral = computed(() => get(theme, 'global.current.value.colors.neutral', '#6B7280'))
 
 // MONACO SYNTAX HIGHLIGHTING SWITCHER
@@ -34,7 +34,7 @@ function handleThemeChange(e: CustomEvent) {
 onMounted(async () => {
 	const md = await $fetch('/content/index.md', {
 		lazy: true,
-		responseType: 'text'
+		responseType: 'text',
 	})
 
 	let parsed: MDCParserResult | null = null
@@ -48,7 +48,7 @@ onMounted(async () => {
 
 		useSeoMeta({
 			title: parsed.data.title,
-			description: parsed.data.description
+			description: parsed.data.description,
 		})
 
 		console.log('Parsed content:', parsed)
@@ -67,12 +67,12 @@ onMounted(async () => {
 			const visible = entries.filter(e => e.isIntersecting)
 			if (visible.length > 0) {
 				const best = visible.reduce((a, b) =>
-					a.intersectionRatio > b.intersectionRatio ? a : b
+					a.intersectionRatio > b.intersectionRatio ? a : b,
 				)
 				activeHeading.value = best.target.id
 			}
 		},
-		{ rootMargin: '0px 0px -80% 0px', threshold: [0.1, 0.5, 1] }
+		{ rootMargin: '0px 0px -80% 0px', threshold: [0.1, 0.5, 1] },
 	)
 
 	toc.value?.links.forEach(link => {
@@ -91,8 +91,8 @@ const cookie = useCookie('theme-mode', {
 	default: () => ({
 		mode: 'system',
 		primaryColor: '#3B82F6',
-		neutralColor: '#6B7280'
-	})
+		neutralColor: '#6B7280',
+	}),
 })
 
 const systemPrefersDark = () =>
@@ -119,59 +119,61 @@ console.log('Current Monaco Theme:', monacoTheme.value, monacoPreBackground.valu
 </script>
 
 <template>
-  <div>
-    <h1 class="text-2xl font-semibold mb-2">Cẩm nang: Giới thiệu, hướng dẫn học về lập trình web ứng dụng với Vue3 và
-      Typescript</h1>
+	<div>
+		<h1 class="text-2xl font-semibold mb-2">Cẩm nang: Giới thiệu, hướng dẫn học về lập trình web ứng dụng với Vue3 và
+			Typescript</h1>
 
-    <div v-if="page" class="page-mdc-content prose dark:prose-invert">
-      <v-layout>
-        <v-app-bar flat>
-          <v-btn icon @click="showToc = !showToc">
-            <!-- <v-btn icon @click="showToc = !showToc" class="float-left"></v-btn> -->
-            <v-icon>{{ showToc ? 'mdi-close' : 'mdi-format-list-bulleted' }}</v-icon>
-          </v-btn>
-          <v-toolbar-title>Mục lục</v-toolbar-title>
-        </v-app-bar>
+		<div v-if="page" class="page-mdc-content prose dark:prose-invert">
+			<v-layout>
+				<v-app-bar flat>
+					<v-btn icon @click="showToc = !showToc">
+						<!-- <v-btn icon @click="showToc = !showToc" class="float-left"></v-btn> -->
+						<v-icon>{{ showToc ? 'mdi-close' : 'mdi-format-list-bulleted' }}</v-icon>
+					</v-btn>
+					<v-toolbar-title>Mục lục</v-toolbar-title>
+				</v-app-bar>
 
-        <TocSidebar
+				<TocSidebar
 :toc="toc?.links || []" :is-open="showToc" :active-id="activeHeading"
-          @update:is-open="showToc = $event" />
+					@update:is-open="showToc = $event" />
 
-        <v-main>
-          <v-container>
-            <MDCRenderer v-if="page?.body" :body="page.body" :data="page.data" class="mt-4" />
-          </v-container>
-        </v-main>
-      </v-layout>
-    </div>
-    <div v-else class="text-center mt-4">
-      <v-progress-circular indeterminate color="primary" />
-      <p>Đang tải nội dung...</p>
-    </div>
-  </div>
+				<v-main>
+					<v-container>
+						<MDCRenderer v-if="page?.body" :body="page.body" :data="page.data" class="mt-4" />
+					</v-container>
+				</v-main>
+			</v-layout>
+		</div>
+		<div v-else class="text-center mt-4">
+			<v-progress-circular indeterminate color="primary" />
+			<p>Đang tải nội dung...</p>
+		</div>
+	</div>
 </template>
 
 <style scoped>
-h1, :deep(h1) {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 8px;
+h1,
+:deep(h1) {
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 8px;
 }
 
 .page-mdc-content {
-  padding: 0 20px 0 20px;
+	padding: 0 20px 0 20px;
 
-  :deep(pre) {
-    background-color: v-bind(monacoPreBackground);
-    /* bg-muted fallback */
-    word-wrap: break-word;
-  }
+	:deep(pre) {
+		background-color: v-bind(monacoPreBackground);
+		/* bg-muted fallback */
+		word-wrap: break-word;
+	}
 }
 
 :deep(p) {
-  margin: 0 0 16px;
-  a {
-    color: #4ade80;
-  }
+	margin: 0 0 16px;
+
+	a {
+		color: #4ade80;
+	}
 }
 </style>

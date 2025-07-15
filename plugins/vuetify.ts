@@ -4,7 +4,7 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
- 
+// eslint-disable-next-line
 const customThemes2 = {
 	light: {
 		dark: false,
@@ -13,7 +13,7 @@ const customThemes2 = {
 			surface: '#F8F9FA',
 			primary: '#3B82F6',
 			neutral: '#6B7280',
-		}
+		},
 	},
 	dark: {
 		dark: true,
@@ -22,7 +22,7 @@ const customThemes2 = {
 			surface: '#1E1E1E',
 			primary: '#3B82F6',
 			neutral: '#71717A',
-		}
+		},
 	},
 	sepia: {
 		dark: false,
@@ -31,8 +31,8 @@ const customThemes2 = {
 			surface: '#EAD7B7',
 			primary: '#F59E0B',
 			neutral: '#433422',
-		}
-	}
+		},
+	},
 }
 
 const customThemes = {

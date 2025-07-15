@@ -4,7 +4,7 @@ import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime'
 import AppNumber from '../pages/number/index.vue'
 
 await setup({
-	server: true
+	server: true,
 	// You can specify test-specific config overrides here if needed
 })
 

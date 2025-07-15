@@ -2,7 +2,7 @@
 
 export default defineNuxtConfig({
 	build: {
-		transpile: ['vuetify']
+		transpile: ['vuetify'],
 	},
 	// Automatically import components
 	compatibilityDate: '2025-05-15',
@@ -11,10 +11,10 @@ export default defineNuxtConfig({
 		'~/public/assets/css/tailwind.css',
 		'~/public/assets/css/main.scss', // keep your custom styles
 		'vuetify/styles',
-		'@mdi/font/css/materialdesignicons.min.css'
+		'@mdi/font/css/materialdesignicons.min.css',
 	],
 	devtools: {
-		enabled: true
+		enabled: true,
 	},
 	modules: [
 		'@nuxtjs/i18n',
@@ -41,7 +41,7 @@ export default defineNuxtConfig({
 			useCookie: true,
 			cookieKey: 'lang',
 			fallbackLocale: 'en',
-		}
+		},
 	},
 	// devServer: {
 	//   https: {
@@ -67,7 +67,7 @@ export default defineNuxtConfig({
 	},
 	runtimeConfig: {
 		public: {
-			githubUrl: process.env.NUXT_PUBLIC_GITHUB_URL
-		}
+			githubUrl: process.env.NUXT_PUBLIC_GITHUB_URL,
+		},
 	},
 })

@@ -98,8 +98,8 @@ const cookie = useCookie('theme-mode', {
 	default: () => ({
 		mode: 'system',
 		primaryColor: '#3B82F6',
-		neutralColor: '#6B7280'
-	})
+		neutralColor: '#6B7280',
+	}),
 })
 
 const systemPrefersDark = () =>

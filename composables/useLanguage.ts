@@ -7,7 +7,7 @@ export type LanguageCode = 'en' | 'fr' | 'vi'
 export const languages: Record<LanguageCode, string> = {
 	en: 'English',
 	fr: 'Français',
-	vi: 'Tiếng Việt'
+	vi: 'Tiếng Việt',
 }
 
 export function useLanguage() {
@@ -38,6 +38,6 @@ export function useLanguage() {
 		locale,
 		langCookie,
 		languages,
-		setLanguage
+		setLanguage,
 	}
 }

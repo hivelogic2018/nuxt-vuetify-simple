@@ -62,7 +62,7 @@ onMounted(async () => {
 			// Guides
 			'editorIndentGuide.background': '#666666',
 			'editorIndentGuide.activeBackground': '#999999',
-		}
+		},
 	})
 
 
