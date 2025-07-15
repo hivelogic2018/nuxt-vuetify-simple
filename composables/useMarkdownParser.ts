@@ -41,11 +41,17 @@ export default function useMarkdownParser() {
                     scss: ScssLang,
                     ts: TsLang,
                     typescript: TsLang,
+                    javascript: TsLang, // Use TypeScript for JavaScript highlighting
+                    js: TsLang, // Use TypeScript for JavaScript highlighting
                   },
                 }),
               },
             },
           },
+        },
+        toc: {
+          depth: 3,
+          searchDepth: 3,
         },
       })
     }
