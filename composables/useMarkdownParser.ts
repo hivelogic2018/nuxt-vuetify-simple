@@ -1,10 +1,6 @@
 // composables/useMarkdownParser.ts
 // Import package exports
-import {
-	createMarkdownParser,
-	rehypeHighlight,
-	createShikiHighlighter,
-} from '@nuxtjs/mdc/runtime'
+import { createMarkdownParser, rehypeHighlight, createShikiHighlighter } from '@nuxtjs/mdc/runtime'
 // Import desired Shiki themes and languages
 import MaterialThemePalenight from '@shikijs/themes/material-theme-palenight'
 import HtmlLang from '@shikijs/langs/html'

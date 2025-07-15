@@ -9,10 +9,5 @@ import { ref } from 'vue'
 
 const item = ref('system')
 
-const items = [
-	'system',
-	'light',
-	'dark',
-	'sepia',
-]
+const items = ['system', 'light', 'dark', 'sepia']
 </script>

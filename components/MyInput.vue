@@ -4,8 +4,5 @@ defineEmits(['update:modelValue'])
 </script>
 
 <template>
-	<input
-		:value="props.modelValue"
-		@input="$emit('update:modelValue', $event.target.value)"
-	>
+	<input :value="props.modelValue" @input="$emit('update:modelValue', $event.target.value)" />
 </template>

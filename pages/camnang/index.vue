@@ -4,7 +4,6 @@ import type { MDCParserResult, Toc } from '@nuxtjs/mdc'
 import { useTheme } from 'vuetify'
 import get from 'lodash/get'
 
-
 const page = ref<MDCParserResult | null>(null)
 const toc = ref<Toc | undefined>(undefined)
 const showToc = ref(false)
@@ -63,19 +62,17 @@ onMounted(async () => {
 	page.value = parsed
 
 	const observer = new IntersectionObserver(
-		entries => {
-			const visible = entries.filter(e => e.isIntersecting)
+		(entries) => {
+			const visible = entries.filter((e) => e.isIntersecting)
 			if (visible.length > 0) {
-				const best = visible.reduce((a, b) =>
-					a.intersectionRatio > b.intersectionRatio ? a : b,
-				)
+				const best = visible.reduce((a, b) => (a.intersectionRatio > b.intersectionRatio ? a : b))
 				activeHeading.value = best.target.id
 			}
 		},
-		{ rootMargin: '0px 0px -80% 0px', threshold: [0.1, 0.5, 1] },
+		{ rootMargin: '0px 0px -80% 0px', threshold: [0.1, 0.5, 1] }
 	)
 
-	toc.value?.links.forEach(link => {
+	toc.value?.links.forEach((link) => {
 		const el = document.getElementById(link.id)
 		if (el) observer.observe(el)
 	})
@@ -96,9 +93,7 @@ const cookie = useCookie('theme-mode', {
 })
 
 const systemPrefersDark = () =>
-	typeof window !== 'undefined' && window.matchMedia
-		? window.matchMedia('(prefers-color-scheme: dark)').matches
-		: false
+	typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches : false
 
 const currentTheme = computed(() => {
 	const mode = cookie.value?.mode ?? 'system'
@@ -108,20 +103,23 @@ const currentTheme = computed(() => {
 
 const monacoPreBackground = computed(() => {
 	switch (currentTheme.value) {
-	case 'dark': return ''
-	case 'sepia': return '#f1e7d0'
-	default: return '#1A3B46'
+		case 'dark':
+			return ''
+		case 'sepia':
+			return '#f1e7d0'
+		default:
+			return '#1A3B46'
 	}
 })
 
 console.log('Current Monaco Theme:', monacoTheme.value, monacoPreBackground.value)
-
 </script>
 
 <template>
 	<div>
-		<h1 class="text-2xl font-semibold mb-2">Cẩm nang: Giới thiệu, hướng dẫn học về lập trình web ứng dụng với Vue3 và
-			Typescript</h1>
+		<h1 class="text-2xl font-semibold mb-2">
+			Cẩm nang: Giới thiệu, hướng dẫn học về lập trình web ứng dụng với Vue3 và Typescript
+		</h1>
 
 		<div v-if="page" class="page-mdc-content prose dark:prose-invert">
 			<v-layout>
@@ -134,8 +132,11 @@ console.log('Current Monaco Theme:', monacoTheme.value, monacoPreBackground.valu
 				</v-app-bar>
 
 				<TocSidebar
-					:toc="toc?.links || []" :is-open="showToc" :active-id="activeHeading"
-					@update:is-open="showToc = $event" />
+					:toc="toc?.links || []"
+					:is-open="showToc"
+					:active-id="activeHeading"
+					@update:is-open="showToc = $event"
+				/>
 
 				<v-main>
 					<v-container>

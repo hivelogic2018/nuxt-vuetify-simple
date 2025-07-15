@@ -39,7 +39,7 @@ onMounted(async () => {
 		],
 		colors: {
 			// Background & foreground
-			'editor.background': '#083c47',            // Matches FormKit base editor background
+			'editor.background': '#083c47', // Matches FormKit base editor background
 			'editor.foreground': '#ffffff',
 
 			// Cursor & selection
@@ -64,7 +64,6 @@ onMounted(async () => {
 			'editorIndentGuide.activeBackground': '#999999',
 		},
 	})
-
 
 	// monaco.editor.defineTheme('my-dark-theme', {
 	//   base: 'vs-dark',
@@ -91,7 +90,6 @@ onMounted(async () => {
 	//   }
 	// })
 
-
 	monaco.editor.create(editorContainer.value!, {
 		value: '// Start coding!',
 		language: 'javascript',
@@ -103,5 +101,9 @@ onMounted(async () => {
 </script>
 
 <template>
-	<div ref="editorContainer" style="height: 400px; width: 100%;" class="view-lines monaco-mouse-cursor-text monaco-editor-container"/>
+	<div
+		ref="editorContainer"
+		style="height: 400px; width: 100%"
+		class="view-lines monaco-mouse-cursor-text monaco-editor-container"
+	/>
 </template>

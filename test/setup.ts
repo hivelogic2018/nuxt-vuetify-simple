@@ -10,7 +10,6 @@ beforeAll(async () => {
 	})
 })
 
-
 if (typeof globalThis.TextEncoder === 'undefined') {
 	globalThis.TextEncoder = TextEncoder as typeof globalThis.TextEncoder
 }

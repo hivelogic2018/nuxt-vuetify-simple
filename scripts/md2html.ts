@@ -8,7 +8,7 @@ async function main() {
 		const inputPath = './public/content/index.md'
 
 		const processed = await remark()
-		// .use(remarkToc)
+			// .use(remarkToc)
 			.process(await read(inputPath))
 
 		// Write .html output (just renamed, still Markdown content)
@@ -26,7 +26,6 @@ async function main() {
 		})
 		await write(mdOutput)
 		console.log(`Generated ${mdOutput.path}`)
-
 	} catch (error) {
 		console.error('Error processing markdown:', error)
 		process.exit(1)

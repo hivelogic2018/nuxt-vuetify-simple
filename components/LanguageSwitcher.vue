@@ -7,12 +7,7 @@
 		</template>
 		<v-card min-width="200" class="py-2">
 			<v-list density="comfortable">
-				<v-list-item
-					v-for="(lang, code) in languages"
-					:key="code"
-					class="px-4"
-					@click="setLanguage(code)"
-				>
+				<v-list-item v-for="(lang, code) in languages" :key="code" class="px-4" @click="setLanguage(code)">
 					<v-list-item-title class="text-subtitle-1">
 						{{ lang }}
 						<v-icon v-if="locale === code" size="20" class="ml-auto">mdi-check</v-icon>

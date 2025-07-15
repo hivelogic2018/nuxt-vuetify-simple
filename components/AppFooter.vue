@@ -7,8 +7,13 @@
 						<v-icon>{{ expanded ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
 					</v-btn>
 					<v-img
-						src="/logo/hocngheIT-penguin-logo.png" alt="Logo" max-height="48" contain class="me-2"
-						style="width:48px;" />
+						src="/logo/hocngheIT-penguin-logo.png"
+						alt="Logo"
+						max-height="48"
+						contain
+						class="me-2"
+						style="width: 48px"
+					/>
 					<h4 class="text-h6 mb-2 mb-sm-0">{{ $t('nav.title') }}</h4>
 				</div>
 			</div>
@@ -43,7 +48,6 @@
 
 					<v-row v-else>
 						<v-col cols="12" sm="6">
-
 							<p class="text-caption">
 								{{ $t('footer.description') }}
 							</p>
@@ -51,17 +55,22 @@
 
 							<div class="d-flex justify-center justify-md-start mb-2">
 								<v-btn
-									v-for="icon in socialIcons" :key="icon.icon" :href="icon.href" target="_blank" variant="text"
-									class="mx-1" size="small">
+									v-for="icon in socialIcons"
+									:key="icon.icon"
+									:href="icon.href"
+									target="_blank"
+									variant="text"
+									class="mx-1"
+									size="small"
+								>
 									<v-icon size="20">{{ icon.icon }}</v-icon>
 								</v-btn>
-
 							</div>
 							<div class="text-caption">
 								&copy; {{ new Date().getFullYear() }} by the Golden West Consulting INC {{ $t('footer.rights') }}
 							</div>
 						</v-col>
-						<v-col cols="4" sm="2"/>
+						<v-col cols="4" sm="2" />
 						<v-col cols="4" sm="2">
 							<h6 class="text-subtitle-1 mb-2">{{ $t('footer.sections.navigation') }}</h6>
 							<NuxtLink v-for="item in navLinks" :key="item.to" :to="item.to" class="d-block mb-1" :class="textClass">
@@ -73,14 +82,11 @@
 							<NuxtLink to="/bio" class="d-block mb-1" :class="textClass">
 								{{ $t('nav.biography') }}
 							</NuxtLink>
-							<a :href="githubUrl" target="_blank" class="d-block mb-1" :class="textClass">
-								GitHub
-							</a>
+							<a :href="githubUrl" target="_blank" class="d-block mb-1" :class="textClass">GitHub</a>
 						</v-col>
 					</v-row>
 				</div>
 			</v-expand-transition>
-
 		</v-container>
 	</v-footer>
 </template>
@@ -103,9 +109,7 @@ const cookie = useCookie('theme-mode', {
 })
 
 const systemPrefersDark = () =>
-	typeof window !== 'undefined' && window.matchMedia
-		? window.matchMedia('(prefers-color-scheme: dark)').matches
-		: false
+	typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches : false
 
 const currentTheme = computed(() => {
 	const mode = cookie.value?.mode ?? 'system'
@@ -115,20 +119,23 @@ const currentTheme = computed(() => {
 
 const footerColor = computed(() => {
 	switch (currentTheme.value) {
-	case 'dark': return 'grey-darken-4'
-	case 'sepia': return '#f1e7d0'
-	default: return 'grey-lighten-4'
+		case 'dark':
+			return 'grey-darken-4'
+		case 'sepia':
+			return '#f1e7d0'
+		default:
+			return 'grey-lighten-4'
 	}
 })
 
 const textClass = computed(() => {
 	switch (currentTheme.value) {
-	case 'dark': return 'text-white'
-	case 'sepia':
-		return cookie.value?.neutralColor
-			? `text-${cookie.value.neutralColor.replace('#', '')}`
-			: 'text-brown'
-	default: return 'text-black'
+		case 'dark':
+			return 'text-white'
+		case 'sepia':
+			return cookie.value?.neutralColor ? `text-${cookie.value.neutralColor.replace('#', '')}` : 'text-brown'
+		default:
+			return 'text-black'
 	}
 })
 
@@ -159,7 +166,7 @@ onMounted(() => {
 
 <style scoped>
 .text-caption {
-  font-size: 0.75rem;
-  opacity: 0.8;
+	font-size: 0.75rem;
+	opacity: 0.8;
 }
 </style>

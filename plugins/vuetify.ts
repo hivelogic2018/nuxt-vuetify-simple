@@ -65,7 +65,7 @@ const customThemes = {
 	},
 }
 
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin((nuxtApp) => {
 	const vuetify = createVuetify({
 		components,
 		directives,

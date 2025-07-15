@@ -7,7 +7,7 @@
 		<v-toolbar-title>
 			<NuxtLink
 				to="/"
-				style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;"
+				style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px"
 				:style="{ color: get(theme, 'global.current.value.colors.primary', '#1976d2') }"
 			>
 				<v-icon size="24">mdi-home-circle-outline</v-icon>
@@ -22,11 +22,12 @@
 				:key="index"
 				:to="item.to"
 				class="text-subtitle-1 font-weight-bold d-inline-flex align-center"
-				style="text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 1.2rem;"
+				style="text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 1.2rem"
 				:style="{
-					color: $route.path === item.to
-						? get(theme, 'global.current.value.colors.primary', '#1976d2')
-						: get(theme, 'global.current.value.colors.neutral', '#333'),
+					color:
+						$route.path === item.to
+							? get(theme, 'global.current.value.colors.primary', '#1976d2')
+							: get(theme, 'global.current.value.colors.neutral', '#333'),
 				}"
 			>
 				<v-icon size="20" class="mr-1">{{ item.icon }}</v-icon>
@@ -42,13 +43,7 @@
 
 		<!-- Theme switcher + GitHub icon -->
 		<ThemeSwitcher class="mr-2" />
-		<v-btn
-			icon
-			:href="githubUrl"
-			target="_blank"
-			rel="noopener noreferrer"
-			variant="text"
-		>
+		<v-btn icon :href="githubUrl" target="_blank" rel="noopener noreferrer" variant="text">
 			<v-icon>mdi-github</v-icon>
 		</v-btn>
 	</v-app-bar>
@@ -56,13 +51,7 @@
 	<!-- Mobile drawer -->
 	<v-navigation-drawer v-model="drawer" temporary class="d-sm-none">
 		<v-list>
-			<v-list-item
-				v-for="(item, index) in navItems"
-				:key="index"
-				:to="item.to"
-				link
-				@click="drawer = false"
-			>
+			<v-list-item v-for="(item, index) in navItems" :key="index" :to="item.to" link @click="drawer = false">
 				<v-icon>{{ item.icon }}</v-icon>
 				<v-list-item-title>{{ $t(item.label) }}</v-list-item-title>
 			</v-list-item>

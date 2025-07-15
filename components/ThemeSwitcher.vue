@@ -28,20 +28,18 @@ const cookie = useCookie('theme-mode', {
 		neutralColor: neutralColors[0].value,
 	}),
 }) as Ref<{
-  mode: 'light' | 'dark' | 'sepia' | 'system'
-  primaryColor: string
-  neutralColor: string
+	mode: 'light' | 'dark' | 'sepia' | 'system'
+	primaryColor: string
+	neutralColor: string
 }>
-
 
 // Apply theme from cookie or defaults
 const applyTheme = () => {
 	const { mode, primaryColor, neutralColor } = cookie.value
 
 	currentTheme.value = ['light', 'dark', 'sepia', 'system'].includes(mode)
-		? mode as typeof currentTheme.value
+		? (mode as typeof currentTheme.value)
 		: 'system'
-
 
 	if (mode === 'system') {
 		const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -105,17 +103,8 @@ onMounted(applyTheme)
 			<!-- Primary Colors -->
 			<h4 class="text-subtitle-1 mt-4 mb-2">Primary</h4>
 			<v-row dense>
-				<v-col
-					v-for="color in primaryColors"
-					:key="color.name"
-					cols="6"
-				>
-					<v-btn
-						block
-						variant="outlined"
-						class="justify-start"
-						@click="setColor('primary', color.value)"
-					>
+				<v-col v-for="color in primaryColors" :key="color.name" cols="6">
+					<v-btn block variant="outlined" class="justify-start" @click="setColor('primary', color.value)">
 						<v-avatar size="16" :color="color.value" class="me-2" />
 						{{ color.name }}
 						<v-icon v-if="cookie.primaryColor === color.value" size="14" class="ms-auto">mdi-check</v-icon>
@@ -125,17 +114,8 @@ onMounted(applyTheme)
 
 			<h4 class="text-subtitle-1 mt-4 mb-2">Neutral</h4>
 			<v-row dense>
-				<v-col
-					v-for="color in neutralColors"
-					:key="color.name"
-					cols="6"
-				>
-					<v-btn
-						block
-						variant="outlined"
-						class="justify-start"
-						@click="setColor('neutral', color.value)"
-					>
+				<v-col v-for="color in neutralColors" :key="color.name" cols="6">
+					<v-btn block variant="outlined" class="justify-start" @click="setColor('neutral', color.value)">
 						<v-avatar size="16" :color="color.value" class="me-2" />
 						{{ color.name }}
 						<v-icon v-if="cookie.neutralColor === color.value" size="14" class="ms-auto">mdi-check</v-icon>
@@ -144,14 +124,7 @@ onMounted(applyTheme)
 			</v-row>
 
 			<h4 class="text-subtitle-1 mt-4 mb-2">Theme</h4>
-			<v-btn-toggle
-				v-model="currentTheme"
-				divided
-				mandatory
-				class="w-100"
-				@update:model-value="setThemeMode"
-			>
-
+			<v-btn-toggle v-model="currentTheme" divided mandatory class="w-100" @update:model-value="setThemeMode">
 				<v-btn value="light">
 					<v-icon start size="18">mdi-white-balance-sunny</v-icon>
 					Light
