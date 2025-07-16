@@ -1,5 +1,5 @@
 import { remark } from 'remark'
-// import remarkToc from 'remark-toc'
+import remarkToc from 'remark-toc'
 import { read, write } from 'to-vfile'
 import { VFile } from 'vfile'
 
@@ -13,16 +13,20 @@ async function main() {
 
 		// Write .html output (just renamed, still Markdown content)
 		const htmlOutput = new VFile({
-			path: inputPath + '.html',
+			path: inputPath.slice(0, -3) + '.html',
 			value: processed.value,
 		})
 		await write(htmlOutput)
 		console.log(`Generated ${htmlOutput.path}`)
 
+		const processedWithToc = await remark()
+			.use(remarkToc)
+			.process(await read(inputPath))
+
 		// Write .processed.md output (Markdown with TOC)
 		const mdOutput = new VFile({
 			path: inputPath.replace(/\.md$/, '.withTOC.md'),
-			value: processed.value,
+			value: processedWithToc.value,
 		})
 		await write(mdOutput)
 		console.log(`Generated ${mdOutput.path}`)
