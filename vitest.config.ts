@@ -18,8 +18,9 @@
 // This configuration is useful for running unit tests, integration tests, or end-to-end tests in a Nuxt.js application using Vitest.
 
 // vitest.config.ts
-import { fileURLToPath } from 'node:url'
 import { defineVitestConfig } from '@nuxt/test-utils/config'
+// eslint-disable-next-line
+import { fileURLToPath } from 'node:url'
 
 export default defineVitestConfig({
   test: {
@@ -34,5 +35,5 @@ export default defineVitestConfig({
     //     }
     //   }
     // }
-  }
+  },
 })
