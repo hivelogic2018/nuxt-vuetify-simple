@@ -14,6 +14,7 @@
     "lint": "eslint --ext .ts,.vue .",
     "lint:fix": "eslint --ext .ts,.vue . --fix",
     "lint:debug": "npx eslint --print-config path-to-your-file.vue",
+    "lint-staged": "lint-staged",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "npx vitest",
@@ -33,7 +34,11 @@
     "playwright:debug": "npx playwright test --debug --config=playwright.config.ts",
     "playwright:report": "npx playwright show-report",
     "scss:lint": "stylelint 'public/assets/css/**/*.scss'",
-    "scss:build": "sass public/assets/css/main.scss public/assets/css/main.css"
+    "scss:build": "sass public/assets/css/main.scss public/assets/css/main.css",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,js,vue}": "bun lint:fix"
   },
   "dependencies": {
     "@iconify/vue": "^5.0.0",
@@ -66,7 +71,9 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.1",
     "happy-dom": "^17.4.7",
+    "husky": "^9.1.7",
     "jsdom": "^26.1.0",
+    "lint-staged": "^16.1.2",
     "playwright-core": "^1.52.0",
     "postcss": "^8.5.5",
     "remark": "^15.0.1",
