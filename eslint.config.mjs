@@ -1,14 +1,15 @@
 // @ts-check
-import withNuxt from './.nuxt/eslint.config.mjs'
 import prettier from 'eslint-config-prettier'
 import prettierPlugin from 'eslint-plugin-prettier'
-import vueEslintParser from 'vue-eslint-parser'
 import typescriptEslintParser from '@typescript-eslint/parser'
 import vue from 'eslint-plugin-vue'
+import vueEslintParser from 'vue-eslint-parser'
+import withNuxt from './.nuxt/eslint.config.mjs'
+
 // import importPlugin from 'eslint-plugin-import'
 // import typescriptEslint from '@typescript-eslint/eslint-plugin'
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 const customConfig = [
   {
     files: ['**/*.{ts,js,vue}'],
@@ -81,6 +82,9 @@ const customConfig = [
       }],
 
       // Vue rules
+      'vue/block-order': ['error', {
+        order: ['script', 'template', 'style'] // your preferred order
+      }],
       'vue/html-indent': ['error', 2, {
         attribute: 1,
         baseIndent: 1,
