@@ -1,16 +1,3 @@
-<template>
-	<v-select
-		v-model="selectedTheme"
-		:items="themes"
-		label="Syntax Theme"
-		dense
-		outlined
-		hide-details
-		style="max-width: 200px"
-		@change="onThemeChange"
-	/>
-</template>
-
 <script lang="ts" setup>
 import { ref, watch, onMounted } from 'vue'
 
@@ -59,3 +46,16 @@ watch(selectedTheme, (theme) => {
 	setCookie('monaco-theme', theme)
 })
 </script>
+
+<template>
+	<v-select
+		v-model="selectedTheme"
+		:items="themes"
+		label="Syntax Theme"
+		dense
+		outlined
+		hide-details
+		style="max-width: 200px"
+		@change="onThemeChange"
+	/>
+</template>

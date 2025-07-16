@@ -1,4 +1,9 @@
 <!-- layouts/default.vue -->
+<script lang="ts" setup>
+import AppFooter from '~/components/AppFooter.vue'
+import TheNav from '~/components/TheNav.vue'
+</script>
+
 <template>
 	<v-app>
 		<TheNav />
@@ -10,8 +15,3 @@
 		<AppFooter />
 	</v-app>
 </template>
-
-<script lang="ts" setup>
-import AppFooter from '~/components/AppFooter.vue'
-import TheNav from '~/components/TheNav.vue'
-</script>
