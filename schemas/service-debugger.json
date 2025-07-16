@@ -45,8 +45,7 @@
 					"method": "POST",
 					"url": "/api/submit-goal",
 					"onSuccess": {
-						"successHandler": "sectionSuccessHandler",
-						"targetDataStore": "goalResponse"
+						"successHandler": "sectionSuccessHandler"
 					},
 					"onFailure": {
 						"failureHandler": "sectionFailureHandler"
@@ -78,7 +77,13 @@
 				"loadAction": {
 					"type": "graphql",
 					"query": "mutation { addComment(comment: ...) { id } }",
-					"url": "/api/submit-feedback"
+					"url": "/api/submit-feedback",
+					"onSuccess": {
+						"successHandler": "sectionSuccessHandler"
+					},
+					"onFailure": {
+						"failureHandler": "sectionFailureHandler"
+					}
 				}
 			}
 		}

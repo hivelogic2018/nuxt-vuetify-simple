@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { usePageDataStore } from '~/stores/page-data.store'
 import { handlerRegistry, type HandlerKey } from '~/utils/handlerRegistry'
 import type { FormKitSchemaNode } from '@formkit/core'
 import type * as types from '~/types/page'
@@ -17,7 +16,6 @@ async function executeLoadAction(
   action: types.LoadAction,
   formData: Record<string, unknown> = {}
 ) {
-  const store = usePageDataStore()
   let processedData: unknown
 
   try {
@@ -50,13 +48,10 @@ async function executeLoadAction(
     if (action.onSuccess?.successHandler) {
       const handler = handlerRegistry[action.onSuccess.successHandler as HandlerKey]
       if (handler) {
-        processedData = (handler as (data: unknown) => unknown)(processedData)
+        (handler as (data: unknown) => unknown)(processedData)
       }
     }
 
-    if (action.onSuccess?.targetDataStore) {
-      store.setData(action.onSuccess.targetDataStore, processedData)
-    }
   } catch (error) {
     const failureKey = action.onFailure?.failureHandler
     const failureHandler = failureKey && handlerRegistry[failureKey as HandlerKey]

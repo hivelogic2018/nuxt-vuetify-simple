@@ -8,7 +8,6 @@ interface GoalTrackerData {
 }
 
 interface ActionOutcome {
-  targetDataStore?: string;
   successHandler?: string;
   message?: string;
   failureHandler?: string;
