@@ -1,11 +1,8 @@
 <script lang="ts" setup>
-defineProps(['modelValue'])
+const props = defineProps<{ modelValue: string }>()
 defineEmits(['update:modelValue'])
 </script>
 
 <template>
-  <input
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
-  >
+	<input :value="props.modelValue" @input="$emit('update:modelValue', $event.target.value)" />
 </template>
