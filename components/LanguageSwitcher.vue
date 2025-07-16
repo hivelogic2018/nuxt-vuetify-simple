@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useLanguage } from '~/composables/useLanguage'
+
+const { locale, languages, setLanguage } = useLanguage()
+</script>
+
 <template>
 	<v-menu>
 		<template #activator="{ props }">
@@ -22,9 +28,3 @@
 		</v-card>
 	</v-menu>
 </template>
-
-<script setup lang="ts">
-import { useLanguage } from '~/composables/useLanguage'
-
-const { locale, languages, setLanguage } = useLanguage()
-</script>

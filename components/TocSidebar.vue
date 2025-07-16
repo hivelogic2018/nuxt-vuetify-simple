@@ -1,3 +1,12 @@
+<script setup lang="ts">
+defineProps<{
+	toc: Array<{ id: string; text: string; depth: number }>
+	isOpen: boolean
+	activeId: string
+}>()
+const emit = defineEmits(['update:isOpen'])
+</script>
+
 <template>
 	<v-navigation-drawer
 		:model-value="isOpen"
@@ -25,15 +34,6 @@
 		</v-list>
 	</v-navigation-drawer>
 </template>
-
-<script setup lang="ts">
-defineProps<{
-	toc: Array<{ id: string; text: string; depth: number }>
-	isOpen: boolean
-	activeId: string
-}>()
-const emit = defineEmits(['update:isOpen'])
-</script>
 
 <style scoped>
 html {

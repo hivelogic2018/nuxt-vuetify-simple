@@ -1,3 +1,28 @@
+<script setup lang="ts">
+import get from 'lodash/get'
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { useTheme } from 'vuetify'
+
+import LanguageSwitcher from './LanguageSwitcher.vue'
+import ThemeSwitcher from './ThemeSwitcher.vue'
+
+const theme = useTheme()
+const $route = useRoute()
+const drawer = ref(false)
+
+const githubUrl = useRuntimeConfig().public.githubUrl
+
+const navItems = [
+	{ label: 'nav.biography', to: '/bio', icon: 'mdi-account-box-outline' },
+	{ label: 'nav.guide', to: '/camnang', icon: 'mdi-compass-outline' },
+	{ label: 'nav.store', to: '/store', icon: 'mdi-store' },
+	{ label: 'nav.chat', to: '/chat', icon: 'mdi-chat' },
+	{ label: 'nav.schedule', to: '/schedule', icon: 'mdi-calendar-clock' },
+]
+// thêm trang các khoá học, dịch vụ, liên hệ
+</script>
+
 <template>
 	<v-app-bar flat color="background" elevation="1" class="px-4">
 		<!-- Mobile menu toggle -->
@@ -64,28 +89,3 @@
 		</v-list>
 	</v-navigation-drawer>
 </template>
-
-<script setup lang="ts">
-import get from 'lodash/get'
-import { ref } from 'vue'
-import { useRoute } from 'vue-router'
-import { useTheme } from 'vuetify'
-
-import LanguageSwitcher from './LanguageSwitcher.vue'
-import ThemeSwitcher from './ThemeSwitcher.vue'
-
-const theme = useTheme()
-const $route = useRoute()
-const drawer = ref(false)
-
-const githubUrl = useRuntimeConfig().public.githubUrl
-
-const navItems = [
-	{ label: 'nav.biography', to: '/bio', icon: 'mdi-account-box-outline' },
-	{ label: 'nav.guide', to: '/camnang', icon: 'mdi-compass-outline' },
-	{ label: 'nav.store', to: '/store', icon: 'mdi-store' },
-	{ label: 'nav.chat', to: '/chat', icon: 'mdi-chat' },
-	{ label: 'nav.schedule', to: '/schedule', icon: 'mdi-calendar-clock' },
-]
-// thêm trang các khoá học, dịch vụ, liên hệ
-</script>
