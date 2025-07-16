@@ -124,9 +124,9 @@ console.log('Current Monaco Theme:', monacoTheme.value, monacoPreBackground.valu
 
 <template>
 	<div>
-		<h1 class="text-2xl font-semibold mb-2">
-			Cẩm nang: Giới thiệu, hướng dẫn học về lập trình web ứng dụng với Vue3 và Typescript
-		</h1>
+		<h2 class="text-2xl font-semibold mb-2">
+			Cẩm nang: Giới thiệu, hướng dẫn học về lập trình web & ứng dụng web với Vue3-Typescript
+		</h2>
 
 		<div v-if="page" class="page-mdc-content prose dark:prose-invert">
 			<v-layout>
