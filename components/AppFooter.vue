@@ -3,11 +3,11 @@
     <v-container>
       <div class="d-flex mb-2">
         <div class="d-flex align-center mb-2">
-          <v-btn variant="text" density="compact" icon @click="expanded = !expanded" class="me-2">
+          <v-btn variant="text" density="compact" icon class="me-2" @click="expanded = !expanded">
             <v-icon>{{ expanded ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
           </v-btn>
           <v-img src="/logo/hocngheIT-penguin-logo.png" alt="Logo" max-height="48" contain class="me-2"
-            style="width:48px;" />
+            style="width: 48px" />
           <h4 class="text-h6 mb-2 mb-sm-0">{{ $t('nav.title') }}</h4>
         </div>
       </div>
@@ -16,7 +16,9 @@
         <div v-show="expanded">
           <v-expansion-panels v-if="isMobile" flat>
             <v-expansion-panel>
-              <v-expansion-panel-title>{{ $t('footer.sections.navigation') }}</v-expansion-panel-title>
+              <v-expansion-panel-title>
+                {{ $t('footer.sections.navigation') }}
+              </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <v-list dense nav>
                   <v-list-item v-for="item in navLinks" :key="item.to" :to="item.to" link>
@@ -42,7 +44,6 @@
 
           <v-row v-else>
             <v-col cols="12" sm="6">
-
               <p class="text-caption">
                 {{ $t('footer.description') }}
               </p>
@@ -53,10 +54,10 @@
                   class="mx-1" size="small">
                   <v-icon size="20">{{ icon.icon }}</v-icon>
                 </v-btn>
-
               </div>
               <div class="text-caption">
-                &copy; {{ new Date().getFullYear() }} by the Golden West Consulting INC {{ $t('footer.rights') }}
+                &copy; {{ new Date().getFullYear() }} by the Golden West Consulting INC
+                {{ $t('footer.rights') }}
               </div>
             </v-col>
             <v-col cols="4" sm="2"></v-col>
@@ -78,15 +79,15 @@
           </v-row>
         </div>
       </v-expand-transition>
-
     </v-container>
   </v-footer>
 </template>
 
 <script setup lang="ts">
-import { useDisplay } from 'vuetify'
-import { useCookie, useRuntimeConfig } from '#app'
 import { computed, ref } from 'vue'
+import { useDisplay } from 'vuetify'
+
+import { useCookie, useRuntimeConfig } from '#app'
 
 const { mobile } = useDisplay()
 const isMobile = computed(() => mobile.value)
@@ -96,8 +97,8 @@ const cookie = useCookie('theme-mode', {
   default: () => ({
     mode: 'system',
     primaryColor: '#3B82F6',
-    neutralColor: '#6B7280'
-  })
+    neutralColor: '#6B7280',
+  }),
 })
 
 const systemPrefersDark = () =>
@@ -111,22 +112,28 @@ const currentTheme = computed(() => {
   return mode
 })
 
+//  eslint-disable-next-line
 const footerColor = computed(() => {
   switch (currentTheme.value) {
-    case 'dark': return 'grey-darken-4'
-    case 'sepia': return '#f1e7d0'
-    default: return 'grey-lighten-4'
+    case 'dark':
+      return 'grey-darken-4'
+    case 'sepia':
+      return '#f1e7d0'
+    default:
+      return 'grey-lighten-4'
   }
 })
 
 const textClass = computed(() => {
   switch (currentTheme.value) {
-    case 'dark': return 'text-white'
+    case 'dark':
+      return 'text-white'
     case 'sepia':
       return cookie.value?.neutralColor
         ? `text-${cookie.value.neutralColor.replace('#', '')}`
         : 'text-brown'
-    default: return 'text-black'
+    default:
+      return 'text-black'
   }
 })
 
