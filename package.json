@@ -13,7 +13,7 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint --ext .ts,.vue .",
     "lint:fix": "eslint --ext .ts,.vue . --fix",
-    "lint:debug": "npx eslint --print-config your-file.vue",
+    "lint:debug": "npx eslint --print-config path-to-your-file.vue",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "npx vitest",
