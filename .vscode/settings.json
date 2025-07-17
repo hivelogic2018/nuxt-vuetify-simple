@@ -1,0 +1,22 @@
+{
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "always",
+		"source.fixAll.eslint": "always"
+	},
+	"editor.detectIndentation": true,
+	"editor.formatOnSave": true,
+	"editor.inlineSuggest.enabled": true,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 2,
+	"editor.trimAutoWhitespace": true,
+	"eslint.validate": [
+		"javascript",
+		"typescript",
+		"vue"
+	],
+	"files.autoSave": "onWindowChange",
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"git.autofetch": true,
+	"liveServer.settings.port": 5501
+}

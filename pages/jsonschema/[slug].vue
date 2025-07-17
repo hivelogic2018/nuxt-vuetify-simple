@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
+
 import DynamicPage from '../../components/DynamicPage.vue'
 import type { PageSchema } from '../../types/page'
 

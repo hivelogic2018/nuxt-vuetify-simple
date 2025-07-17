@@ -1,51 +1,51 @@
-import type { FormKitSchemaNode } from '@formkit/core';
+import type { FormKitSchemaNode } from '@formkit/core'
 
-interface GoalTrackerData {
-  goalType: string;
-  name: string;
-  notes: string;
-  reminder: boolean;
+type GoalTrackerData = {
+	goalType: string
+	name: string
+	notes: string
+	reminder: boolean
 }
 
-interface ActionOutcome {
-  successHandler?: string;
-  message?: string;
-  failureHandler?: string;
+type ActionOutcome = {
+	successHandler?: string
+	message?: string
+	failureHandler?: string
 }
 
-interface RestAction {
-  type: 'xhr';
-  method: 'POST' | 'GET';
-  url: string;
-  onSuccess?: ActionOutcome;
-  onFailure?: ActionOutcome;
+type RestAction = {
+	type: 'xhr'
+	method: 'POST' | 'GET'
+	url: string
+	onSuccess?: ActionOutcome
+	onFailure?: ActionOutcome
 }
 
-interface GraphqlAction {
-  type: 'graphql';
-  query: string;
-  url: string;
-  variables?: Record<string, unknown>;
-  onSuccess?: ActionOutcome;
-  onFailure?: ActionOutcome;
+type GraphqlAction = {
+	type: 'graphql'
+	query: string
+	url: string
+	variables?: Record<string, unknown>
+	onSuccess?: ActionOutcome
+	onFailure?: ActionOutcome
 }
 
-type LoadAction = RestAction | GraphqlAction;
+type LoadAction = RestAction | GraphqlAction
 
-interface FormSection {
-  type: 'FORM';
-  title: string;
-  data: GoalTrackerData;
-  structure: {
-    schema: FormKitSchemaNode[];
-  };
-  onSubmit: {
-    loadAction: LoadAction;
-  };
+type FormSection = {
+	type: 'FORM'
+	title: string
+	data: GoalTrackerData
+	structure: {
+		schema: FormKitSchemaNode[]
+	}
+	onSubmit: {
+		loadAction: LoadAction
+	}
 }
 
-interface PageSchema {
-  sections: FormSection[];
+type PageSchema = {
+	sections: FormSection[]
 }
 
-export type { GoalTrackerData, ActionOutcome, LoadAction, FormSection, PageSchema };
+export type { GoalTrackerData, ActionOutcome, LoadAction, FormSection, PageSchema }
