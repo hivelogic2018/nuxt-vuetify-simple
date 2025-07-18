@@ -38,7 +38,7 @@
 		"prepare": "husky"
 	},
 	"lint-staged": {
-		"*.{ts,js,vue}": "bun lint:fix --config eslint.config.mjs"
+		"*.{ts,js,vue}": "bun lint:fix"
 	},
 	"dependencies": {
 		"@formkit/icons": "^1.6.9",
