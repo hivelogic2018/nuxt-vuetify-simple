@@ -6,7 +6,19 @@
     "chat": "Chat",
     "schedule": "Schedule",
     "guide": "Guide",
-    "biography": "About"
+    "biography": "About",
+		"products": "Products",
+		"addFavorite": "Add to Favorites",
+		"unfavorite": "Remove from Favorites",
+		"addToCart": "Add to Cart",
+		"removeFromCart": "Remove from Cart",
+		"noneProductsToShow": "No products to show",
+		"favorites": "Favorites",
+		"productsInCart": "Products in Cart",
+		"allProducts": "All Products",
+		"total": "Total"
+
+
   },
   "footer": {
     "description": "Open source, customizable Nuxt + Vuetify starter.",

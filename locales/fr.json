@@ -6,7 +6,17 @@
     "chat": "Discussion",
     "schedule": "Planning",
     "guide": "Guide",
-    "biography": "À propos"
+    "biography": "À propos",
+		"allProducts": "Tous les Produits",
+		"addFavorite": "Ajouter aux Favoris",
+		"unfavorite": "Retirer des Favoris",
+		"addToCart": "Ajouter au Panier",
+		"removeFromCart": "Retirer du Panier",
+		"noneProductsToShow": "Aucun produit à afficher",
+		"favorites": "Favoris",
+		"productsInCart": "Produits dans le Panier",
+		"products": "Produits",
+		"total": "Total"
   },
   "footer": {
     "description": "Modèle Nuxt3 + Vuetify3 open source, personnalisable.",
