@@ -25,23 +25,26 @@ const navItems = [
 
 <template>
 	<v-app-bar flat color="background" elevation="1" class="px-4">
-		<!-- Mobile menu toggle -->
-		<v-app-bar-nav-icon class="d-sm-none" @click.stop="drawer = !drawer" />
+		<div class="d-flex align-center gap-md-2">
+			<!-- Mobile menu toggle -->
+			<v-app-bar-nav-icon class="d-md-none" @click.stop="drawer = !drawer" />
 
-		<!-- App title -->
-		<v-toolbar-title>
-			<NuxtLink
-				to="/"
-				style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px"
-				:style="{ color: get(theme, 'global.current.value.colors.primary', '#1976d2') }"
-			>
-				<v-icon size="24">mdi-home-circle-outline</v-icon>
-				{{ $t('nav.title') }}
-			</NuxtLink>
-		</v-toolbar-title>
+			<!-- App title -->
+			<v-toolbar-title>
+				<NuxtLink
+					to="/"
+					class="d-inline-flex align-center"
+					style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px"
+					:style="{ color: get(theme, 'global.current.value.colors.primary', '#1976d2') }"
+				>
+					<v-icon size="28" />
+					<span class="d-none d-sm-inline">{{ $t('nav.title') }}</span>
+				</NuxtLink>
+			</v-toolbar-title>
+		</div>
 
 		<!-- Desktop navigation links -->
-		<div class="d-none d-sm-flex align-center gap-2">
+		<div class="d-none d-md-flex align-center gap-2">
 			<NuxtLink
 				v-for="(item, index) in navItems"
 				:key="index"
@@ -55,7 +58,7 @@ const navItems = [
 							: get(theme, 'global.current.value.colors.neutral', '#333'),
 				}"
 			>
-				<v-icon size="20" class="mr-1">{{ item.icon }}</v-icon>
+				<v-icon size="24" class="mr-1">{{ item.icon }}</v-icon>
 				{{ $t(item.label) }}
 			</NuxtLink>
 		</div>
@@ -74,7 +77,7 @@ const navItems = [
 	</v-app-bar>
 
 	<!-- Mobile drawer -->
-	<v-navigation-drawer v-model="drawer" temporary class="d-sm-none">
+	<v-navigation-drawer v-model="drawer" temporary class="d-md-none">
 		<v-list>
 			<v-list-item
 				v-for="(item, index) in navItems"
