@@ -37,7 +37,7 @@ const navItems = [
 					style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px"
 					:style="{ color: get(theme, 'global.current.value.colors.primary', '#1976d2') }"
 				>
-					<v-icon size="28" />
+					<v-icon size="28">mdi-home-circle-outline</v-icon>
 					<span class="d-none d-sm-inline">{{ $t('nav.title') }}</span>
 				</NuxtLink>
 			</v-toolbar-title>
@@ -77,18 +77,24 @@ const navItems = [
 	</v-app-bar>
 
 	<!-- Mobile drawer -->
-	<v-navigation-drawer v-model="drawer" temporary class="d-md-none">
+	<v-navigation-drawer v-model="drawer" temporary class="d-md-none auto-width-drawer">
 		<v-list>
 			<v-list-item
 				v-for="(item, index) in navItems"
 				:key="index"
 				:to="item.to"
 				link
+				:prepend-icon="item.icon"
 				@click="drawer = false"
 			>
-				<v-icon>{{ item.icon }}</v-icon>
 				<v-list-item-title>{{ $t(item.label) }}</v-list-item-title>
 			</v-list-item>
 		</v-list>
 	</v-navigation-drawer>
 </template>
+
+<style scoped>
+.auto-width-drawer {
+	width: auto !important;
+}
+</style>
