@@ -6,6 +6,58 @@
 
 # Table of Contents
 
+* [`Web application development fundamentals`{style="color: green"}](#web-application-development-fundamentalsstylecolor-green)
+  * [A) Ba thành phần của ngành phát triển ứng dụng:](#a-ba-thành-phần-của-ngành-phát-triển-ứng-dụng)
+    * [A.1) HTML: Hypertext Markup Language: ngôn ngữ HTML để viết trang web](#a1-html-hypertext-markup-language-ngôn-ngữ-html-để-viết-trang-web)
+    * [A.2) Cascading Style Sheets (CSS):](#a2-cascading-style-sheets-css)
+    * [A.3) Javascript/Typescript:](#a3-javascripttypescript)
+      * [A.3.1) Javascript: là gì:](#a31-javascript-là-gì)
+  * [::IVideo](#ivideo)
+  * [embed-url: https://www.youtube.com/embed/videoseries?list=PL28Ap55o84DTu8qRGXpvyBcKYUGfVFxy9
+    thumbnail-url: https://img.youtube.com/vi/dmSsjByhPBg/hqdefault.jpg
+    title: 'dạyNghềIT: Học Javascript'
+    video-id: dmSsjByhPBg](#embed-url-httpswwwyoutubecomembedvideoserieslistpl28ap55o84dtu8qrgxpvybckyugfvfxy9thumbnail-url-httpsimgyoutubecomvidmssjbyhpbghqdefaultjpgtitle-dạynghềit-học-javascriptvideo-id-dmssjbyhpbg)
+  * [::IVideo](#ivideo-1)
+  * [video-id: hdI2bqOjy3c
+    title: Traversy Media JavaScript Crash Course](#video-id-hdi2bqojy3ctitle-traversy-media-javascript-crash-course)
+    * * [A.3.2) Typescript là gì](#a32-typescript-là-gì)
+    * [A.4) Các thư viện để viết ứng dụng web (web app) frameworks and libraries to build web app:](#a4-các-thư-viện-để-viết-ứng-dụng-web-web-app-frameworks-and-libraries-to-build-web-app)
+* [`HỌC NGÔN NGỮ JAVASCRIPT: LẬP TRÌNH VIẾT SCRIPT, VIẾT CODE VỚI JAVASCRIPT, TYPESCRIPT`{style="color: green"}](#học-ngôn-ngữ-javascript-lập-trình-viết-script-viết-code-với-javascript-typescriptstylecolor-green)
+  * [B) Data types: Các kiểu dữ liệu:](#b-data-types-các-kiểu-dữ-liệu)
+    * [B.1) PRIMITIVE DATA TYPES: các kiểu dữ liệu đơn, thuần tuý](#b1-primitive-data-types-các-kiểu-dữ-liệu-đơn-thuần-tuý)
+      * [B.1.1) Kiểu chuỗi: string](#b11-kiểu-chuỗi-string)
+      * [B.1.2) Kiểu số: number](#b12-kiểu-số-number)
+      * [B.1.3) Kiểu mệnh đề Đúng/Sai: Boolean](#b13-kiểu-mệnh-đề-đúngsai-boolean)
+    * [B.2) NON-PRIMITIVE DATA TYPES: các kiểu dữ liệu phức hợp (không thuần tuý):](#b2-non-primitive-data-types-các-kiểu-dữ-liệu-phức-hợp-không-thuần-tuý)
+      * [B.2.1) Kiểu mảng (Array):](#b21-kiểu-mảng-array)
+      * [B.2.2) Kiểu đối tượng hay còn gọi dễ hiểu là kiểu phức hợp:](#b22-kiểu-đối-tượng-hay-còn-gọi-dễ-hiểu-là-kiểu-phức-hợp)
+  * [C) Basic looping methods in Javascript: Các vòng lặp phổ biến trong lập trình](#c-basic-looping-methods-in-javascript-các-vòng-lặp-phổ-biến-trong-lập-trình)
+  * [D) Javascript native methods-Các hàm tự nhiên trong Javascript](#d-javascript-native-methods-các-hàm-tự-nhiên-trong-javascript)
+    * [D.1) String prototype và functions: Kiểu mẫu String và các hàm thao tác chuỗi ký tự](#d1-string-prototype-và-functions-kiểu-mẫu-string-và-các-hàm-thao-tác-chuỗi-ký-tự)
+    * [D.2) Array prototype functions: Kiểu mẫu Array, mảng và các hàm xử lý mảng](#d2-array-prototype-functions-kiểu-mẫu-array-mảng-và-các-hàm-xử-lý-mảng)
+    * [D.3) Object prototype functions: Các hàm thao tác với dự liệu kiểu Object trong Javascript](#d3-object-prototype-functions-các-hàm-thao-tác-với-dự-liệu-kiểu-object-trong-javascript)
+      * [D.3.1) Referencing the property value of an object: **Cách gọi thuộc tính**](#d31-referencing-the-property-value-of-an-object-cách-gọi-thuộc-tính)
+      * [D.3.2) Assign new property for the studentObject: gán thuộc tính (property) mới vào trong studentObject:](#d32-assign-new-property-for-the-studentobject-gán-thuộc-tính-property-mới-vào-trong-studentobject)
+      * [D.3.3) Xoá thuộc tính khỏi studentObject:](#d33-xoá-thuộc-tính-khỏi-studentobject)
+  * [E) Event handler and Event listener in Javascript: Event handler và Event listener trong Javascript](#e-event-handler-and-event-listener-in-javascript-event-handler-và-event-listener-trong-javascript)
+    * [E.1) Event handler: (hàm xử lý sự kiện)](#e1-event-handler-hàm-xử-lý-sự-kiện)
+    * [E.2) Event Listener](#e2-event-listener)
+  * [F) Javascript ES6 (version 2015) features](#f-javascript-es6-version-2015-features)
+  * [::IVideo](#ivideo-2)
+  * [video-id: JVqPDKFMhZc
+    title: 'ES6 ECMAScript là gì'](#video-id-jvqpdkfmhzctitle-es6-ecmascript-là-gì)
+  * [G) VUE framework: Chương trình khung, thư viện Vue để làm ứng dụng web interface và các chức năng web](#g-vue-framework-chương-trình-khung-thư-viện-vue-để-làm-ứng-dụng-web-interface-và-các-chức-năng-web)
+    * [G.1) Khái quát về Vue:](#g1-khái-quát-về-vue)
+    * [G.2) Web chính thức Official của VUE3:](#g2-web-chính-thức-official-của-vue3)
+  * [Khoá học vue3 tiếng Việt trên youtube:
+    ::IVideo](#khoá-học-vue3-tiếng-việt-trên-youtubeivideo)
+  * [embed-url: https://youtu.be/Vg9n\_YRGPIY?si=ANmrE\_RhBOc094B8
+    thumbnail-url: https://img.youtube.com/vi/Vg9n\_YRGPIY/hqdefault.jpg
+    title: Khoá học Vue3 trên Youtube
+    video-id: Vg9n\_YRGPIY](#embed-url-httpsyoutubevg9n_yrgpiysianmre_rhboc094b8thumbnail-url-httpsimgyoutubecomvivg9n_yrgpiyhqdefaultjpgtitle-khoá-học-vue3-trên-youtubevideo-id-vg9n_yrgpiy)
+    * [G.3) Vue Learning experience: Những kinh nghiệm đúc kết trong quá trình học & dợt Vue 1 tuần qua:](#g3-vue-learning-experience-những-kinh-nghiệm-đúc-kết-trong-quá-trình-học--dợt-vue-1-tuần-qua)
+  * [H) Tham khảo thêm:](#h-tham-khảo-thêm)
+
 # `Web application development fundamentals`{style="color: green"}
 
 ## A) Ba thành phần của ngành phát triển ứng dụng:
