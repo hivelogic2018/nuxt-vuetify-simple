@@ -15,7 +15,7 @@ type ActionOutcome = {
 
 type RestAction = {
 	type: 'xhr'
-	method: 'POST' | 'GET'
+	method: 'POST' | 'GET' | 'DELETE' | 'PUT' | 'PATCH'
 	url: string
 	onSuccess?: ActionOutcome
 	onFailure?: ActionOutcome

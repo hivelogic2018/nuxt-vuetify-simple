@@ -33,9 +33,12 @@ async function executeLoadAction(action: types.LoadAction, formData: Record<stri
 				},
 			}
 		} else if (action.type === 'xhr') {
+			const method = action.method?.toUpperCase() ?? 'GET'
+			const methodsWithBody = ['POST', 'PUT', 'PATCH']
+
 			fetchOptions = {
-				method: action.method ?? 'GET',
-				body: action.method === 'POST' ? formData : undefined,
+				method,
+				body: methodsWithBody.includes(method) ? formData : undefined,
 			}
 		}
 
