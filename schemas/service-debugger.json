@@ -16,7 +16,7 @@
 						"name": "name",
 						"label": "Name",
 						"placeholder": "Your Name",
-						"validation": "nameRule|required"
+						"validation": "required|nameRule|maxCharsRule"
 					},
 					{
 						"$formkit": "select",
