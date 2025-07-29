@@ -179,15 +179,23 @@ Mảng chứa các phần tử (elements), mỗi phần tử (element) có thể
 
 ví dụ: mảng gồm các phần tử số , xét dãy số sau :
 
-`let dayso = [1, 2, 3]`{language="js"}
+```js
+let dayso = [1, 2, 3]
+```
 
 trong Typescript (có type) sẽ ghi là: let dayso: number[ ] = [1, 2, 3] ý chỉ dayso là mảng các phần tử kiểu số (array of number-type element)
 
 mảng gồm các phần tử kiểu chuỗi (array of elements of string data type)
 
-`let thethao = ['da banh', 'cau long', 'quan vot']`{language="js"}
+```js
+let thethao = ['da banh', 'cau long', 'quan vot']
+```
 
-trong Typescript (có type) sẽ ghi là: `let thethao: string[ ] = ['da banh', 'cau long', 'quan vot']`{language="ts"} ý chỉ thethao là mảng các phần tử kiểu chuỗi (array of string-type element)
+trong Typescript (có type) sẽ ghi là: 
+```js
+let thethao: string[ ] = ['da banh', 'cau long', 'quan vot']
+```
+ ý chỉ thethao là mảng các phần tử kiểu chuỗi (array of string-type element)
 ```js
 let students = [{
   name: 'An',
@@ -377,13 +385,20 @@ car.color // White
 ```
   #### D.3.2) Assign new property for the studentObject: gán thuộc tính (property) mới vào trong studentObject:
 
-`studentObject.email = 'annguyen@gmail.com'`{language="js"}
-
-`studentObject.key = 'value'`{language="js"}   -> thuộc tính (property) và giá trị của thuộc tính (property value) còn được hiểu là 1 cặp key-value pair (pair tiếng Anh là 1 cặp, ví dụ: a pair of shoes, a pair of jeans)
+```js
+studentObject.email = 'annguyen@gmail.com'
+```
+```js
+studentObject.key = 'value'
+```
+   -> thuộc tính (property) và giá trị của thuộc tính (property value) còn được hiểu là 1 cặp key-value pair (pair tiếng Anh là 1 cặp, ví dụ: a pair of shoes, a pair of jeans)
 
   #### D.3.3) Xoá thuộc tính khỏi studentObject:
 
-`delete studentObject.age`{language="js"}   --> dòng lệnh này sẽ xoá thuộc tính tuổi khỏi đối tượng sinh viên
+```js
+delete studentObject.age
+```
+   --> dòng lệnh này sẽ xoá thuộc tính tuổi khỏi đối tượng sinh viên
 
 Tham khảo thêm về Object
 
@@ -412,7 +427,9 @@ console.log("Hello!");
 OR using Javascript one-liner make you look like a pro 😉 \
 Sử dụng Javascript one-liner để làm cho code của bạn trông chuyên nghiệp hơn
 
-`button.onclick = () => {console.log("Hello!")};`{language="js"}
+```js
+button.onclick = () => {console.log("Hello!")};
+```
 
 Trong ví dụ này, thuộc tính onclick được sử dụng để khi người dùng nhấp vào button, nó sẽ in ra dòng chữ "Xin chào!" vào console log.
 Thuộc tính "onclick" chỉ là một trong những EventHandlercó thể sử dụng được thôi. Dước đây là một số thuộc tính thông dụng có thể dùng.
@@ -432,12 +449,16 @@ console.log("Hello!");
 ```
 OR using Javascript one-liners
 
-`button.addEventListener("click", event => console.log("Hello!"))`{language="js"}
+```js
+button.addEventListener("click", event => console.log("Hello!"))
+```
 
 
 Thay vì dùng thuộc tính `onclick`{style="color: green"}, thì ở đây mình dùng method `addEventListener()`{style="color: green"}:
 
-`target.addEventListener(event, function, useCapture);`{language="js"}
+```js
+target.addEventListener(event, function, useCapture);
+```
 
 Tham khảo:
 
