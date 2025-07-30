@@ -7,16 +7,19 @@
     "schedule": "Đặt hẹn",
     "guide": "Cẩm nang",
     "biography": "Giới thiệu",
-		"products": "Sản phẩm",
-		"addFavorite": "Thêm vào yêu thích",
-		"unfavorite": "Bỏ yêu thích",
-		"addToCart": "Thêm vào giỏ hàng",
-		"removeFromCart": "Xóa khỏi giỏ hàng",
-		"noneProductsToShow": "Không có sản phẩm nào để hiển thị",
-		"favorites": "Yêu thích",
-		"productsInCart": "Sản phẩm trong giỏ hàng",
-		"allProducts": "Tất cả sản phẩm",
-		"total": "Tổng cộng"
+		"eCommerce": {
+
+			"products": "Sản phẩm",
+			"addFavorite": "Thêm vào yêu thích",
+			"removeFavorite": "Xóa khỏi yêu thích",
+			"addToCart": "Thêm vào giỏ hàng",
+			"removeFromCart": "Xóa khỏi giỏ hàng",
+			"noneProductsToShow": "Không có sản phẩm nào để hiển thị",
+			"favorites": "Yêu thích",
+			"productsInCart": "Sản phẩm trong giỏ hàng",
+			"allProducts": "Tất cả sản phẩm",
+			"total": "Tổng cộng"
+		}
   },
   "footer": {
     "description": "Trang dạy nghề IT và eCommerce thương mại điện tử là cổng giáo dục uy tín, hướng nghiệp giúp phổ biến học nghề IT và các dịch vụ IT đến mọi người",

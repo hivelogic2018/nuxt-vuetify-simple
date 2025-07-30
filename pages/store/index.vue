@@ -106,13 +106,15 @@ const formatPrice = (price) => {
 	<v-container>
 		<div class="mb-4">
 			<v-chip color="primary" class="mr-3" label>
-				🛒 {{ cartCount }} {{ $t('nav.productsInCart') }}
+				🛒 {{ cartCount }} {{ $t('nav.eCommerce.productsInCart') }}
 			</v-chip>
-			<v-chip color="green" label>{{ $t('nav.total') }}: {{ formatPrice(cartTotal) }}</v-chip>
+			<v-chip color="green" label>
+				{{ $t('nav.eCommerce.total') }}: {{ formatPrice(cartTotal) }}
+			</v-chip>
 		</div>
 		<v-tabs v-model="tab" background-color="primary" dark>
-			<v-tab value="all">{{ $t('nav.allProducts') }}</v-tab>
-			<v-tab value="favorites">{{ $t('nav.favorites') }}</v-tab>
+			<v-tab value="all">{{ $t('nav.eCommerce.allProducts') }}</v-tab>
+			<v-tab value="favorites">{{ $t('nav.eCommerce.favorites') }}</v-tab>
 		</v-tabs>
 		<v-row class="mt-4" dense>
 			<v-col
@@ -130,43 +132,62 @@ const formatPrice = (price) => {
 					hover
 					variant="elevated"
 				>
-					<v-img :src="product.img" height="150" width="100%" cover />
+					<div class="image-wrapper">
+						<v-img :src="product.img" height="150" class="rounded image-fit" contain />
+						<div class="top-right-icons">
+							<v-icon
+								class="favorite-icon-plain"
+								:color="product.isFavorite ? 'red' : 'grey'"
+								:icon="product.isFavorite ? 'mdi-heart' : 'mdi-heart-outline'"
+								@click.stop="toggleFavorite(product.id)"
+							>
+								{{ product.isFavorite ? 'mdi-heart' : 'mdi-heart-outline' }}
+							</v-icon>
+
+							<div class="rating-box">
+								<v-icon small color="yellow darken-2">mdi-star</v-icon>
+								<span class="rating-text">{{ product.rating.toFixed(1) }}</span>
+							</div>
+						</div>
+					</div>
+
 					<p class="mt-2" style="word-break: break-word; font-size: 0.75rem; color: gray" />
 					<div class="mt-3 text-center">
 						<h3 class="text-h6">{{ product.name }}</h3>
 						<p class="text-subtitle-1 font-weight-medium">{{ formatPrice(product.price) }}</p>
-
-						<div class="d-flex align-center justify-center mt-1">
-							<v-icon color="yellow darken-2">mdi-star</v-icon>
-							<span class="ml-1">{{ product.rating.toFixed(1) }}</span>
-						</div>
-						<div class="mt-2">
-							<v-btn
-								icon
-								::aria-label="product.isFavorite ? $t('nav.removeFavorites') : $t('nav.addFavorites')"
-								:color="product.isFavorite ? 'red' : 'grey'"
-								@click="toggleFavorite(product.id)"
-							>
-								<v-icon>{{ product.isFavorite ? 'mdi-heart' : 'mdi-heart-outline' }}</v-icon>
-							</v-btn>
-						</div>
 						<div class="mt-3">
 							<v-btn color="primary" @click="addToCart(product.id)">
-								{{ $t('nav.addToCart') }}
+								{{ $t('nav.eCommerce.addToCart') }}
 							</v-btn>
 						</div>
 					</div>
 				</v-card>
 			</v-col>
-
 			<v-col v-if="filteredProducts.length === 0" cols="12" class="text-center">
-				<p>{{ $t('nav.noneProductsToShow ') }}</p>
+				<p>{{ $t('nav.eCommerce.noneProductsToShow ') }}</p>
 			</v-col>
 		</v-row>
 	</v-container>
 </template>
 
 <style scoped>
+.image-wrapper {
+	width: 100%;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	background-color: #f9f9f9;
+	border-radius: 8px;
+}
+
+.image-fit {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
 .v-card {
 	cursor: pointer;
 	transition: box-shadow 0.3s ease;
@@ -174,5 +195,49 @@ const formatPrice = (price) => {
 
 .v-card:hover {
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.image-wrapper {
+	position: relative;
+	width: 100%;
+	height: 150px;
+	overflow: hidden;
+	border-radius: 8px;
+}
+
+.top-right-icons {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 8px;
+	z-index: 2;
+}
+
+.favorite-icon {
+	background-color: white;
+	border-radius: 50%;
+	padding: 6px;
+	font-size: 20px;
+	cursor: pointer;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.rating-box {
+	background-color: white;
+	border-radius: 12px;
+	padding: 2px 6px;
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rating-text {
+	margin-left: 4px;
+	font-weight: 500;
+	color: #444;
 }
 </style>
