@@ -8,7 +8,7 @@ import TheNav from '~/components/TheNav.vue'
 	<v-app>
 		<TheNav />
 		<v-main>
-			<v-container fluid class="mx-2 mx-sm-4 mx-md-8">
+			<v-container fluid>
 				<NuxtPage />
 			</v-container>
 		</v-main>
