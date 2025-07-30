@@ -84,10 +84,12 @@ const navItems = [
 				:key="index"
 				:to="item.to"
 				link
-				:prepend-icon="item.icon"
 				@click="drawer = false"
 			>
-				<v-list-item-title>{{ $t(item.label) }}</v-list-item-title>
+				<v-list-item-content class="d-flex align-center">
+					<v-icon class="me-2" size="20">{{ item.icon }}</v-icon>
+					<v-list-item-title>{{ $t(item.label) }}</v-list-item-title>
+				</v-list-item-content>
 			</v-list-item>
 		</v-list>
 	</v-navigation-drawer>
