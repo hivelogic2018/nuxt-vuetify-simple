@@ -70,14 +70,9 @@ const githubUrl = useRuntimeConfig().public.githubUrl
 </script>
 
 <template>
-	<v-footer
-		color="background"
-		class="fixed-footer py-8 px-4 px-sm-10"
-		:class="textClass"
-		elevation="3"
-	>
+	<v-footer color="background" class="fixed-footer px-4 px-sm-10" :class="textClass" elevation="3">
 		<v-container>
-			<div class="d-flex mb-2">
+			<div class="d-flex">
 				<div class="d-flex align-center mb-2">
 					<v-btn variant="text" density="compact" icon class="me-2" @click="expanded = !expanded">
 						<v-icon>{{ expanded ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
@@ -189,6 +184,6 @@ const githubUrl = useRuntimeConfig().public.githubUrl
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	z-index: 10;
+	z-index: 900;
 }
 </style>
