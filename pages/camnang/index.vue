@@ -182,7 +182,9 @@ console.log('Current Monaco Theme:', monacoTheme.value, monacoPreBackground.valu
 
 				<v-main>
 					<v-container>
-						<MDCRenderer v-if="page?.body" :body="page.body" :data="page.data" class="mt-4" />
+						<div class="markdown">
+							<MDCRenderer v-if="page?.body" :body="page.body" :data="page.data" class="mt-4" />
+						</div>
 					</v-container>
 				</v-main>
 			</v-layout>
@@ -218,5 +220,9 @@ h1,
 	a {
 		color: #4ade80;
 	}
+}
+.markdown {
+	word-wrap: break-word;
+	padding-bottom: 80px;
 }
 </style>
