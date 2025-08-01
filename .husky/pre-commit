@@ -1,8 +1,1 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-# Thêm đường dẫn của Bun nếu nó không nằm sẵn trong $PATH
-export PATH="/Users/katienguyen/.bun/bin:$PATH"
-
 bun lint-staged
-

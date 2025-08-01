@@ -72,11 +72,7 @@ const toggleFavorite = (id) => {
 const cart = ref({})
 
 const addToCart = (id) => {
-	if (cart.value[id]) {
-		cart.value[id] += 1
-	} else {
-		cart.value[id] = 1
-	}
+	cart.value[id] = cart.value[id] ? cart.value[id] + 1 : 1
 }
 
 const filteredProducts = computed(() => {
