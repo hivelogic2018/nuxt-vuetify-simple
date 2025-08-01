@@ -87,49 +87,36 @@ const customConfig = [
         named: 'never',
       }],
 
-			// Vue rules
-			'vue/block-order': [
-				'error',
-				{
-					order: ['script', 'template', 'style'], // your preferred order
-				},
-			],
-			'vue/html-indent': [
-				'error',
-				2,
-				{
-					attribute: 1,
-					baseIndent: 1,
-					closeBracket: 0,
-					alignAttributesVertically: true,
-					// @ts-ignore
-					ignores: ['pre', 'textarea'],
-				},
-			],
-			'vue/max-attributes-per-line': [
-				'error',
-				{
-					singleline: 3,
-					multiline: { max: 1 },
-				},
-			],
-			'vue/html-closing-bracket-newline': [
-				'error',
-				{
-					singleline: 'never',
-					multiline: 'always',
-				},
-			],
-			'vue/multi-word-component-names': 'off',
-			'vue/no-mutating-props': 'error',
-			'vue/no-unused-components': 'warn',
-			'vue/require-default-prop': 'off',
+      // Vue rules
+      'vue/block-order': ['error', {
+        order: ['script', 'template', 'style'] // your preferred order
+      }],
+      'vue/html-indent': ['error', 2, {
+        attribute: 1,
+        baseIndent: 1,
+        closeBracket: 0,
+        alignAttributesVertically: true,
+        // @ts-ignore
+        ignores: ['pre', 'textarea'],
+      }],
+      'vue/max-attributes-per-line': ['error', {
+        singleline: 3,
+        multiline: { max: 1 }
+      }],
+      'vue/html-closing-bracket-newline': ['error', {
+        singleline: 'never',
+        multiline: 'always'
+      }],
+      'vue/multi-word-component-names': 'off',
+      'vue/no-mutating-props': 'error',
+      'vue/no-unused-components': 'warn',
+      'vue/require-default-prop': 'off',
 
-			// Prettier
-			'prettier/prettier': 'error',
-		},
-	},
-	prettier,
+      // Prettier
+      'prettier/prettier': 'error',
+    },
+  },
+  prettier,
 ]
 
 export default withNuxt(customConfig)
