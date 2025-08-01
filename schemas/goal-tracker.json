@@ -1,0 +1,91 @@
+{
+	"sections": [
+		{
+			"type": "FORM",
+			"title": "Create Career Goal Tracker",
+			"data": {
+				"goalType": "",
+				"name": "",
+				"notes": "",
+				"reminder": false
+			},
+			"structure": {
+				"schema": [
+					{
+						"$formkit": "text",
+						"name": "name",
+						"label": "Name",
+						"placeholder": "Your Name",
+						"validation": "required|nameRule|maxCharsRule"
+					},
+					{
+						"$formkit": "select",
+						"name": "goalType",
+						"label": "Goal Type",
+						"options": ["Career Switch", "Promotion", "Skill-building"],
+						"placeholder": "Select the primary driver for this goal.",
+						"validation": "required"
+					},
+					{
+						"$formkit": "textarea",
+						"name": "notes",
+						"label": "Notes",
+						"placeholder": "Optional"
+					},
+					{
+						"$formkit": "checkbox",
+						"name": "reminder",
+						"label": "Set a reminder (Optional)"
+					}
+				]
+			},
+			"onSubmit": {
+				"loadAction": {
+					"type": "xhr",
+					"method": "POST",
+					"url": "/api/submit-goal",
+					"onSuccess": {
+						"successHandler": "sectionSuccessHandler"
+					},
+					"onFailure": {
+						"failureHandler": "sectionFailureHandler"
+					}
+				}
+			}
+		},
+		{
+			"type": "FORM",
+			"title": "GraphQL Test Form",
+			"data": { "comment": "Testing GraphQL" },
+			"structure": {
+				"schema": [
+					{
+						"$formkit": "textarea",
+						"name": "comment",
+						"label": "Your Comment",
+						"validation": "required"
+					},
+					{
+						"$formkit": "radio",
+						"name": "rating",
+						"label": "Rating",
+						"options": ["Good", "Average", "Poor"]
+					}
+				]
+			},
+			"onSubmit": {
+				"loadAction": {
+					"type": "graphql",
+					"query": "mutation { addComment(comment: ...) { id } }",
+					"url": "/api/submit-feedback",
+					"onSuccess": {
+						"successHandler": "sectionSuccessHandler"
+					},
+					"onFailure": {
+						"failureHandler": "sectionFailureHandler"
+					}
+				}
+			}
+		}
+	]
+}
