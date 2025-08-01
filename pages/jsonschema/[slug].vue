@@ -11,7 +11,7 @@ const slug = ref(route.params.slug as string)
 
 watchEffect(async () => {
 	try {
-		const pageSchema = await import(`@/schemas/service-debugger.json`)
+		const pageSchema = await import(`@/schemas/goal-tracker.json`)
 		schema.value = pageSchema as PageSchema
 	} catch (e) {
 		console.error(`Failed to load schema for: ${slug.value}`, e)

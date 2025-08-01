@@ -1,11 +1,6 @@
 import type { FormKitSchemaNode } from '@formkit/core'
 
-type GoalTrackerData = {
-	goalType: string
-	name: string
-	notes: string
-	reminder: boolean
-}
+import type { GoalTrackerData } from './goalTracker'
 
 type ActionOutcome = {
 	successHandler?: string
@@ -48,4 +43,4 @@ type PageSchema = {
 	sections: FormSection[]
 }
 
-export type { GoalTrackerData, ActionOutcome, LoadAction, FormSection, PageSchema }
+export type { ActionOutcome, LoadAction, FormSection, PageSchema }
