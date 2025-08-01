@@ -1,46 +1,59 @@
 {
-  "nav": {
-    "home": "Accueil",
-    "title": "Boussole de Carrière",
-    "store": "Boutique",
-    "chat": "Discussion",
-    "schedule": "Planning",
-    "guide": "Guide",
-    "biography": "À propos"
-  },
-  "footer": {
-    "description": "Modèle Nuxt3 + Vuetify3 open source, personnalisable.",
-    "rights": "Tous droits réservés.",
-    "sections": {
-      "navigation": "Navigation",
-      "more": "Plus"
-    }
-  },
-  "quotes": [
-    "Travaillez dur, ne renoncez jamais, et vous réussirez.",
-    "La connaissance est le pouvoir, apprenez chaque jour.",
-    "La technologie évolue rapidement, restez toujours à jour.",
-    "La persévérance est la clé du succès.",
-    "Croyez en vous et poursuivez votre passion.",
-    "Chaque jour est une opportunité d'apprendre et de grandir.",
-    "N'ayez pas peur de l'échec, apprenez-en et continuez d'avancer.",
-    "Créez de la valeur pour les autres, le succès suivra.",
-    "La créativité est la source de toute innovation.",
-    "Faites ce que vous aimez, le succès viendra à vous.",
-    "Fixez-vous des objectifs élevés et efforcez-vous de les atteindre.",
-    "Écoutez et apprenez des personnes qui vous entourent.",
-    "Le travail acharné et la patience porteront leurs fruits.",
-    "Vivez avec passion et travaillez avec dévouement.",
-    "Cherchez toujours des opportunités pour vous améliorer.",
-    "Souvenez-vous, le succès vient de ce que vous faites, pas de ce que vous avez.",
-    "Gardez un esprit positif et optimiste.",
-    "Apprenez des personnes qui réussissent et appliquez ce que vous apprenez.",
-    "Ne cessez jamais d'explorer et de créer.",
-    "Croyez toujours en vos capacités.",
-    "Travaillez avec passion, le succès suivra.",
-    "Fixez-vous de grands objectifs et continuez à lutter pour les atteindre.",
-    "Souvenez-vous, chaque jour est une nouvelle opportunité de recommencer.",
-    "Cherchez toujours des occasions d'apprendre et de grandir.",
-    "Éduquez les gens - Renforcez l'esprit - Améliorez les conditions de vie"
-  ]
+	"nav": {
+		"home": "Accueil",
+		"title": "Boussole de Carrière",
+		"store": "Boutique",
+		"chat": "Discussion",
+		"schedule": "Planning",
+		"guide": "Guide",
+		"biography": "À propos",
+
+		"eCommerce": {
+			"products": "Produits",
+			"addFavorite": "Ajouter aux Favoris",
+			"removeFavorite": "Retirer des Favoris",
+			"addToCart": "Ajouter au Panier",
+			"removeFromCart": "Retirer du Panier",
+			"noneProductsToShow": "Aucun produit à afficher",
+			"favorites": "Favoris",
+			"productsInCart": "Produits dans le Panier",
+			"allProducts": "Tous les Produits",
+			"total": "Total"
+		}
+	},
+	"footer": {
+		"description": "Modèle Nuxt3 + Vuetify3 open source, personnalisable.",
+		"rights": "Tous droits réservés.",
+		"sections": {
+			"navigation": "Navigation",
+			"more": "Plus"
+		}
+	},
+	"quotes": [
+		"Travaillez dur, ne renoncez jamais, et vous réussirez.",
+		"La connaissance est le pouvoir, apprenez chaque jour.",
+		"La technologie évolue rapidement, restez toujours à jour.",
+		"La persévérance est la clé du succès.",
+		"Croyez en vous et poursuivez votre passion.",
+		"Chaque jour est une opportunité d'apprendre et de grandir.",
+		"N'ayez pas peur de l'échec, apprenez-en et continuez d'avancer.",
+		"Créez de la valeur pour les autres, le succès suivra.",
+		"La créativité est la source de toute innovation.",
+		"Faites ce que vous aimez, le succès viendra à vous.",
+		"Fixez-vous des objectifs élevés et efforcez-vous de les atteindre.",
+		"Écoutez et apprenez des personnes qui vous entourent.",
+		"Le travail acharné et la patience porteront leurs fruits.",
+		"Vivez avec passion et travaillez avec dévouement.",
+		"Cherchez toujours des opportunités pour vous améliorer.",
+		"Souvenez-vous, le succès vient de ce que vous faites, pas de ce que vous avez.",
+		"Gardez un esprit positif et optimiste.",
+		"Apprenez des personnes qui réussissent et appliquez ce que vous apprenez.",
+		"Ne cessez jamais d'explorer et de créer.",
+		"Croyez toujours en vos capacités.",
+		"Travaillez avec passion, le succès suivra.",
+		"Fixez-vous de grands objectifs et continuez à lutter pour les atteindre.",
+		"Souvenez-vous, chaque jour est une nouvelle opportunité de recommencer.",
+		"Cherchez toujours des occasions d'apprendre et de grandir.",
+		"Éduquez les gens - Renforcez l'esprit - Améliorez les conditions de vie"
+	]
 }
