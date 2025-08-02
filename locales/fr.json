@@ -6,7 +6,13 @@
     "chat": "Discussion",
     "schedule": "Planning",
     "guide": "Guide",
-    "biography": "À propos"
+    "biography": "À propos",
+    "contact": "Contact",
+    "services": "Services",
+    "courses": "Cours",
+    "apps": "Applications",
+    "digital": "Transformation numérique",
+    "login": "Connexion"
   },
   "footer": {
     "description": "Modèle Nuxt3 + Vuetify3 open source, personnalisable.",

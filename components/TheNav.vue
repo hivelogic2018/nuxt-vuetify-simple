@@ -32,6 +32,47 @@
         <v-icon size="20" class="mr-1">{{ item.icon }}</v-icon>
         {{ $t(item.label) }}
       </NuxtLink>
+
+    <!-- Dropdown: Liên Lạc -->
+    <v-menu>
+      <template #activator="{ props }">
+        <v-btn v-bind="props" variant="text" class="text-subtitle-1 font-weight-bold">
+          <v-icon size="20" class="mr-1">mdi-phone</v-icon>
+          {{ $t('nav.contact') }}
+          <v-icon right>mdi-chevron-down</v-icon>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item :to="'/chat'" link>
+          <v-list-item-title>{{ $t('nav.chat') }}</v-list-item-title>
+        </v-list-item>
+        <v-list-item :to="'/schedule'" link>
+          <v-list-item-title>{{ $t('nav.schedule') }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+
+    <!-- Dropdown: Dịch Vụ -->
+    <v-menu>
+      <template #activator="{ props }">
+        <v-btn v-bind="props" variant="text" class="text-subtitle-1 font-weight-bold">
+          <v-icon size="20" class="mr-1">mdi-hammer-wrench</v-icon>
+          {{ $t('nav.services') }}
+          <v-icon right>mdi-chevron-down</v-icon>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item :to="'/khoahoc'" link>
+          <v-list-item-title>{{ $t('nav.courses') }}</v-list-item-title>
+        </v-list-item>
+        <v-list-item :to="'/ungdung'" link>
+          <v-list-item-title>{{ $t('nav.apps') }}</v-list-item-title>
+        </v-list-item>
+        <v-list-item :to="'/dx'" link>
+          <v-list-item-title>{{ $t('nav.digital') }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
     </div>
 
     <v-spacer />
@@ -40,18 +81,19 @@
     <!-- Language switcher -->
     <LanguageSwitcher class="mr-2" />
 
-    <!-- Theme switcher + GitHub icon -->
+    <!-- Theme switcher -->
     <ThemeSwitcher class="mr-2" />
-    <v-btn
-      icon
-      :href="githubUrl"
-      target="_blank"
-      rel="noopener noreferrer"
-      variant="text"
+
+    <!-- Login Button -->
+    <NuxtLink
+      to="/login"
+      class="d-inline-flex align-center text-white text-subtitle-1 font-weight-bold"
+      style="text-decoration: none; padding: 8px 16px; border-radius: 6px;"
     >
-      <v-icon>mdi-github</v-icon>
-    </v-btn>
-  </v-app-bar>
+      <v-icon size="20" class="mr-1" color="white">mdi-login</v-icon>
+      {{ $t('nav.login') }}
+    </NuxtLink>
+    </v-app-bar>
 
   <!-- Mobile drawer -->
   <v-navigation-drawer v-model="drawer" temporary class="d-sm-none">
@@ -89,8 +131,6 @@ const navItems = [
   { label: 'nav.biography', to: '/bio', icon: 'mdi-account-box-outline' },
   { label: 'nav.guide', to: '/camnang', icon: 'mdi-compass-outline' },
   { label: 'nav.store', to: '/store', icon: 'mdi-store' },
-  { label: 'nav.chat', to: '/chat', icon: 'mdi-chat' },
-  { label: 'nav.schedule', to: '/schedule', icon: 'mdi-calendar-clock' }
 ]
 // thêm trang các khoá học, dịch vụ, liên hệ
 

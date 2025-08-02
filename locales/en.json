@@ -6,7 +6,13 @@
     "chat": "Chat",
     "schedule": "Schedule",
     "guide": "Guide",
-    "biography": "About"
+    "biography": "About",
+    "contact": "Contact",
+    "services": "Services",
+    "courses": "Courses",
+    "apps": "Applications",
+    "digital": "Digital Transformation",
+    "login": "Login"
   },
   "footer": {
     "description": "Open source, customizable Nuxt + Vuetify starter.",
