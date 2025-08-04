@@ -20,11 +20,8 @@ const availableThemes = {
 	'github-dark': GithubDark,
 }
 
-export async function useMarkdownParser(theme: string) {
+export async function useMarkdownParser(theme: string = 'material-theme-palenight') {
 	//let parser: Awaited<ReturnType<typeof createMarkdownParser>>
-
-	//const parse = async (markdown: string) => {
-	//if (!parser) {
 	return await createMarkdownParser({
 		rehype: {
 			plugins: {
@@ -59,5 +56,3 @@ export async function useMarkdownParser(theme: string) {
 		},
 	})
 }
-//}
-//}
