@@ -22,6 +22,14 @@ yarn install
 bun install
 ```
 
+## Add environment file for the environment variables
+create .env based on the .env.example file
+
+```bash
+# copy .env.example to .env
+cp .env.example .env
+```
+
 ## Development Server
 
 Start the development server on `http://localhost:3000`:
@@ -38,14 +46,6 @@ yarn dev
 
 # bun
 bun run dev
-```
-
-## Add environment file for the environment variables
-create .env based on the .env.example file
-
-```bash
-# copy .env.example to .env
-cp .env.example .env
 ```
 
 ## Production
