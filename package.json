@@ -35,7 +35,8 @@
     "playwright:report": "npx playwright show-report",
     "scss:lint": "stylelint 'public/assets/css/**/*.scss'",
     "scss:build": "sass public/assets/css/main.scss public/assets/css/main.css",
-    "prepare": "husky"
+    "prepare": "husky",
+    "reset": "bun clean && rm -rf node_modules .nuxt .output bun.lockb bun.lock && bun install && bun dev"
   },
   "lint-staged": {
     "*.{ts,js,vue}": "bun lint:fix"
