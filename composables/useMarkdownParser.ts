@@ -8,51 +8,51 @@ import ScssLang from '@shikijs/langs/scss'
 import TsLang from '@shikijs/langs/typescript'
 import VueLang from '@shikijs/langs/vue'
 import YamlLang from '@shikijs/langs/yaml'
+import Dracula from '@shikijs/themes/dracula'
+import GithubDark from '@shikijs/themes/github-dark'
 import MaterialThemePalenight from '@shikijs/themes/material-theme-palenight'
+import Monokai from '@shikijs/themes/monokai'
 
-export default function useMarkdownParser() {
-	let parser: Awaited<ReturnType<typeof createMarkdownParser>>
+const availableThemes = {
+	dracula: Dracula,
+	'material-theme-palenight': MaterialThemePalenight,
+	monokai: Monokai,
+	'github-dark': GithubDark,
+}
 
-	const parse = async (markdown: string) => {
-		if (!parser) {
-			parser = await createMarkdownParser({
-				rehype: {
-					plugins: {
-						highlight: {
-							instance: rehypeHighlight,
-							options: {
-								// Pass in your desired theme(s)
-								theme: 'material-theme-palenight',
-								// Create the Shiki highlighter
-								highlighter: createShikiHighlighter({
-									bundledThemes: {
-										'material-theme-palenight': MaterialThemePalenight,
-									},
-									// Configure the bundled languages
-									bundledLangs: {
-										html: HtmlLang,
-										mdc: MdcLang,
-										vue: VueLang,
-										yml: YamlLang,
-										scss: ScssLang,
-										ts: TsLang,
-										typescript: TsLang,
-										javascript: TsLang, // Use TypeScript for JavaScript highlighting
-										js: TsLang, // Use TypeScript for JavaScript highlighting
-									},
-								}),
+export async function useMarkdownParser(theme: string = 'material-theme-palenight') {
+	//let parser: Awaited<ReturnType<typeof createMarkdownParser>>
+	return await createMarkdownParser({
+		rehype: {
+			plugins: {
+				highlight: {
+					instance: rehypeHighlight,
+					options: {
+						// Pass in your desired theme(s)
+						theme,
+						// Create the Shiki highlighter
+						highlighter: createShikiHighlighter({
+							bundledThemes: availableThemes,
+							// Configure the bundled languages
+							bundledLangs: {
+								html: HtmlLang,
+								mdc: MdcLang,
+								vue: VueLang,
+								yml: YamlLang,
+								scss: ScssLang,
+								ts: TsLang,
+								typescript: TsLang,
+								javascript: TsLang, // Use TypeScript for JavaScript highlighting
+								js: TsLang, // Use TypeScript for JavaScript highlighting
 							},
-						},
+						}),
 					},
 				},
-				toc: {
-					depth: 3,
-					searchDepth: 3,
-				},
-			})
-		}
-		return parser(markdown)
-	}
-
-	return parse
+			},
+		},
+		toc: {
+			depth: 3,
+			searchDepth: 3,
+		},
+	})
 }
