@@ -27,6 +27,9 @@ export default defineNuxtConfig({
 		'@nuxtjs/tailwindcss',
 	],
 	i18n: {
+		bundle: {
+			optimizeTranslationDirective: false,
+		},
 		locales: [
 			{ code: 'en', name: 'English', file: 'en.json' },
 			{ code: 'fr', name: 'Français', file: 'fr.json' },
