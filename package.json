@@ -41,6 +41,8 @@
     "*.{ts,js,vue}": "bun lint:fix"
   },
   "dependencies": {
+		"@formkit/icons": "^1.6.9",
+		"@formkit/nuxt": "^1.6.9",
     "@iconify/vue": "^5.0.0",
     "@nuxt/icon": "1.13.0",
     "@nuxt/image": "1.10.0",
