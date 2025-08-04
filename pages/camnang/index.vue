@@ -17,37 +17,45 @@ const shikiThemeCookie = useCookie('shiki-theme', {
 	maxAge: 60 * 60 * 24 * 7,
 })
 const selectedTheme = ref(shikiThemeCookie.value)
-const parse = await useMarkdownParser(selectedTheme.value)
+// eslint-disable-next-line
+type MarkdownParser = (md: string) => Promise<MDCParserResult>
+const parse = ref<MarkdownParser | null>(null)
+watch(
+	selectedTheme,
+	async (theme) => {
+		parse.value = await useMarkdownParser(theme)
+	},
+	{ immediate: true }
+)
 const theme = useTheme()
 
 // eslint-disable-next-line
 const neutral = computed(() => get(theme, 'global.current.value.colors.neutral', '#6B7280'))
 
-// MONACO SYNTAX HIGHLIGHTING SWITCHER
-// SSR-safe cookie getter
-function getCookie(name: string): string | null {
-	if (typeof document === 'undefined') return null
-	const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))
-	return match ? decodeURIComponent(match[2]) : null
-}
+// SHIKI SYNTAX HIGHLIGHTING SWITCHER
 
-const monacoTheme = ref(getCookie('monaco-theme') || 'vs-dark')
+async function fetchMarkdown(path: string): Promise<string> {
+	try {
+		const response = await fetch(path)
 
-function handleThemeChange(e: CustomEvent) {
-	monacoTheme.value = e.detail
-	// If using Monaco, update the editor theme here
-	// monaco.editor.setTheme(monacoTheme.value)
+		if (!response.ok) {
+			throw new Error(`Failed to fetch ${path}: ${response.status} ${response.statusText}`)
+		}
+
+		const text = await response.text()
+		return text
+	} catch (error) {
+		console.error('Error fetching markdown:', error)
+		return ''
+	}
 }
 
 onMounted(async () => {
-	const md = await $fetch('/content/index.md', {
-		lazy: true,
-		responseType: 'text',
-	})
+	const md = await fetchMarkdown('/content/index.md')
 
 	let parsed: MDCParserResult | null = null
-	if (typeof md === 'string') {
-		parsed = await parse(md)
+	if (typeof md === 'string' && parse.value) {
+		parsed = await parse.value?.(md)
 		if (!parsed) {
 			throw createError({
 				statusCode: 404,
@@ -66,10 +74,6 @@ onMounted(async () => {
 		console.log('Parsed content:', parsed)
 
 		toc.value = parsed.toc
-	}
-
-	if (typeof window !== 'undefined') {
-		window.addEventListener('monaco-theme-change', handleThemeChange as EventListener)
 	}
 
 	page.value = parsed
@@ -95,12 +99,6 @@ onUnmounted(() => {
 	emitter.off('theme-changed', updateTheme)
 })
 
-onBeforeUnmount(() => {
-	if (typeof window !== 'undefined') {
-		window.removeEventListener('monaco-theme-change', handleThemeChange as EventListener)
-	}
-})
-
 const cookie = useCookie('theme-mode', {
 	default: () => ({
 		mode: 'system',
@@ -120,7 +118,7 @@ const currentTheme = computed(() => {
 	return mode
 })
 
-const monacoPreBackground = computed(() => {
+const shikiPreBackground = computed(() => {
 	switch (currentTheme.value) {
 		case 'dark':
 			return '#1A3B46'
@@ -131,18 +129,29 @@ const monacoPreBackground = computed(() => {
 	}
 })
 async function loadMarkdown(theme: string) {
-	let parsed: MDCParserResult | null = null
-	parsed = await $fetch('/api/mdc', { query: { theme } })
-	if (typeof parsed === 'string') {
-		if (!parsed) {
+	try {
+		const raw = await fetchMarkdown('/content/index.md')
+
+		if (!raw) {
 			throw createError({
 				statusCode: 404,
-				statusMessage: 'Failed to parse markdown content',
+				statusMessage: 'Markdown file not found',
 				fatal: true,
 			})
 		}
+
+		const parser = await useMarkdownParser(theme)
+		const parsed = await parser(raw)
+
+		page.value = parsed
+	} catch (error) {
+		console.error('Failed to load or parse markdown:', error)
+		throw createError({
+			statusCode: 500,
+			statusMessage: 'Error loading markdown',
+			fatal: true,
+		})
 	}
-	page.value = parsed
 }
 const updateTheme = (theme: string) => {
 	selectedTheme.value = theme
@@ -154,7 +163,6 @@ watch(
 	},
 	{ immediate: true }
 )
-console.log('Current Monaco Theme:', monacoTheme.value, monacoPreBackground.value)
 </script>
 
 <template>
@@ -206,7 +214,7 @@ h1,
 	padding: 0 20px 0 20px;
 
 	:deep(pre) {
-		background-color: v-bind(monacoPreBackground);
+		background-color: v-bind(shikiPreBackground);
 		/* bg-muted fallback */
 		word-wrap: break-word;
 	}
