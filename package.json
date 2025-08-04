@@ -80,7 +80,7 @@
     "remark-toc": "^9.0.0",
     "sass": "^1.89.0",
     "sass-loader": "^16.0.5",
-    "tailwindcss": "^4.1.10",
+    "tailwindcss": "^4.1.11",
     "to-vfile": "^8.0.0",
     "ts-node": "^10.9.2",
     "vite-plugin-vuetify": "^2.1.1",

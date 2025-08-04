@@ -45,7 +45,13 @@ const customConfig = [
       '@typescript-eslint/no-empty-interface': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-parameter-properties': 'off',
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-unused-vars': ['error', {
+					vars: 'all',
+					args: 'after-used',
+					ignoreRestSiblings: true,
+					argsIgnorePattern: '^_',
+					varsIgnorePattern: '^_',
+				},],
       '@typescript-eslint/no-var-requires': 'off',
 
       // JS/Style rules
@@ -62,7 +68,7 @@ const customConfig = [
       'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
       'no-extend-native': 'off',
       'no-trailing-spaces': 'error',
-      'no-unused-vars': 'error',
+      'no-unused-vars': 'off',
       'no-var': 'error',
       'object-curly-spacing': ['error', 'always'],
       'one-var': 'off',
