@@ -64,7 +64,7 @@ const navItems = [
 		</div>
 
 		<v-spacer />
-		<ShikiSyntaxHighlightingSwitcher />
+		<MonacoSyntaxHighlightingSwitcher />
 
 		<!-- Language switcher -->
 		<LanguageSwitcher class="mr-2" />
