@@ -87,10 +87,21 @@
     <!-- Login Button -->
     <NuxtLink
       to="/login"
-      class="d-inline-flex align-center text-white text-subtitle-1 font-weight-bold"
-      style="text-decoration: none; padding: 8px 16px; border-radius: 6px;"
+      class="d-inline-flex align-center text-subtitle-1 font-weight-bold"
+      :style="{
+        color: loginColor,
+        textDecoration: 'none',
+        padding: '8px 16px',
+        borderRadius: '6px'
+      }"
     >
-      <v-icon size="20" class="mr-1" color="white">mdi-login</v-icon>
+      <v-icon
+        size="20"
+        class="mr-1"
+        :style="{ color: loginColor }"
+      >
+        mdi-login
+      </v-icon>
       {{ $t('nav.login') }}
     </NuxtLink>
     </v-app-bar>
@@ -120,6 +131,7 @@ import { useRoute } from 'vue-router'
 import { ref } from 'vue'
 import get from 'lodash/get'
 import { useThemeLogo } from '../composables/useThemeLogo'
+import { computed } from 'vue'
 
 const theme = useTheme()
 const $route = useRoute()
@@ -135,4 +147,11 @@ const navItems = [
 // thêm trang các khoá học, dịch vụ, liên hệ
 
 const { logoSrc } = useThemeLogo()
+
+const loginColor = computed(() => {
+  const currentTheme = theme.global.name.value
+  console.log('🎨 Current theme:', currentTheme)
+  return currentTheme === 'dark' ? '#fff' : '#000'
+})
+
 </script>
