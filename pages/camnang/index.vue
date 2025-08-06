@@ -188,5 +188,6 @@ h1,
 }
 .markdown {
 	word-wrap: break-word;
+	padding-bottom: 80px;
 }
 </style>
