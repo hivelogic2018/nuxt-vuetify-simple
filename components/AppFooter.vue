@@ -12,7 +12,7 @@
       width="48"
       max-height="48"
       class="me-2"
-      style="width:48px;"
+      
     />
     <h4 class="text-h6 mb-2 mb-sm-0">{{ $t('nav.title') }}</h4>
        </div>
@@ -156,14 +156,14 @@ const navLinks = [
   { label: 'nav.guide', to: '/camnang' }
 ]
 
+const githubUrl = useRuntimeConfig().public.githubUrl
+
 const socialIcons = [
   { icon: 'mdi-facebook', href: 'https://facebook.com' },
   { icon: 'mdi-linkedin', href: 'https://linkedin.com' },
   { icon: 'mdi-youtube', href: 'https://www.youtube.com/@dayngheIT' },
-  { icon: 'mdi-github', href: 'https://github.com' } 
+  { icon: 'mdi-github', href: githubUrl } 
 ]
-
-const githubUrl = useRuntimeConfig().public.githubUrl
 </script>
 
 <style scoped>
