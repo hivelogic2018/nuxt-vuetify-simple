@@ -2,44 +2,60 @@
 // import { parseMarkdown } from '@nuxtjs/mdc/runtime'
 import type { MDCParserResult, Toc } from '@nuxtjs/mdc'
 import get from 'lodash/get'
+import { onMounted, onUnmounted } from 'vue'
 import { useTheme } from 'vuetify'
+
+import { emitter } from '~/composables/useEmitter'
 
 const page = ref<MDCParserResult | null>(null)
 const toc = ref<Toc | undefined>(undefined)
 const showToc = ref(false)
 const activeHeading = ref('')
-const parse = useMarkdownParser()
 
+const shikiThemeCookie = useCookie('shiki-theme', {
+	default: () => 'material-theme-palenight',
+	maxAge: 60 * 60 * 24 * 7,
+})
+const selectedTheme = ref(shikiThemeCookie.value)
+
+type MarkdownParser = (md: string) => Promise<MDCParserResult>
+const parse = ref<MarkdownParser | null>(null)
+watch(
+	selectedTheme,
+	async (theme) => {
+		parse.value = await useMarkdownParser(theme)
+	},
+	{ immediate: true }
+)
 const theme = useTheme()
 
 // eslint-disable-next-line
 const neutral = computed(() => get(theme, 'global.current.value.colors.neutral', '#6B7280'))
 
-// MONACO SYNTAX HIGHLIGHTING SWITCHER
-// SSR-safe cookie getter
-function getCookie(name: string): string | null {
-	if (typeof document === 'undefined') return null
-	const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))
-	return match ? decodeURIComponent(match[2]) : null
-}
+// SHIKI SYNTAX HIGHLIGHTING SWITCHER
 
-const monacoTheme = ref(getCookie('monaco-theme') || 'vs-dark')
+async function fetchMarkdown(path: string): Promise<string> {
+	try {
+		const response = await fetch(path)
 
-function handleThemeChange(e: CustomEvent) {
-	monacoTheme.value = e.detail
-	// If using Monaco, update the editor theme here
-	// monaco.editor.setTheme(monacoTheme.value)
+		if (!response.ok) {
+			throw new Error(`Failed to fetch ${path}: ${response.status} ${response.statusText}`)
+		}
+
+		const text = await response.text()
+		return text
+	} catch (error) {
+		console.error('Error fetching markdown:', error)
+		return ''
+	}
 }
 
 onMounted(async () => {
-	const md = await $fetch('/content/index.md', {
-		lazy: true,
-		responseType: 'text',
-	})
+	const md = await fetchMarkdown('/content/index.md')
 
 	let parsed: MDCParserResult | null = null
-	if (typeof md === 'string') {
-		parsed = await parse(md)
+	if (typeof md === 'string' && parse.value) {
+		parsed = await parse.value?.(md)
 		if (!parsed) {
 			throw createError({
 				statusCode: 404,
@@ -60,10 +76,6 @@ onMounted(async () => {
 		toc.value = parsed.toc
 	}
 
-	if (typeof window !== 'undefined') {
-		window.addEventListener('monaco-theme-change', handleThemeChange as EventListener)
-	}
-
 	page.value = parsed
 
 	const observer = new IntersectionObserver(
@@ -81,12 +93,10 @@ onMounted(async () => {
 		const el = document.getElementById(link.id)
 		if (el) observer.observe(el)
 	})
+	emitter.on('theme-changed', updateTheme)
 })
-
-onBeforeUnmount(() => {
-	if (typeof window !== 'undefined') {
-		window.removeEventListener('monaco-theme-change', handleThemeChange as EventListener)
-	}
+onUnmounted(() => {
+	emitter.off('theme-changed', updateTheme)
 })
 
 const cookie = useCookie('theme-mode', {
@@ -108,18 +118,48 @@ const currentTheme = computed(() => {
 	return mode
 })
 
-const monacoPreBackground = computed(() => {
+const shikiPreBackground = computed(() => {
 	switch (currentTheme.value) {
 		case 'dark':
-			return ''
+			return '#1A3B46'
 		case 'sepia':
-			return '#f1e7d0'
+			return '#1A3B46'
 		default:
 			return '#1A3B46'
 	}
 })
-
-console.log('Current Monaco Theme:', monacoTheme.value, monacoPreBackground.value)
+async function loadMarkdown(theme: string) {
+	try {
+		const raw = await fetchMarkdown('/content/index.md')
+		if (!raw) {
+			throw createError({
+				statusCode: 404,
+				statusMessage: 'Markdown file not found',
+				fatal: true,
+			})
+		}
+		const parser = await useMarkdownParser(theme)
+		const parsed = await parser(raw)
+		page.value = parsed
+	} catch (error) {
+		console.error('Failed to load or parse markdown:', error)
+		throw createError({
+			statusCode: 500,
+			statusMessage: 'Error loading markdown',
+			fatal: true,
+		})
+	}
+}
+const updateTheme = (theme: string) => {
+	selectedTheme.value = theme
+}
+watch(
+	selectedTheme,
+	(newTheme) => {
+		loadMarkdown(newTheme)
+	},
+	{ immediate: true }
+)
 </script>
 
 <template>
@@ -171,7 +211,7 @@ h1,
 	padding: 0 20px 0 20px;
 
 	:deep(pre) {
-		background-color: v-bind(monacoPreBackground);
+		background-color: v-bind(shikiPreBackground);
 		/* bg-muted fallback */
 		word-wrap: break-word;
 	}
