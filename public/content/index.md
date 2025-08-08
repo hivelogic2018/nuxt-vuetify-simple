@@ -27,31 +27,18 @@ Hãy xem ví dụ dưới đây về cấu trúc 1 trang web trong file `index.h
 
 ```html
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <link rel="icon" href="/favicon.ico">
-
 <link rel="stylesheet" href="styles.css"> // file styles.css là file chứa các styles viết theo bài bản CSS (CSS guideline) được gắn vào trang web/app này
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Expense Tracker</title>
-
 </head>
-
 <body>
-
 <div id="app"></div>
-
 <script type="module" src="/src/main.js"></script> // trỏ tới file code Javascript để thực thi các chức năng của web/app bao gồm hiển thị và thao tác xuất, lưu, cập nhật dữ liệu
-
 </body>
-
 </html>
 ```
 
@@ -144,7 +131,6 @@ Khai báo array/object có thể dùng `let`{style="color: green"} / `const`{sty
 ví dụ:
 ```js
 let name = 'John'
-
 let ten = 'An'
 ```
 
@@ -155,7 +141,6 @@ khai báo biến name với giá trị tên John, và biến ten với giá tr�
 ví dụ:
 ```js
 let pi = 3.14
-
 let thue = 0.1
 ```
 Khai báo biến pi với giá trị 3.14, và biến thue với giá trị 0.1 ( ~ 10%)
@@ -165,7 +150,6 @@ Khai báo biến pi với giá trị 3.14, và biến thue với giá trị 0.1 
 ví dụ:
 ```js
 let tren18tuoi = true
-
 let coBangLai = false
 ```
 
@@ -179,28 +163,32 @@ Mảng chứa các phần tử (elements), mỗi phần tử (element) có thể
 
 ví dụ: mảng gồm các phần tử số , xét dãy số sau :
 
-`let dayso = [1, 2, 3]`{language="js"}
+```js
+let dayso = [1, 2, 3]
+```
 
 trong Typescript (có type) sẽ ghi là: let dayso: number[ ] = [1, 2, 3] ý chỉ dayso là mảng các phần tử kiểu số (array of number-type element)
 
 mảng gồm các phần tử kiểu chuỗi (array of elements of string data type)
 
-`let thethao = ['da banh', 'cau long', 'quan vot']`{language="js"}
+```js
+let thethao = ['da banh', 'cau long', 'quan vot']
+```
 
-trong Typescript (có type) sẽ ghi là: `let thethao: string[ ] = ['da banh', 'cau long', 'quan vot']`{language="ts"} ý chỉ thethao là mảng các phần tử kiểu chuỗi (array of string-type element)
+trong Typescript (có type) sẽ ghi là:
+```js
+let thethao: string[ ] = ['da banh', 'cau long', 'quan vot']
+```
+ý chỉ thethao là mảng các phần tử kiểu chuỗi (array of string-type element)
 ```js
 let students = [{
   name: 'An',
-
   age: 30,
-
   dob: '06/30/1994'
-
   }, {
   name: 'Binh',
   age: 28,
   dob: '05/15/1996'
-
   }, {
   name: 'Chau',
   age: 29,
@@ -218,31 +206,18 @@ ví dụ: đối tượng sinh viên với tên biến là studentObject, có th
 
 ```js
 let studentObject = {
-
   ten: 'An',
-
   tuoi: 30,
-
   ngaysinh: '06/30/1994',
-
   courses: [
-
     { tenlop: 'English101', giaovien: 'co Kim'} ,
-
     { tenlop: 'Maths', giaovien: 'co Oanh' },
-
     { tenlop: 'Physics', giaovien: 'co Hue'} ,
-
     { tenlop: 'Su', giaovien: 'thay Truyen' },
-
     { tenlop: 'Dia', giaovien: 'thay Quoc' }
-
   ],
-
   dangHoc: true,
-
   sothich: ['xem phim', 'nghe nhac', 'choi the thao']
-
 }
 ```
 
@@ -282,11 +257,8 @@ https://niithanoi.edu.vn/recursion-trong-javascript.html
 
 ```js
 let ten = '    Ngoc   '
-
 let tenMoi = ten.trim()   - hàm trim, trim (xoá) các ký tự trống, output: kết quả của biến tenMoi là 'Ngoc'
-
 tenMoi.toUpperCase() - hàm toUpperCase, output ra kết quả: 'NGOC'
-
 let income = '10' - thunhap này là một chuỗi ký tự (string) với giá trị là '10'
 let incomeNumber = +income - hàm type-casting, chuyển đổi từ chuỗi ký tự sang số, output ra kết quả là 10
 ```
@@ -330,13 +302,9 @@ liên hệ tới bài học: rút trích, sắp xếp và thao tác danh sách n
 ví dụ:
 ```js
 let studentObject = {
-
 name: 'An',
-
 age: 30,
-
 dob: '06/30/1994'
-
 }
 
 let giaovien = {
@@ -348,13 +316,9 @@ let giaovien = {
 
   #### D.3.1) Referencing the property value of an object: **Cách gọi thuộc tính**
 ```js
-
 studentObject.name // An
-
 studentObject.age // 30
-
 giaovien.ten // Cô Kim
-
 giaovien.ngaysinh // 2 tháng 1, 1988
 
 // Car object has 3 properties: modal, type, color
@@ -370,20 +334,25 @@ let car = {
 // kết quả khi gọi như vậy sẽ ra giá trị của thuộc tính đó
 
 car.modal // Lexus
-
 car.type // 500
-
 car.color // White
 ```
   #### D.3.2) Assign new property for the studentObject: gán thuộc tính (property) mới vào trong studentObject:
 
-`studentObject.email = 'annguyen@gmail.com'`{language="js"}
-
-`studentObject.key = 'value'`{language="js"}   -> thuộc tính (property) và giá trị của thuộc tính (property value) còn được hiểu là 1 cặp key-value pair (pair tiếng Anh là 1 cặp, ví dụ: a pair of shoes, a pair of jeans)
+```js
+studentObject.email = 'annguyen@gmail.com'
+```
+```js
+studentObject.key = 'value'
+```
+   -> thuộc tính (property) và giá trị của thuộc tính (property value) còn được hiểu là 1 cặp key-value pair (pair tiếng Anh là 1 cặp, ví dụ: a pair of shoes, a pair of jeans)
 
   #### D.3.3) Xoá thuộc tính khỏi studentObject:
 
-`delete studentObject.age`{language="js"}   --> dòng lệnh này sẽ xoá thuộc tính tuổi khỏi đối tượng sinh viên
+```js
+delete studentObject.age
+```
+   --> dòng lệnh này sẽ xoá thuộc tính tuổi khỏi đối tượng sinh viên
 
 Tham khảo thêm về Object
 
@@ -401,18 +370,17 @@ https://viblo.asia/p/doi-tuong-object-trong-javascript-63vKjn6dK2R
 Ví dụ:
 ```js
 const button = document.querySelector(".btn")
-
 button.onclick = function() {
-
 console.log("Hello!");
-
 };
 ```
 
 OR using Javascript one-liner make you look like a pro 😉 \
 Sử dụng Javascript one-liner để làm cho code của bạn trông chuyên nghiệp hơn
 
-`button.onclick = () => {console.log("Hello!")};`{language="js"}
+```js
+button.onclick = () => {console.log("Hello!")};
+```
 
 Trong ví dụ này, thuộc tính onclick được sử dụng để khi người dùng nhấp vào button, nó sẽ in ra dòng chữ "Xin chào!" vào console log.
 Thuộc tính "onclick" chỉ là một trong những EventHandlercó thể sử dụng được thôi. Dước đây là một số thuộc tính thông dụng có thể dùng.
@@ -423,21 +391,21 @@ Bằng cách thêm event listener (xài hàm addEventListener để gắn hàm 
 
 ```js
 const button = document.querySelector(".btn")
-
 button.addEventListener("click", function(event) {
-
 console.log("Hello!");
-
 })
 ```
 OR using Javascript one-liners
 
-`button.addEventListener("click", event => console.log("Hello!"))`{language="js"}
-
+```js
+button.addEventListener("click", event => console.log("Hello!"))
+```
 
 Thay vì dùng thuộc tính `onclick`{style="color: green"}, thì ở đây mình dùng method `addEventListener()`{style="color: green"}:
 
-`target.addEventListener(event, function, useCapture);`{language="js"}
+```js
+target.addEventListener(event, function, useCapture);
+```
 
 Tham khảo:
 
@@ -489,7 +457,6 @@ https://kungfutech.edu.vn/posts/tong-quan-ve-vue-3-cho-nguoi-moi-bat-dau-va-uu-n
 - (Tiếng Việt dịch) https://vuejs-org.translate.goog/api/application.html?_x_tr_sl=en&_x_tr_tl=vi&_x_tr_hl=en&_x_tr_pto=wapp
 
 https://vi.vuejs.org/v2/guide/ cái hướng dẫn này dành cho Vue2 thôi, đọc chơi cho hiểu về Vue, chớ ưu tiên là ưu tiên học Vue3
-
 
 Vue 3 là phiên bản mới nhất của framework JavaScript phổ biến Vue.js, được thiết kế để xây dựng giao diện người dùng và ứng dụng một trang (SPA).
 Phiên bản này mang lại nhiều cải tiến và tính năng mới so với Vue 2, hứa hẹn sẽ cải thiện hiệu suất, khả năng mở rộng và trải nghiệm phát triển.
