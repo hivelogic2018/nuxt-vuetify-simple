@@ -57,6 +57,7 @@ const navLinks = [
 	{ label: 'nav.chat', to: '/chat' },
 	{ label: 'nav.schedule', to: '/schedule' },
 	{ label: 'nav.guide', to: '/camnang' },
+	{ label: 'nav.courses', to: '/courses' },
 ]
 
 const socialIcons = [
