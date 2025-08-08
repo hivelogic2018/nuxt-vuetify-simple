@@ -10,15 +10,13 @@ const otherCourses = [
 	{ id: 3, title: 'UI/UX Design Basics' },
 ]
 
+const classScheduleItems = ['Consultation', 'Counseling', 'Technical support', 'Career guidance']
+
 const youtubePlaylists = [
 	{ id: 'hdI2bqOjy3c', title: 'JavaScript Crash Course For Beginners' },
 	{ id: 'JVqPDKFMhZc', title: 'ES6 ECMAScript là gì - Bài 01 Tìm hiểu ECMAScript 6' },
 	{ id: 'VeNfHj6MhgA&t', title: 'Vue.js Crash Course' },
-	{
-		id: '5cQLTdaRunE&list=PL28Ap55o84DTu8qRGXpvyBcKYUGfVFxy9',
-		title:
-			'Cách setup máy để học - side-by-side Setup to code and learn webApp programing/development',
-	},
+	{ id: '5cQLTdaRunE&list=PL28Ap55o84DTu8qRGXpvyBcKYUGfVFxy9', title: 'Cách setup máy để học ' },
 	{ id: 'tK2P2LUSK6k', title: 'Javascript - part 1' },
 	{ id: 'bKdS-76M0oM&t=1s', title: 'dạy Vue bài 1' },
 ]
@@ -33,30 +31,30 @@ const youtubePlaylists = [
 
 		<v-window v-model="activeTab">
 			<v-window-item :value="0">
-				<v-row>
-					<v-col cols="12" md="8">
-						<h2 class="text-h6 mb-2">Class Schedule</h2>
-						<v-sheet height="400" class="d-flex align-center justify-center bg-grey-lighten-4">
-							<span>Consultation, Counseling, Technical support, Career guidance</span>
-						</v-sheet>
-					</v-col>
+				<!-- Class Schedule -->
+				<h2 class="text-h6 mb-2">Class Schedule</h2>
+				<v-sheet height="200" class="d-flex flex-column align-left justify-center mb-10">
+					<span v-for="(item, index) in classScheduleItems" :key="index">
+						{{ item }}
+					</span>
+				</v-sheet>
 
-					<v-col cols="12" md="4">
-						<h2 class="text-h6 mb-2">Other Available Courses</h2>
-						<v-list dense>
-							<v-list-item v-for="course in otherCourses" :key="course.id">
-								<v-list-item-title>{{ course.title }}</v-list-item-title>
-							</v-list-item>
-						</v-list>
-					</v-col>
-				</v-row>
+				<!-- Other Available Courses -->
+				<h2 class="text-h6 mb-2">Other Available Courses</h2>
+				<v-sheet height="200" class="d-flex flex-column align-left justify-center mb-10">
+					<span v-for="course in otherCourses" :key="course.id">
+						{{ course.title }}
+					</span>
+
+					<v-divider class="my-5" />
+					<p class="text-caption text-grey-darken-1">More courses will be added soon.</p>
+				</v-sheet>
 			</v-window-item>
-
 			<v-window-item :value="1">
 				<div class="d-flex justify-end mb-2">
 					<v-btn-toggle v-model="viewMode" mandatory>
-						<v-btn value="grid">Grid</v-btn>
-						<v-btn value="list">List</v-btn>
+						<v-btn value="grid">Grid View</v-btn>
+						<v-btn value="list">List View</v-btn>
 					</v-btn-toggle>
 				</div>
 
