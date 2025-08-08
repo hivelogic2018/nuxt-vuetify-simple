@@ -15,10 +15,10 @@ const classScheduleItems = ['Consultation', 'Counseling', 'Technical support', '
 const youtubePlaylists = [
 	{ id: 'hdI2bqOjy3c', title: 'JavaScript Crash Course For Beginners' },
 	{ id: 'JVqPDKFMhZc', title: 'ES6 ECMAScript là gì - Bài 01 Tìm hiểu ECMAScript 6' },
-	{ id: 'VeNfHj6MhgA&t', title: 'Vue.js Crash Course' },
-	{ id: '5cQLTdaRunE&list=PL28Ap55o84DTu8qRGXpvyBcKYUGfVFxy9', title: 'Cách setup máy để học ' },
+	{ id: 'VeNfHj6MhgA', title: 'Vue.js Crash Course' },
+	{ id: 'Aemsms97aMo', title: 'Youtrack ticketing tutorial' },
 	{ id: 'tK2P2LUSK6k', title: 'Javascript - part 1' },
-	{ id: 'bKdS-76M0oM&t=1s', title: 'dạy Vue bài 1' },
+	{ id: 'lpqZMl9XYgA', title: 'Khởi đầu HTML, CSS và Javascript' },
 ]
 </script>
 
