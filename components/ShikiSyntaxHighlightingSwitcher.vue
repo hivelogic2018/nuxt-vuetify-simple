@@ -2,8 +2,7 @@
 import { ref, watch } from 'vue'
 
 import { emitter } from '~/composables/useEmitter'
-
-const themes = ['monokai', 'dracula', 'github', 'github-dark']
+const themes = ['monokai', 'dracula', 'material-theme-palenight', 'github-dark']
 
 // SSR-safe helpers
 // function getCookie(name: string): string | null {

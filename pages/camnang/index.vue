@@ -37,11 +37,9 @@ const neutral = computed(() => get(theme, 'global.current.value.colors.neutral',
 async function fetchMarkdown(path: string): Promise<string> {
 	try {
 		const response = await fetch(path)
-
 		if (!response.ok) {
 			throw new Error(`Failed to fetch ${path}: ${response.status} ${response.statusText}`)
 		}
-
 		const text = await response.text()
 		return text
 	} catch (error) {
@@ -49,7 +47,6 @@ async function fetchMarkdown(path: string): Promise<string> {
 		return ''
 	}
 }
-
 onMounted(async () => {
 	const md = await fetchMarkdown('/content/index.md')
 
